@@ -1,0 +1,59 @@
+ifndef @unicode
+    else
+endif ; @unicode
+
+procdesc CompareFileVersions           :DWORD,:DWORD
+procdesc GetVersionProcs               :DWORD,:DWORD,:DWORD
+procdesc LoadProperSetupDLL            
+procdesc ODBC___GetSetupProc           :DWORD
+procdesc SQLConfigDataSource           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLConfigDataSourceW          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLConfigDriver               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLConfigDriverW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLCreateDataSource           :DWORD,:DWORD
+procdesc SQLCreateDataSourceW          :DWORD,:DWORD
+procdesc SQLGetAvailableDrivers        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetAvailableDriversW       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetConfigMode              :DWORD
+procdesc SQLGetInstalledDrivers        :DWORD,:DWORD,:DWORD
+procdesc SQLGetInstalledDriversW       :DWORD,:DWORD,:DWORD
+procdesc SQLGetPrivateProfileString    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetPrivateProfileStringW   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetTranslator              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetTranslatorW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallDriver              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallDriverEx            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallDriverExW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallDriverManager       :DWORD,:DWORD,:DWORD
+procdesc SQLInstallDriverManagerW      :DWORD,:DWORD,:DWORD
+procdesc SQLInstallDriverW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallODBC                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallODBCW               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallTranslator          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallTranslatorEx        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallTranslatorExW       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallTranslatorW         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallerError             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLInstallerErrorW            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLManageDataSources          :DWORD
+procdesc SQLPostInstallerError         :DWORD,:DWORD
+procdesc SQLPostInstallerErrorW        :DWORD,:DWORD
+procdesc SQLReadFileDSN                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLReadFileDSNW               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLRemoveDSNFromIni           :DWORD
+procdesc SQLRemoveDSNFromIniW          :DWORD
+procdesc SQLRemoveDefaultDataSource    
+procdesc SQLRemoveDriver               :DWORD,:DWORD,:DWORD
+procdesc SQLRemoveDriverManager        :DWORD
+procdesc SQLRemoveDriverW              :DWORD,:DWORD,:DWORD
+procdesc SQLRemoveTranslator           :DWORD,:DWORD
+procdesc SQLRemoveTranslatorW          :DWORD,:DWORD
+procdesc SQLSetConfigMode              :DWORD
+procdesc SQLValidDSN                   :DWORD
+procdesc SQLValidDSNW                  :DWORD
+procdesc SQLWriteDSNToIni              :DWORD,:DWORD
+procdesc SQLWriteDSNToIniW             :DWORD,:DWORD
+procdesc SQLWriteFileDSN               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLWriteFileDSNW              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLWritePrivateProfileString  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLWritePrivateProfileStringW :DWORD,:DWORD,:DWORD,:DWORD

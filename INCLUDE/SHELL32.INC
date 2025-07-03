@@ -1,0 +1,197 @@
+include 'windef.inc'
+include 'shell32.ash'
+
+
+ifndef @unicode
+         CheckEscapes                          equ <CheckEscapesA>
+         DoEnvironmentSubst                    equ <DoEnvironmentSubstA>
+         DragQueryFile                         equ <DragQueryFileA>
+         ExtractAssociatedIcon                 equ <ExtractAssociatedIconA>
+         ExtractAssociatedIconEx               equ <ExtractAssociatedIconExA>
+         ExtractIcon                           equ <ExtractIconA>
+         ExtractIconEx                         equ <ExtractIconExA>
+         ExtractIconResInfo                    equ <ExtractIconResInfoA>
+         FindExecutable                        equ <FindExecutableA>
+         InternalExtractIconList               equ <InternalExtractIconListA>
+         RealShellExecute                      equ <RealShellExecuteA>
+         RealShellExecuteEx                    equ <RealShellExecuteExA>
+         SHBrowseForFolder                     equ <SHBrowseForFolderA>
+         SHCreateDirectoryEx                   equ <SHCreateDirectoryExA>
+         SHEmptyRecycleBin                     equ <SHEmptyRecycleBinA>
+         SHFileOperation                       equ <SHFileOperationA>
+         SHGetDataFromIDList                   equ <SHGetDataFromIDListA>
+         SHGetDiskFreeSpace                    equ <SHGetDiskFreeSpaceA>
+         SHGetDiskFreeSpaceEx                  equ <SHGetDiskFreeSpaceExA>
+         SHGetFileInfo                         equ <SHGetFileInfoA>
+         SHGetFolderPath                       equ <SHGetFolderPathA>
+         SHGetIconOverlayIndex                 equ <SHGetIconOverlayIndexA>
+         SHGetNewLinkInfo                      equ <SHGetNewLinkInfoA>
+         SHGetPathFromIDList                   equ <SHGetPathFromIDListA>
+         SHGetSpecialFolderPath                equ <SHGetSpecialFolderPathA>
+         SHInvokePrinterCommand                equ <SHInvokePrinterCommandA>
+         SHPathPrepareForWrite                 equ <SHPathPrepareForWriteA>
+         SHQueryRecycleBin                     equ <SHQueryRecycleBinA>
+         SheChangeDir                          equ <SheChangeDirA>
+         SheChangeDirEx                        equ <SheChangeDirExA>
+         SheFullPath                           equ <SheFullPathA>
+         SheGetDir                             equ <SheGetDirA>
+         SheRemoveQuotes                       equ <SheRemoveQuotesA>
+         SheShortenPath                        equ <SheShortenPathA>
+         ShellAbout                            equ <ShellAboutA>
+         ShellExecute                          equ <ShellExecuteA>
+         ShellExecuteEx                        equ <ShellExecuteExA>
+         Shell_NotifyIcon                      equ <Shell_NotifyIconA>
+    else
+         CheckEscapes                          equ <CheckEscapesW>
+         DoEnvironmentSubst                    equ <DoEnvironmentSubstW>
+         DragQueryFile                         equ <DragQueryFileW>
+         ExtractAssociatedIcon                 equ <ExtractAssociatedIconW>
+         ExtractAssociatedIconEx               equ <ExtractAssociatedIconExW>
+         ExtractIcon                           equ <ExtractIconW>
+         ExtractIconEx                         equ <ExtractIconExW>
+         ExtractIconResInfo                    equ <ExtractIconResInfoW>
+         FindExecutable                        equ <FindExecutableW>
+         InternalExtractIconList               equ <InternalExtractIconListW>
+         RealShellExecute                      equ <RealShellExecuteW>
+         RealShellExecuteEx                    equ <RealShellExecuteExW>
+         SHBrowseForFolder                     equ <SHBrowseForFolderW>
+         SHCreateDirectoryEx                   equ <SHCreateDirectoryExW>
+         SHEmptyRecycleBin                     equ <SHEmptyRecycleBinW>
+         SHFileOperation                       equ <SHFileOperationW>
+         SHGetDataFromIDList                   equ <SHGetDataFromIDListW>
+         SHGetDiskFreeSpace                    equ <SHGetDiskFreeSpaceW>
+         SHGetDiskFreeSpaceEx                  equ <SHGetDiskFreeSpaceExW>
+         SHGetFileInfo                         equ <SHGetFileInfoW>
+         SHGetFolderPath                       equ <SHGetFolderPathW>
+         SHGetIconOverlayIndex                 equ <SHGetIconOverlayIndexW>
+         SHGetNewLinkInfo                      equ <SHGetNewLinkInfoW>
+         SHGetPathFromIDList                   equ <SHGetPathFromIDListW>
+         SHGetSpecialFolderPath                equ <SHGetSpecialFolderPathW>
+         SHInvokePrinterCommand                equ <SHInvokePrinterCommandW>
+         SHPathPrepareForWrite                 equ <SHPathPrepareForWriteW>
+         SHQueryRecycleBin                     equ <SHQueryRecycleBinW>
+         SheChangeDir                          equ <SheChangeDirW>
+         SheChangeDirEx                        equ <SheChangeDirExW>
+         SheFullPath                           equ <SheFullPathW>
+         SheGetDir                             equ <SheGetDirW>
+         SheRemoveQuotes                       equ <SheRemoveQuotesW>
+         SheShortenPath                        equ <SheShortenPathW>
+         ShellAbout                            equ <ShellAboutW>
+         ShellExecute                          equ <ShellExecuteW>
+         ShellExecuteEx                        equ <ShellExecuteExW>
+         Shell_NotifyIcon                      equ <Shell_NotifyIconW>
+endif ; @unicode
+
+procdesc CheckEscapesA                         :DWORD,:DWORD
+procdesc CheckEscapesW                         :DWORD,:DWORD
+procdesc CommandLineToArgvW                    :DWORD,:DWORD
+procdesc DoEnvironmentSubstA                   :DWORD,:DWORD
+procdesc DoEnvironmentSubstW                   :DWORD,:DWORD
+procdesc DragAcceptFiles                       :DWORD,:DWORD
+procdesc DragFinish                            :DWORD
+procdesc DragQueryFileA                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DragQueryFileAorW                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DragQueryFileW                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DragQueryPoint                        :DWORD,:DWORD
+procdesc DuplicateIcon                         :DWORD,:DWORD
+procdesc ExtractAssociatedIconA                :DWORD,:DWORD,:DWORD
+procdesc ExtractAssociatedIconExA              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtractAssociatedIconExW              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtractAssociatedIconW                :DWORD,:DWORD,:DWORD
+procdesc ExtractIconA                          :DWORD,:DWORD,:DWORD
+procdesc ExtractIconExA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtractIconExW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtractIconResInfoA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtractIconResInfoW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtractIconW                          :DWORD,:DWORD,:DWORD
+procdesc ExtractVersionResource16W             :DWORD,:DWORD
+procdesc FindExeDlgProc                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindExecutableA                       :DWORD,:DWORD,:DWORD
+procdesc FindExecutableW                       :DWORD,:DWORD,:DWORD
+procdesc FreeIconList                          :DWORD,:DWORD
+procdesc InternalExtractIconListA              :DWORD,:DWORD,:DWORD
+procdesc InternalExtractIconListW              :DWORD,:DWORD,:DWORD
+procdesc RealShellExecuteA                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RealShellExecuteExA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RealShellExecuteExW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RealShellExecuteW                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegenerateUserEnvironment             :DWORD,:DWORD
+procdesc SHAddToRecentDocs                     :DWORD,:DWORD
+procdesc SHAppBarMessage                       :DWORD,:DWORD
+procdesc SHBindToParent                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHBrowseForFolderA                    :DWORD
+procdesc SHBrowseForFolderW                    :DWORD
+procdesc SHChangeNotify                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHChangeNotifySuspendResume           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHCreateDirectoryExA                  :DWORD,:DWORD,:DWORD
+procdesc SHCreateDirectoryExW                  :DWORD,:DWORD,:DWORD
+procdesc SHCreateProcessAsUserW                :DWORD
+procdesc SHEmptyRecycleBinA                    :DWORD,:DWORD,:DWORD
+procdesc SHEmptyRecycleBinW                    :DWORD,:DWORD,:DWORD
+procdesc SHExtractIconsW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHFileOperationA                      :DWORD
+procdesc SHFileOperationW                      :DWORD
+procdesc SHFormatDrive                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHFreeNameMappings                    :DWORD
+procdesc SHGetDataFromIDListA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetDataFromIDListW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetDesktopFolder                    :DWORD
+procdesc SHGetDiskFreeSpaceW                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetDiskFreeSpaceA                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetDiskFreeSpaceExA                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetDiskFreeSpaceExW                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetFileInfoA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetFileInfoW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetFolderLocation                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetFolderPathA                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetFolderPathW                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetIconOverlayIndexA                :DWORD,:DWORD
+procdesc SHGetIconOverlayIndexW                :DWORD,:DWORD
+procdesc SHGetInstanceExplorer                 :DWORD
+procdesc SHGetMalloc                           :DWORD
+procdesc SHGetNewLinkInfoA                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetNewLinkInfoW                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetPathFromIDListA                  :DWORD,:DWORD
+procdesc SHGetPathFromIDListW                  :DWORD,:DWORD
+procdesc SHGetSettings                         :DWORD,:DWORD
+procdesc SHGetSpecialFolderLocation            :DWORD,:DWORD,:DWORD
+procdesc SHGetSpecialFolderPathA               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHGetSpecialFolderPathW               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHInvokePrinterCommandA               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHInvokePrinterCommandW               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHIsFileAvailableOffline              :DWORD,:DWORD
+procdesc SHLoadInProc                          :DWORD
+procdesc SHLoadNonloadedIconOverlayIdentifiers
+procdesc SHPathPrepareForWriteA                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHPathPrepareForWriteW                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SHQueryRecycleBinA                    :DWORD,:DWORD
+procdesc SHQueryRecycleBinW                    :DWORD,:DWORD
+procdesc SHUpdateRecycleBinIcon
+procdesc SheChangeDirA                         :DWORD
+procdesc SheChangeDirExA                       :DWORD
+procdesc SheChangeDirExW                       :DWORD
+procdesc SheChangeDirW                         :DWORD
+procdesc SheConvertPathW                       :DWORD,:DWORD,:DWORD
+procdesc SheFullPathA                          :DWORD,:DWORD,:DWORD
+procdesc SheFullPathW                          :DWORD,:DWORD,:DWORD
+procdesc SheGetCurDrive
+procdesc SheGetDirA                            :DWORD,:DWORD
+procdesc SheGetDirExW                          :DWORD,:DWORD,:DWORD
+procdesc SheGetDirW                            :DWORD,:DWORD
+procdesc SheGetPathOffsetW                     :DWORD
+procdesc SheRemoveQuotesA                      :DWORD
+procdesc SheRemoveQuotesW                      :DWORD
+procdesc SheSetCurDrive                        :DWORD
+procdesc SheShortenPathA                       :DWORD,:DWORD
+procdesc SheShortenPathW                       :DWORD,:DWORD
+procdesc ShellAboutA                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ShellAboutW                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ShellExecuteA                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ShellExecuteExA                       :DWORD
+procdesc ShellExecuteExW                       :DWORD
+procdesc ShellExecuteW                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ShellHookProc                         :DWORD,:DWORD,:DWORD
+procdesc Shell_NotifyIconA                     :DWORD,:DWORD
+procdesc Shell_NotifyIconW                     :DWORD,:DWORD
+procdesc WOWShellExecute                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc _WOWShellExecute                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD

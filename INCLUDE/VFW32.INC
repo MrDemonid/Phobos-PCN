@@ -1,0 +1,132 @@
+ifndef @unicode
+         AVIBuildFilter             equ <AVIBuildFilterA>
+         AVIFileCreateStream        equ <AVIFileCreateStreamA>
+         AVIFileInfo                equ <AVIFileInfoA>
+         AVIFileOpen                equ <AVIFileOpenA>
+         AVISaveV                   equ <AVISaveVA>
+         AVIStreamInfo              equ <AVIStreamInfoA>
+         AVIStreamOpenFromFile      equ <AVIStreamOpenFromFileA>
+         EditStreamSetInfo          equ <EditStreamSetInfoA>
+         EditStreamSetName          equ <EditStreamSetNameA>
+         GetOpenFileNamePreview     equ <GetOpenFileNamePreviewA>
+         GetSaveFileNamePreview     equ <GetSaveFileNamePreviewA>
+         capCreateCaptureWindow     equ <capCreateCaptureWindowA>
+         capGetDriverDescription    equ <capGetDriverDescriptionA>
+    else
+         AVIBuildFilter             equ <AVIBuildFilterW>
+         AVIFileCreateStream        equ <AVIFileCreateStreamW>
+         AVIFileInfo                equ <AVIFileInfoW>
+         AVIFileOpen                equ <AVIFileOpenW>
+         AVISaveV                   equ <AVISaveVW>
+         AVIStreamInfo              equ <AVIStreamInfoW>
+         AVIStreamOpenFromFile      equ <AVIStreamOpenFromFileW>
+         EditStreamSetInfo          equ <EditStreamSetInfoW>
+         EditStreamSetName          equ <EditStreamSetNameW>
+         GetOpenFileNamePreview     equ <GetOpenFileNamePreviewW>
+         GetSaveFileNamePreview     equ <GetSaveFileNamePreviewW>
+         capCreateCaptureWindow     equ <capCreateCaptureWindowW>
+         capGetDriverDescription    equ <capGetDriverDescriptionW>
+endif ; @unicode
+
+procdesc AVIBuildFilterA            :DWORD,:DWORD,:DWORD
+procdesc AVIBuildFilterW            :DWORD,:DWORD,:DWORD
+procdesc AVIClearClipboard          
+procdesc AVIFileAddRef              :DWORD
+procdesc AVIFileCreateStreamA       :DWORD,:DWORD,:DWORD
+procdesc AVIFileCreateStreamW       :DWORD,:DWORD,:DWORD
+procdesc AVIFileEndRecord           :DWORD
+procdesc AVIFileExit                
+procdesc AVIFileGetStream           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIFileInfoA               :DWORD,:DWORD,:DWORD
+procdesc AVIFileInfoW               :DWORD,:DWORD,:DWORD
+procdesc AVIFileInit                
+procdesc AVIFileOpenA               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIFileOpenW               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIFileReadData            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIFileRelease             :DWORD
+procdesc AVIFileWriteData           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIGetFromClipboard        :DWORD
+procdesc AVIMakeCompressedStream    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIMakeFileFromStreams     :DWORD,:DWORD,:DWORD
+procdesc AVIMakeStreamFromClipboard :DWORD,:DWORD,:DWORD
+procdesc AVIPutFileOnClipboard      :DWORD
+procdesc AVISaveOptions             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVISaveOptionsFree         :DWORD,:DWORD
+procdesc AVISaveVA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVISaveVW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIStreamAddRef            :DWORD
+procdesc AVIStreamBeginStreaming    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIStreamCreate            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIStreamEndStreaming      :DWORD
+procdesc AVIStreamFindSample        :DWORD,:DWORD,:DWORD
+procdesc AVIStreamGetFrame          :DWORD,:DWORD
+procdesc AVIStreamGetFrameClose     :DWORD
+procdesc AVIStreamGetFrameOpen      :DWORD,:DWORD
+procdesc AVIStreamInfoA             :DWORD,:DWORD,:DWORD
+procdesc AVIStreamInfoW             :DWORD,:DWORD,:DWORD
+procdesc AVIStreamLength            :DWORD
+procdesc AVIStreamOpenFromFileA     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIStreamOpenFromFileW     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIStreamRead              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIStreamReadData          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIStreamReadFormat        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIStreamRelease           :DWORD
+procdesc AVIStreamSampleToTime      :DWORD,:DWORD
+procdesc AVIStreamSetFormat         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIStreamStart             :DWORD
+procdesc AVIStreamTimeToSample      :DWORD,:DWORD
+procdesc AVIStreamWrite             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AVIStreamWriteData         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AppCleanup                 :DWORD
+procdesc CreateEditableStream       :DWORD,:DWORD
+procdesc DrawDibBegin               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawDibChangePalette       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawDibClose               :DWORD
+procdesc DrawDibDraw                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawDibEnd                 :DWORD
+procdesc DrawDibGetBuffer           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawDibGetPalette          :DWORD
+procdesc DrawDibOpen                
+procdesc DrawDibProfileDisplay      :DWORD
+procdesc DrawDibRealize             :DWORD,:DWORD,:DWORD
+procdesc DrawDibSetPalette          :DWORD,:DWORD
+procdesc DrawDibStart               :DWORD,:DWORD
+procdesc DrawDibStop                :DWORD
+procdesc DrawDibTime                :DWORD,:DWORD
+procdesc EditStreamClone            :DWORD,:DWORD
+procdesc EditStreamCopy             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EditStreamCut              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EditStreamPaste            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EditStreamSetInfoA         :DWORD,:DWORD,:DWORD
+procdesc EditStreamSetInfoW         :DWORD,:DWORD,:DWORD
+procdesc EditStreamSetNameA         :DWORD,:DWORD
+procdesc EditStreamSetNameW         :DWORD,:DWORD
+procdesc GetOpenFileNamePreviewA    :DWORD
+procdesc GetOpenFileNamePreviewW    :DWORD
+procdesc GetSaveFileNamePreviewA    :DWORD
+procdesc GetSaveFileNamePreviewW    :DWORD
+procdesc ICClose                    :DWORD
+procdesc ICCompressorChoose         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ICCompressorFree           :DWORD
+procdesc ICGetDisplayFormat         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ICGetInfo                  :DWORD,:DWORD,:DWORD
+procdesc ICImageCompress            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ICImageDecompress          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ICInfo                     :DWORD,:DWORD,:DWORD
+procdesc ICInstall                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ICLocate                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ICMThunk32                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ICOpen                     :DWORD,:DWORD,:DWORD
+procdesc ICOpenFunction             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ICRemove                   :DWORD,:DWORD,:DWORD
+procdesc ICSendMessage              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ICSeqCompressFrame         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ICSeqCompressFrameEnd      :DWORD
+procdesc ICSeqCompressFrameStart    :DWORD,:DWORD
+procdesc StretchDIB                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc VideoForWindowsVersion     
+procdesc capCreateCaptureWindowA    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc capCreateCaptureWindowW    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc capGetDriverDescriptionA   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc capGetDriverDescriptionW   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc videoThunk32               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD

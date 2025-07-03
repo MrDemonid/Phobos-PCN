@@ -1,0 +1,42 @@
+ifndef @unicode
+         EnumProtocols               equ <EnumProtocolsA>
+         GetAddressByName            equ <GetAddressByNameA>
+         GetNameByType               equ <GetNameByTypeA>
+         GetService                  equ <GetServiceA>
+         GetTypeByName               equ <GetTypeByNameA>
+         SetService                  equ <SetServiceA>
+    else
+         EnumProtocols               equ <EnumProtocolsW>
+         GetAddressByName            equ <GetAddressByNameW>
+         GetNameByType               equ <GetNameByTypeW>
+         GetService                  equ <GetServiceW>
+         GetTypeByName               equ <GetTypeByNameW>
+         SetService                  equ <SetServiceW>
+endif ; @unicode
+
+procdesc AcceptEx                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumProtocolsA              :DWORD,:DWORD,:DWORD
+procdesc EnumProtocolsW              :DWORD,:DWORD,:DWORD
+procdesc GetAcceptExSockaddrs        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetAddressByNameA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetAddressByNameW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetNameByTypeA              :DWORD,:DWORD,:DWORD
+procdesc GetNameByTypeW              :DWORD,:DWORD,:DWORD
+procdesc GetServiceA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetServiceW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTypeByNameA              :DWORD,:DWORD
+procdesc GetTypeByNameW              :DWORD,:DWORD
+procdesc MigrateWinsockConfiguration :DWORD,:DWORD,:DWORD
+procdesc NPLoadNameSpaces            :DWORD,:DWORD,:DWORD
+procdesc SetServiceA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetServiceW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TransmitFile                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WSARecvEx                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc dn_expand                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc getnetbyname                :DWORD
+procdesc inet_network                :DWORD
+procdesc rcmd                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc rexec                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc rresvport                   :DWORD
+procdesc s_perror                    :DWORD,:DWORD
+procdesc sethostname                 :DWORD,:DWORD

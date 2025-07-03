@@ -1,0 +1,795 @@
+ifndef @unicode
+         AbortSystemShutdown                                  equ <AbortSystemShutdownA>
+         AccessCheckAndAuditAlarm                             equ <AccessCheckAndAuditAlarmA>
+         AccessCheckByTypeAndAuditAlarm                       equ <AccessCheckByTypeAndAuditAlarmA>
+         AccessCheckByTypeResultListAndAuditAlarm             equ <AccessCheckByTypeResultListAndAuditAlarmA>
+         AccessCheckByTypeResultListAndAuditAlarmByHandle     equ <AccessCheckByTypeResultListAndAuditAlarmByHandleA>
+         BackupEventLog                                       equ <BackupEventLogA>
+         BuildExplicitAccessWithName                          equ <BuildExplicitAccessWithNameA>
+         BuildImpersonateExplicitAccessWithName               equ <BuildImpersonateExplicitAccessWithNameA>
+         BuildImpersonateTrustee                              equ <BuildImpersonateTrusteeA>
+         BuildSecurityDescriptor                              equ <BuildSecurityDescriptorA>
+         BuildTrusteeWithName                                 equ <BuildTrusteeWithNameA>
+         BuildTrusteeWithObjectsAndName                       equ <BuildTrusteeWithObjectsAndNameA>
+         BuildTrusteeWithObjectsAndSid                        equ <BuildTrusteeWithObjectsAndSidA>
+         BuildTrusteeWithSid                                  equ <BuildTrusteeWithSidA>
+         ChangeServiceConfig2                                 equ <ChangeServiceConfig2A>
+         ChangeServiceConfig                                  equ <ChangeServiceConfigA>
+         ClearEventLog                                        equ <ClearEventLogA>
+         ControlTrace                                         equ <ControlTraceA>
+         ConvertAccessToSecurityDescriptor                    equ <ConvertAccessToSecurityDescriptorA>
+         ConvertSDToStringSDRootDomain                        equ <ConvertSDToStringSDRootDomainA>
+         ConvertSecurityDescriptorToAccess                    equ <ConvertSecurityDescriptorToAccessA>
+         ConvertSecurityDescriptorToAccessNamed               equ <ConvertSecurityDescriptorToAccessNamedA>
+         ConvertSecurityDescriptorToStringSecurityDescriptor  equ <ConvertSecurityDescriptorToStringSecurityDescriptorA>
+         ConvertSidToStringSid                                equ <ConvertSidToStringSidA>
+         ConvertStringSDToSDRootDomain                        equ <ConvertStringSDToSDRootDomainA>
+         ConvertStringSecurityDescriptorToSecurityDescriptor  equ <ConvertStringSecurityDescriptorToSecurityDescriptorA>
+         ConvertStringSidToSid                                equ <ConvertStringSidToSidA>
+         CreateProcessAsUser                                  equ <CreateProcessAsUserA>
+         CreateService                                        equ <CreateServiceA>
+         CryptAcquireContext                                  equ <CryptAcquireContextA>
+         CryptEnumProviderTypes                               equ <CryptEnumProviderTypesA>
+         CryptEnumProviders                                   equ <CryptEnumProvidersA>
+         CryptGetDefaultProvider                              equ <CryptGetDefaultProviderA>
+         CryptSetProvider                                     equ <CryptSetProviderA>
+         CryptSetProviderEx                                   equ <CryptSetProviderExA>
+         CryptSignHash                                        equ <CryptSignHashA>
+         CryptVerifySignature                                 equ <CryptVerifySignatureA>
+         DecryptFile                                          equ <DecryptFileA>
+         ElfBackupEventLogFile                                equ <ElfBackupEventLogFileA>
+         ElfClearEventLogFile                                 equ <ElfClearEventLogFileA>
+         ElfOpenBackupEventLog                                equ <ElfOpenBackupEventLogA>
+         ElfOpenEventLog                                      equ <ElfOpenEventLogA>
+         ElfReadEventLog                                      equ <ElfReadEventLogA>
+         ElfRegisterEventSource                               equ <ElfRegisterEventSourceA>
+         ElfReportEvent                                       equ <ElfReportEventA>
+         EncryptFile                                          equ <EncryptFileA>
+         EnumDependentServices                                equ <EnumDependentServicesA>
+         EnumServicesStatus                                   equ <EnumServicesStatusA>
+         EnumServicesStatusEx                                 equ <EnumServicesStatusExA>
+         FileEncryptionStatus                                 equ <FileEncryptionStatusA>
+         GetAccessPermissionsForObject                        equ <GetAccessPermissionsForObjectA>
+         GetAuditedPermissionsFromAcl                         equ <GetAuditedPermissionsFromAclA>
+         GetCurrentHwProfile                                  equ <GetCurrentHwProfileA>
+         GetEffectiveRightsFromAcl                            equ <GetEffectiveRightsFromAclA>
+         GetExplicitEntriesFromAcl                            equ <GetExplicitEntriesFromAclA>
+         GetFileSecurity                                      equ <GetFileSecurityA>
+         GetMultipleTrustee                                   equ <GetMultipleTrusteeA>
+         GetMultipleTrusteeOperation                          equ <GetMultipleTrusteeOperationA>
+         GetNamedSecurityInfo                                 equ <GetNamedSecurityInfoA>
+         GetNamedSecurityInfoEx                               equ <GetNamedSecurityInfoExA>
+         GetSecurityInfoEx                                    equ <GetSecurityInfoExA>
+         GetServiceDisplayName                                equ <GetServiceDisplayNameA>
+         GetServiceKeyName                                    equ <GetServiceKeyNameA>
+         GetSiteDirectory                                     equ <GetSiteDirectoryA>
+         GetTrusteeForm                                       equ <GetTrusteeFormA>
+         GetTrusteeName                                       equ <GetTrusteeNameA>
+         GetTrusteeType                                       equ <GetTrusteeTypeA>
+         GetUserName                                          equ <GetUserNameA>
+         I_ScSetServiceBits                                   equ <I_ScSetServiceBitsA>
+         InitiateSystemShutdown                               equ <InitiateSystemShutdownA>
+         InitiateSystemShutdownEx                             equ <InitiateSystemShutdownExA>
+         LogonUser                                            equ <LogonUserA>
+         LookupAccountName                                    equ <LookupAccountNameA>
+         LookupAccountSid                                     equ <LookupAccountSidA>
+         LookupPrivilegeDisplayName                           equ <LookupPrivilegeDisplayNameA>
+         LookupPrivilegeName                                  equ <LookupPrivilegeNameA>
+         LookupPrivilegeValue                                 equ <LookupPrivilegeValueA>
+         LookupSecurityDescriptorParts                        equ <LookupSecurityDescriptorPartsA>
+         ObjectCloseAuditAlarm                                equ <ObjectCloseAuditAlarmA>
+         ObjectDeleteAuditAlarm                               equ <ObjectDeleteAuditAlarmA>
+         ObjectOpenAuditAlarm                                 equ <ObjectOpenAuditAlarmA>
+         ObjectPrivilegeAuditAlarm                            equ <ObjectPrivilegeAuditAlarmA>
+         OpenBackupEventLog                                   equ <OpenBackupEventLogA>
+         OpenEncryptedFileRaw                                 equ <OpenEncryptedFileRawA>
+         OpenEventLog                                         equ <OpenEventLogA>
+         OpenSCManager                                        equ <OpenSCManagerA>
+         OpenService                                          equ <OpenServiceA>
+         OpenTrace                                            equ <OpenTraceA>
+         PrivilegedServiceAuditAlarm                          equ <PrivilegedServiceAuditAlarmA>
+         QueryAllTraces                                       equ <QueryAllTracesA>
+         QueryServiceConfig2                                  equ <QueryServiceConfig2A>
+         QueryServiceConfig                                   equ <QueryServiceConfigA>
+         QueryServiceLockStatus                               equ <QueryServiceLockStatusA>
+         ReadEventLog                                         equ <ReadEventLogA>
+         RegConnectRegistry                                   equ <RegConnectRegistryA>
+         RegCreateKey                                         equ <RegCreateKeyA>
+         RegCreateKeyEx                                       equ <RegCreateKeyExA>
+         RegDeleteKey                                         equ <RegDeleteKeyA>
+         RegDeleteValue                                       equ <RegDeleteValueA>
+         RegEnumKey                                           equ <RegEnumKeyA>
+         RegEnumKeyEx                                         equ <RegEnumKeyExA>
+         RegEnumValue                                         equ <RegEnumValueA>
+         RegLoadKey                                           equ <RegLoadKeyA>
+         RegOpenKey                                           equ <RegOpenKeyA>
+         RegOpenKeyEx                                         equ <RegOpenKeyExA>
+         RegQueryInfoKey                                      equ <RegQueryInfoKeyA>
+         RegQueryMultipleValues                               equ <RegQueryMultipleValuesA>
+         RegQueryValue                                        equ <RegQueryValueA>
+         RegQueryValueEx                                      equ <RegQueryValueExA>
+         RegReplaceKey                                        equ <RegReplaceKeyA>
+         RegRestoreKey                                        equ <RegRestoreKeyA>
+         RegSaveKey                                           equ <RegSaveKeyA>
+         RegSetValue                                          equ <RegSetValueA>
+         RegSetValueEx                                        equ <RegSetValueExA>
+         RegUnLoadKey                                         equ <RegUnLoadKeyA>
+         RegisterEventSource                                  equ <RegisterEventSourceA>
+         RegisterServiceCtrlHandler                           equ <RegisterServiceCtrlHandlerA>
+         RegisterServiceCtrlHandlerEx                         equ <RegisterServiceCtrlHandlerExA>
+         RegisterTraceGuids                                   equ <RegisterTraceGuidsA>
+         ReportEvent                                          equ <ReportEventA>
+         SetEntriesInAccessList                               equ <SetEntriesInAccessListA>
+         SetEntriesInAcl                                      equ <SetEntriesInAclA>
+         SetEntriesInAuditList                                equ <SetEntriesInAuditListA>
+         SetFileSecurity                                      equ <SetFileSecurityA>
+         SetNamedSecurityInfo                                 equ <SetNamedSecurityInfoA>
+         SetNamedSecurityInfoEx                               equ <SetNamedSecurityInfoExA>
+         SetSecurityInfoEx                                    equ <SetSecurityInfoExA>
+         StartService                                         equ <StartServiceA>
+         StartServiceCtrlDispatcher                           equ <StartServiceCtrlDispatcherA>
+         StartTrace                                           equ <StartTraceA>
+         TrusteeAccessToObject                                equ <TrusteeAccessToObjectA>
+    else
+         AbortSystemShutdown                                  equ <AbortSystemShutdownW>
+         AccessCheckAndAuditAlarm                             equ <AccessCheckAndAuditAlarmW>
+         AccessCheckByTypeAndAuditAlarm                       equ <AccessCheckByTypeAndAuditAlarmW>
+         AccessCheckByTypeResultListAndAuditAlarm             equ <AccessCheckByTypeResultListAndAuditAlarmW>
+         AccessCheckByTypeResultListAndAuditAlarmByHandle     equ <AccessCheckByTypeResultListAndAuditAlarmByHandleW>
+         BackupEventLog                                       equ <BackupEventLogW>
+         BuildExplicitAccessWithName                          equ <BuildExplicitAccessWithNameW>
+         BuildImpersonateExplicitAccessWithName               equ <BuildImpersonateExplicitAccessWithNameW>
+         BuildImpersonateTrustee                              equ <BuildImpersonateTrusteeW>
+         BuildSecurityDescriptor                              equ <BuildSecurityDescriptorW>
+         BuildTrusteeWithName                                 equ <BuildTrusteeWithNameW>
+         BuildTrusteeWithObjectsAndName                       equ <BuildTrusteeWithObjectsAndNameW>
+         BuildTrusteeWithObjectsAndSid                        equ <BuildTrusteeWithObjectsAndSidW>
+         BuildTrusteeWithSid                                  equ <BuildTrusteeWithSidW>
+         ChangeServiceConfig2                                 equ <ChangeServiceConfig2W>
+         ChangeServiceConfig                                  equ <ChangeServiceConfigW>
+         ClearEventLog                                        equ <ClearEventLogW>
+         ControlTrace                                         equ <ControlTraceW>
+         ConvertAccessToSecurityDescriptor                    equ <ConvertAccessToSecurityDescriptorW>
+         ConvertSDToStringSDRootDomain                        equ <ConvertSDToStringSDRootDomainW>
+         ConvertSecurityDescriptorToAccess                    equ <ConvertSecurityDescriptorToAccessW>
+         ConvertSecurityDescriptorToAccessNamed               equ <ConvertSecurityDescriptorToAccessNamedW>
+         ConvertSecurityDescriptorToStringSecurityDescriptor  equ <ConvertSecurityDescriptorToStringSecurityDescriptorW>
+         ConvertSidToStringSid                                equ <ConvertSidToStringSidW>
+         ConvertStringSDToSDRootDomain                        equ <ConvertStringSDToSDRootDomainW>
+         ConvertStringSecurityDescriptorToSecurityDescriptor  equ <ConvertStringSecurityDescriptorToSecurityDescriptorW>
+         ConvertStringSidToSid                                equ <ConvertStringSidToSidW>
+         CreateProcessAsUser                                  equ <CreateProcessAsUserW>
+         CreateService                                        equ <CreateServiceW>
+         CryptAcquireContext                                  equ <CryptAcquireContextW>
+         CryptEnumProviderTypes                               equ <CryptEnumProviderTypesW>
+         CryptEnumProviders                                   equ <CryptEnumProvidersW>
+         CryptGetDefaultProvider                              equ <CryptGetDefaultProviderW>
+         CryptSetProvider                                     equ <CryptSetProviderW>
+         CryptSetProviderEx                                   equ <CryptSetProviderExW>
+         CryptSignHash                                        equ <CryptSignHashW>
+         CryptVerifySignature                                 equ <CryptVerifySignatureW>
+         DecryptFile                                          equ <DecryptFileW>
+         ElfBackupEventLogFile                                equ <ElfBackupEventLogFileW>
+         ElfClearEventLogFile                                 equ <ElfClearEventLogFileW>
+         ElfOpenBackupEventLog                                equ <ElfOpenBackupEventLogW>
+         ElfOpenEventLog                                      equ <ElfOpenEventLogW>
+         ElfReadEventLog                                      equ <ElfReadEventLogW>
+         ElfRegisterEventSource                               equ <ElfRegisterEventSourceW>
+         ElfReportEvent                                       equ <ElfReportEventW>
+         EncryptFile                                          equ <EncryptFileW>
+         EnumDependentServices                                equ <EnumDependentServicesW>
+         EnumServicesStatus                                   equ <EnumServicesStatusW>
+         EnumServicesStatusEx                                 equ <EnumServicesStatusExW>
+         FileEncryptionStatus                                 equ <FileEncryptionStatusW>
+         GetAccessPermissionsForObject                        equ <GetAccessPermissionsForObjectW>
+         GetAuditedPermissionsFromAcl                         equ <GetAuditedPermissionsFromAclW>
+         GetCurrentHwProfile                                  equ <GetCurrentHwProfileW>
+         GetEffectiveRightsFromAcl                            equ <GetEffectiveRightsFromAclW>
+         GetExplicitEntriesFromAcl                            equ <GetExplicitEntriesFromAclW>
+         GetFileSecurity                                      equ <GetFileSecurityW>
+         GetMultipleTrustee                                   equ <GetMultipleTrusteeW>
+         GetMultipleTrusteeOperation                          equ <GetMultipleTrusteeOperationW>
+         GetNamedSecurityInfo                                 equ <GetNamedSecurityInfoW>
+         GetNamedSecurityInfoEx                               equ <GetNamedSecurityInfoExW>
+         GetSecurityInfoEx                                    equ <GetSecurityInfoExW>
+         GetServiceDisplayName                                equ <GetServiceDisplayNameW>
+         GetServiceKeyName                                    equ <GetServiceKeyNameW>
+         GetSiteDirectory                                     equ <GetSiteDirectoryW>
+         GetTrusteeForm                                       equ <GetTrusteeFormW>
+         GetTrusteeName                                       equ <GetTrusteeNameW>
+         GetTrusteeType                                       equ <GetTrusteeTypeW>
+         GetUserName                                          equ <GetUserNameW>
+         I_ScSetServiceBits                                   equ <I_ScSetServiceBitsW>
+         InitiateSystemShutdown                               equ <InitiateSystemShutdownW>
+         InitiateSystemShutdownEx                             equ <InitiateSystemShutdownExW>
+         LogonUser                                            equ <LogonUserW>
+         LookupAccountName                                    equ <LookupAccountNameW>
+         LookupAccountSid                                     equ <LookupAccountSidW>
+         LookupPrivilegeDisplayName                           equ <LookupPrivilegeDisplayNameW>
+         LookupPrivilegeName                                  equ <LookupPrivilegeNameW>
+         LookupPrivilegeValue                                 equ <LookupPrivilegeValueW>
+         LookupSecurityDescriptorParts                        equ <LookupSecurityDescriptorPartsW>
+         ObjectCloseAuditAlarm                                equ <ObjectCloseAuditAlarmW>
+         ObjectDeleteAuditAlarm                               equ <ObjectDeleteAuditAlarmW>
+         ObjectOpenAuditAlarm                                 equ <ObjectOpenAuditAlarmW>
+         ObjectPrivilegeAuditAlarm                            equ <ObjectPrivilegeAuditAlarmW>
+         OpenBackupEventLog                                   equ <OpenBackupEventLogW>
+         OpenEncryptedFileRaw                                 equ <OpenEncryptedFileRawW>
+         OpenEventLog                                         equ <OpenEventLogW>
+         OpenSCManager                                        equ <OpenSCManagerW>
+         OpenService                                          equ <OpenServiceW>
+         OpenTrace                                            equ <OpenTraceW>
+         PrivilegedServiceAuditAlarm                          equ <PrivilegedServiceAuditAlarmW>
+         QueryAllTraces                                       equ <QueryAllTracesW>
+         QueryServiceConfig2                                  equ <QueryServiceConfig2W>
+         QueryServiceConfig                                   equ <QueryServiceConfigW>
+         QueryServiceLockStatus                               equ <QueryServiceLockStatusW>
+         ReadEventLog                                         equ <ReadEventLogW>
+         RegConnectRegistry                                   equ <RegConnectRegistryW>
+         RegCreateKey                                         equ <RegCreateKeyW>
+         RegCreateKeyEx                                       equ <RegCreateKeyExW>
+         RegDeleteKey                                         equ <RegDeleteKeyW>
+         RegDeleteValue                                       equ <RegDeleteValueW>
+         RegEnumKey                                           equ <RegEnumKeyW>
+         RegEnumKeyEx                                         equ <RegEnumKeyExW>
+         RegEnumValue                                         equ <RegEnumValueW>
+         RegLoadKey                                           equ <RegLoadKeyW>
+         RegOpenKey                                           equ <RegOpenKeyW>
+         RegOpenKeyEx                                         equ <RegOpenKeyExW>
+         RegQueryInfoKey                                      equ <RegQueryInfoKeyW>
+         RegQueryMultipleValues                               equ <RegQueryMultipleValuesW>
+         RegQueryValue                                        equ <RegQueryValueW>
+         RegQueryValueEx                                      equ <RegQueryValueExW>
+         RegReplaceKey                                        equ <RegReplaceKeyW>
+         RegRestoreKey                                        equ <RegRestoreKeyW>
+         RegSaveKey                                           equ <RegSaveKeyW>
+         RegSetValue                                          equ <RegSetValueW>
+         RegSetValueEx                                        equ <RegSetValueExW>
+         RegUnLoadKey                                         equ <RegUnLoadKeyW>
+         RegisterEventSource                                  equ <RegisterEventSourceW>
+         RegisterServiceCtrlHandler                           equ <RegisterServiceCtrlHandlerW>
+         RegisterServiceCtrlHandlerEx                         equ <RegisterServiceCtrlHandlerExW>
+         RegisterTraceGuids                                   equ <RegisterTraceGuidsW>
+         ReportEvent                                          equ <ReportEventW>
+         SetEntriesInAccessList                               equ <SetEntriesInAccessListW>
+         SetEntriesInAcl                                      equ <SetEntriesInAclW>
+         SetEntriesInAuditList                                equ <SetEntriesInAuditListW>
+         SetFileSecurity                                      equ <SetFileSecurityW>
+         SetNamedSecurityInfo                                 equ <SetNamedSecurityInfoW>
+         SetNamedSecurityInfoEx                               equ <SetNamedSecurityInfoExW>
+         SetSecurityInfoEx                                    equ <SetSecurityInfoExW>
+         StartService                                         equ <StartServiceW>
+         StartServiceCtrlDispatcher                           equ <StartServiceCtrlDispatcherW>
+         StartTrace                                           equ <StartTraceW>
+         TrusteeAccessToObject                                equ <TrusteeAccessToObjectW>
+endif ; @unicode
+
+procdesc AbortSystemShutdownA                                 :DWORD
+procdesc AbortSystemShutdownW                                 :DWORD
+procdesc AccessCheck                                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AccessCheckAndAuditAlarmA                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AccessCheckAndAuditAlarmW                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AccessCheckByType                                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AccessCheckByTypeAndAuditAlarmA                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AccessCheckByTypeAndAuditAlarmW                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AccessCheckByTypeResultList                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AccessCheckByTypeResultListAndAuditAlarmA            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AccessCheckByTypeResultListAndAuditAlarmByHandleA    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AccessCheckByTypeResultListAndAuditAlarmByHandleW    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AccessCheckByTypeResultListAndAuditAlarmW            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddAccessAllowedAce                                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddAccessAllowedAceEx                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddAccessAllowedObjectAce                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddAccessDeniedAce                                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddAccessDeniedAceEx                                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddAccessDeniedObjectAce                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddAce                                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddAuditAccessAce                                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddAuditAccessAceEx                                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddAuditAccessObjectAce                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddUsersToEncryptedFile                              :DWORD,:DWORD
+procdesc AdjustTokenGroups                                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AdjustTokenPrivileges                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AllocateAndInitializeSid                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AllocateLocallyUniqueId                              :DWORD
+procdesc AreAllAccessesGranted                                :DWORD,:DWORD
+procdesc AreAnyAccessesGranted                                :DWORD,:DWORD
+procdesc BackupEventLogA                                      :DWORD,:DWORD
+procdesc BackupEventLogW                                      :DWORD,:DWORD
+procdesc BuildExplicitAccessWithNameA                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BuildExplicitAccessWithNameW                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BuildImpersonateExplicitAccessWithNameA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BuildImpersonateExplicitAccessWithNameW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BuildImpersonateTrusteeA                             :DWORD,:DWORD
+procdesc BuildImpersonateTrusteeW                             :DWORD,:DWORD
+procdesc BuildSecurityDescriptorA                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BuildSecurityDescriptorW                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BuildTrusteeWithNameA                                :DWORD,:DWORD
+procdesc BuildTrusteeWithNameW                                :DWORD,:DWORD
+procdesc BuildTrusteeWithObjectsAndNameA                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BuildTrusteeWithObjectsAndNameW                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BuildTrusteeWithObjectsAndSidA                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BuildTrusteeWithObjectsAndSidW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BuildTrusteeWithSidA                                 :DWORD,:DWORD
+procdesc BuildTrusteeWithSidW                                 :DWORD,:DWORD
+procdesc CancelOverlappedAccess                               :DWORD
+procdesc ChangeServiceConfig2A                                :DWORD,:DWORD,:DWORD
+procdesc ChangeServiceConfig2W                                :DWORD,:DWORD,:DWORD
+procdesc ChangeServiceConfigA                                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ChangeServiceConfigW                                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CheckTokenMembership                                 :DWORD,:DWORD,:DWORD
+procdesc ClearEventLogA                                       :DWORD,:DWORD
+procdesc ClearEventLogW                                       :DWORD,:DWORD
+procdesc CloseEncryptedFileRaw                                :DWORD
+procdesc CloseEventLog                                        :DWORD
+procdesc CloseServiceHandle                                   :DWORD
+procdesc CloseTrace                                           :DWORD,:DWORD
+procdesc CommandLineFromMsiDescriptor                         :DWORD,:DWORD,:DWORD
+procdesc ControlService                                       :DWORD,:DWORD,:DWORD
+procdesc ControlTraceA                                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ControlTraceW                                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertAccessToSecurityDescriptorA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertAccessToSecurityDescriptorW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertSDToStringSDRootDomainA                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertSDToStringSDRootDomainW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertSecurityDescriptorToAccessA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertSecurityDescriptorToAccessNamedA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertSecurityDescriptorToAccessNamedW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertSecurityDescriptorToAccessW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertSecurityDescriptorToStringSecurityDescriptorA :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertSecurityDescriptorToStringSecurityDescriptorW :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertSidToStringSidA                               :DWORD,:DWORD
+procdesc ConvertSidToStringSidW                               :DWORD,:DWORD
+procdesc ConvertStringSDToSDRootDomainA                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertStringSDToSDRootDomainW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertStringSecurityDescriptorToSecurityDescriptorA :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertStringSecurityDescriptorToSecurityDescriptorW :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertStringSidToSidA                               :DWORD,:DWORD
+procdesc ConvertStringSidToSidW                               :DWORD,:DWORD
+procdesc ConvertToAutoInheritPrivateObjectSecurity            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CopySid                                              :DWORD,:DWORD,:DWORD
+procdesc CreatePrivateObjectSecurity                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreatePrivateObjectSecurityEx                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateProcessAsUserA                                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateProcessAsUserW                                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateProcessWithLogonW                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateRestrictedToken                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateServiceA                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateServiceW                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateTraceInstanceId                                :DWORD,:DWORD
+procdesc CryptAcquireContextA                                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptAcquireContextW                                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptContextAddRef                                   :DWORD,:DWORD,:DWORD
+procdesc CryptCreateHash                                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptDecrypt                                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptDeriveKey                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptDestroyHash                                     :DWORD
+procdesc CryptDestroyKey                                      :DWORD
+procdesc CryptDuplicateHash                                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptDuplicateKey                                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptEncrypt                                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptEnumProviderTypesA                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptEnumProviderTypesW                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptEnumProvidersA                                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptEnumProvidersW                                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptExportKey                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptGenKey                                          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptGenRandom                                       :DWORD,:DWORD,:DWORD
+procdesc CryptGetDefaultProviderA                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptGetDefaultProviderW                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptGetHashParam                                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptGetKeyParam                                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptGetProvParam                                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptGetUserKey                                      :DWORD,:DWORD,:DWORD
+procdesc CryptHashData                                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptHashSessionKey                                  :DWORD,:DWORD,:DWORD
+procdesc CryptImportKey                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptReleaseContext                                  :DWORD,:DWORD
+procdesc CryptSetHashParam                                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptSetKeyParam                                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptSetProvParam                                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptSetProviderA                                    :DWORD,:DWORD
+procdesc CryptSetProviderExA                                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptSetProviderExW                                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptSetProviderW                                    :DWORD,:DWORD
+procdesc CryptSignHashA                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptSignHashW                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptVerifySignatureA                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CryptVerifySignatureW                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DecryptFileA                                         :DWORD,:DWORD
+procdesc DecryptFileW                                         :DWORD,:DWORD
+procdesc DeleteAce                                            :DWORD,:DWORD
+procdesc DeleteService                                        :DWORD
+procdesc DeregisterEventSource                                :DWORD
+procdesc DestroyPrivateObjectSecurity                         :DWORD
+procdesc DuplicateEncryptionInfoFile                          :DWORD,:DWORD
+procdesc DuplicateToken                                       :DWORD,:DWORD,:DWORD
+procdesc DuplicateTokenEx                                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ElfBackupEventLogFileA                               :DWORD,:DWORD
+procdesc ElfBackupEventLogFileW                               :DWORD,:DWORD
+procdesc ElfChangeNotify                                      :DWORD,:DWORD
+procdesc ElfClearEventLogFileA                                :DWORD,:DWORD
+procdesc ElfClearEventLogFileW                                :DWORD,:DWORD
+procdesc ElfCloseEventLog                                     :DWORD
+procdesc ElfDeregisterEventSource                             :DWORD
+procdesc ElfNumberOfRecords                                   :DWORD,:DWORD
+procdesc ElfOldestRecord                                      :DWORD,:DWORD
+procdesc ElfOpenBackupEventLogA                               :DWORD,:DWORD,:DWORD
+procdesc ElfOpenBackupEventLogW                               :DWORD,:DWORD,:DWORD
+procdesc ElfOpenEventLogA                                     :DWORD,:DWORD,:DWORD
+procdesc ElfOpenEventLogW                                     :DWORD,:DWORD,:DWORD
+procdesc ElfReadEventLogA                                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ElfReadEventLogW                                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ElfRegisterEventSourceA                              :DWORD,:DWORD,:DWORD
+procdesc ElfRegisterEventSourceW                              :DWORD,:DWORD,:DWORD
+procdesc ElfReportEventA                                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ElfReportEventW                                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnableTrace                                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EncryptFileA                                         :DWORD
+procdesc EncryptFileW                                         :DWORD
+procdesc EncryptionDisable                                    :DWORD,:DWORD
+procdesc EnumDependentServicesA                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumDependentServicesW                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumServiceGroupW                                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumServicesStatusA                                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumServicesStatusExA                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumServicesStatusExW                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumServicesStatusW                                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EqualPrefixSid                                       :DWORD,:DWORD
+procdesc EqualSid                                             :DWORD,:DWORD
+procdesc FileEncryptionStatusA                                :DWORD,:DWORD
+procdesc FileEncryptionStatusW                                :DWORD,:DWORD
+procdesc FindFirstFreeAce                                     :DWORD,:DWORD
+procdesc FreeEncryptionCertificateHashList                    :DWORD
+procdesc FreeSid                                              :DWORD
+procdesc GetAccessPermissionsForObjectA                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetAccessPermissionsForObjectW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetAce                                               :DWORD,:DWORD,:DWORD
+procdesc GetAclInformation                                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetAuditedPermissionsFromAclA                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetAuditedPermissionsFromAclW                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCurrentHwProfileA                                 :DWORD
+procdesc GetCurrentHwProfileW                                 :DWORD
+procdesc GetEffectiveRightsFromAclA                           :DWORD,:DWORD,:DWORD
+procdesc GetEffectiveRightsFromAclW                           :DWORD,:DWORD,:DWORD
+procdesc GetEventLogInformation                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetExplicitEntriesFromAclA                           :DWORD,:DWORD,:DWORD
+procdesc GetExplicitEntriesFromAclW                           :DWORD,:DWORD,:DWORD
+procdesc GetFileSecurityA                                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetFileSecurityW                                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetKernelObjectSecurity                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetLengthSid                                         :DWORD
+procdesc GetLocalManagedApplications                          :DWORD,:DWORD,:DWORD
+procdesc GetManagedApplications                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetMangledSiteSid                                    :DWORD,:DWORD,:DWORD
+procdesc GetMultipleTrusteeA                                  :DWORD
+procdesc GetMultipleTrusteeOperationA                         :DWORD
+procdesc GetMultipleTrusteeOperationW                         :DWORD
+procdesc GetMultipleTrusteeW                                  :DWORD
+procdesc GetNamedSecurityInfoA                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetNamedSecurityInfoExA                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetNamedSecurityInfoExW                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetNamedSecurityInfoW                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetNumberOfEventLogRecords                           :DWORD,:DWORD
+procdesc GetOldestEventLogRecord                              :DWORD,:DWORD
+procdesc GetOverlappedAccessResults                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrivateObjectSecurity                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetSecurityDescriptorControl                         :DWORD,:DWORD,:DWORD
+procdesc GetSecurityDescriptorDacl                            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetSecurityDescriptorGroup                           :DWORD,:DWORD,:DWORD
+procdesc GetSecurityDescriptorLength                          :DWORD
+procdesc GetSecurityDescriptorOwner                           :DWORD,:DWORD,:DWORD
+procdesc GetSecurityDescriptorRMControl                       :DWORD,:DWORD
+procdesc GetSecurityDescriptorSacl                            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetSecurityInfo                                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetSecurityInfoExA                                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetSecurityInfoExW                                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetServiceDisplayNameA                               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetServiceDisplayNameW                               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetServiceKeyNameA                                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetServiceKeyNameW                                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetSidIdentifierAuthority                            :DWORD
+procdesc GetSidLengthRequired                                 :DWORD
+procdesc GetSidSubAuthority                                   :DWORD,:DWORD
+procdesc GetSidSubAuthorityCount                              :DWORD
+procdesc GetSiteDirectoryA                                    :DWORD,:DWORD,:DWORD
+procdesc GetSiteDirectoryW                                    :DWORD,:DWORD,:DWORD
+procdesc GetSiteNameFromSid                                   :DWORD,:DWORD
+procdesc GetSiteSidFromToken                                  :DWORD
+procdesc GetSiteSidFromUrl                                    :DWORD
+procdesc GetTokenInformation                                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTraceEnableFlags                                  :DWORD,:DWORD
+procdesc GetTraceEnableLevel                                  :DWORD,:DWORD
+procdesc GetTraceLoggerHandle                                 :DWORD
+procdesc GetTrusteeFormA                                      :DWORD
+procdesc GetTrusteeFormW                                      :DWORD
+procdesc GetTrusteeNameA                                      :DWORD
+procdesc GetTrusteeNameW                                      :DWORD
+procdesc GetTrusteeTypeA                                      :DWORD
+procdesc GetTrusteeTypeW                                      :DWORD
+procdesc GetUserNameA                                         :DWORD,:DWORD
+procdesc GetUserNameW                                         :DWORD,:DWORD
+procdesc I_ScSetServiceBitsA                                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc I_ScSetServiceBitsW                                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImpersonateAnonymousToken                            :DWORD
+procdesc ImpersonateLoggedOnUser                              :DWORD
+procdesc ImpersonateNamedPipeClient                           :DWORD
+procdesc ImpersonateSelf                                      :DWORD
+procdesc InitializeAcl                                        :DWORD,:DWORD,:DWORD
+procdesc InitializeSecurityDescriptor                         :DWORD,:DWORD
+procdesc InitializeSid                                        :DWORD,:DWORD,:DWORD
+procdesc InitiateSystemShutdownA                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InitiateSystemShutdownExA                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InitiateSystemShutdownExW                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InitiateSystemShutdownW                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InstallApplication                                   :DWORD
+procdesc IsProcessRestricted                                  
+procdesc IsTextUnicode                                        :DWORD,:DWORD,:DWORD
+procdesc IsTokenRestricted                                    :DWORD
+procdesc IsValidAcl                                           :DWORD
+procdesc IsValidSecurityDescriptor                            :DWORD
+procdesc IsValidSid                                           :DWORD
+procdesc LockServiceDatabase                                  :DWORD
+procdesc LogonUserA                                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LogonUserW                                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LookupAccountNameA                                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LookupAccountNameW                                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LookupAccountSidA                                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LookupAccountSidW                                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LookupPrivilegeDisplayNameA                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LookupPrivilegeDisplayNameW                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LookupPrivilegeNameA                                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LookupPrivilegeNameW                                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LookupPrivilegeValueA                                :DWORD,:DWORD,:DWORD
+procdesc LookupPrivilegeValueW                                :DWORD,:DWORD,:DWORD
+procdesc LookupSecurityDescriptorPartsA                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LookupSecurityDescriptorPartsW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaAddAccountRights                                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaAddPrivilegesToAccount                            :DWORD,:DWORD
+procdesc LsaClearAuditLog                                     :DWORD
+procdesc LsaClose                                             :DWORD
+procdesc LsaCreateAccount                                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaCreateSecret                                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaCreateTrustedDomain                               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaCreateTrustedDomainEx                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaDelete                                            :DWORD
+procdesc LsaDeleteTrustedDomain                               :DWORD,:DWORD
+procdesc LsaEnumerateAccountRights                            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaEnumerateAccounts                                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaEnumerateAccountsWithUserRight                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaEnumeratePrivileges                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaEnumeratePrivilegesOfAccount                      :DWORD,:DWORD
+procdesc LsaEnumerateTrustedDomains                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaEnumerateTrustedDomainsEx                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaFreeMemory                                        :DWORD
+procdesc LsaGetQuotasForAccount                               :DWORD,:DWORD
+procdesc LsaGetRemoteUserName                                 :DWORD,:DWORD,:DWORD
+procdesc LsaGetSystemAccessAccount                            :DWORD,:DWORD
+procdesc LsaGetUserName                                       :DWORD,:DWORD
+procdesc LsaICLookupNames                                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaICLookupSids                                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaLookupNames                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaLookupPrivilegeDisplayName                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaLookupPrivilegeName                               :DWORD,:DWORD,:DWORD
+procdesc LsaLookupPrivilegeValue                              :DWORD,:DWORD,:DWORD
+procdesc LsaLookupSids                                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaNtStatusToWinError                                :DWORD
+procdesc LsaOpenAccount                                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaOpenPolicy                                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaOpenSecret                                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaOpenTrustedDomain                                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaOpenTrustedDomainByName                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaQueryDomainInformationPolicy                      :DWORD,:DWORD,:DWORD
+procdesc LsaQueryInfoTrustedDomain                            :DWORD,:DWORD,:DWORD
+procdesc LsaQueryInformationPolicy                            :DWORD,:DWORD,:DWORD
+procdesc LsaQuerySecret                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaQuerySecurityObject                               :DWORD,:DWORD,:DWORD
+procdesc LsaQueryTrustedDomainInfo                            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaQueryTrustedDomainInfoByName                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaRemoveAccountRights                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaRemovePrivilegesFromAccount                       :DWORD,:DWORD,:DWORD
+procdesc LsaRetrievePrivateData                               :DWORD,:DWORD,:DWORD
+procdesc LsaSetDomainInformationPolicy                        :DWORD,:DWORD,:DWORD
+procdesc LsaSetInformationPolicy                              :DWORD,:DWORD,:DWORD
+procdesc LsaSetInformationTrustedDomain                       :DWORD,:DWORD,:DWORD
+procdesc LsaSetQuotasForAccount                               :DWORD,:DWORD
+procdesc LsaSetSecret                                         :DWORD,:DWORD,:DWORD
+procdesc LsaSetSecurityObject                                 :DWORD,:DWORD,:DWORD
+procdesc LsaSetSystemAccessAccount                            :DWORD,:DWORD
+procdesc LsaSetTrustedDomainInfoByName                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaSetTrustedDomainInformation                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LsaStorePrivateData                                  :DWORD,:DWORD,:DWORD
+procdesc MakeAbsoluteSD2                                      :DWORD,:DWORD
+procdesc MakeAbsoluteSD                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc MakeSelfRelativeSD                                   :DWORD,:DWORD,:DWORD
+procdesc MapGenericMask                                       :DWORD,:DWORD
+procdesc NotifyBootConfigStatus                               :DWORD
+procdesc NotifyChangeEventLog                                 :DWORD,:DWORD
+procdesc ObjectCloseAuditAlarmA                               :DWORD,:DWORD,:DWORD
+procdesc ObjectCloseAuditAlarmW                               :DWORD,:DWORD,:DWORD
+procdesc ObjectDeleteAuditAlarmA                              :DWORD,:DWORD,:DWORD
+procdesc ObjectDeleteAuditAlarmW                              :DWORD,:DWORD,:DWORD
+procdesc ObjectOpenAuditAlarmA                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ObjectOpenAuditAlarmW                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ObjectPrivilegeAuditAlarmA                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ObjectPrivilegeAuditAlarmW                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc OpenBackupEventLogA                                  :DWORD,:DWORD
+procdesc OpenBackupEventLogW                                  :DWORD,:DWORD
+procdesc OpenEncryptedFileRawA                                :DWORD,:DWORD,:DWORD
+procdesc OpenEncryptedFileRawW                                :DWORD,:DWORD,:DWORD
+procdesc OpenEventLogA                                        :DWORD,:DWORD
+procdesc OpenEventLogW                                        :DWORD,:DWORD
+procdesc OpenProcessToken                                     :DWORD,:DWORD,:DWORD
+procdesc OpenSCManagerA                                       :DWORD,:DWORD,:DWORD
+procdesc OpenSCManagerW                                       :DWORD,:DWORD,:DWORD
+procdesc OpenServiceA                                         :DWORD,:DWORD,:DWORD
+procdesc OpenServiceW                                         :DWORD,:DWORD,:DWORD
+procdesc OpenThreadToken                                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc OpenTraceA                                           :DWORD
+procdesc OpenTraceW                                           :DWORD
+procdesc PrivilegeCheck                                       :DWORD,:DWORD,:DWORD
+procdesc PrivilegedServiceAuditAlarmA                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PrivilegedServiceAuditAlarmW                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ProcessTrace                                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryAllTracesA                                      :DWORD,:DWORD,:DWORD
+procdesc QueryAllTracesW                                      :DWORD,:DWORD,:DWORD
+procdesc QueryRecoveryAgentsOnEncryptedFile                   :DWORD,:DWORD
+procdesc QueryServiceConfig2A                                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryServiceConfig2W                                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryServiceConfigA                                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryServiceConfigW                                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryServiceLockStatusA                              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryServiceLockStatusW                              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryServiceObjectSecurity                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryServiceStatus                                   :DWORD,:DWORD
+procdesc QueryServiceStatusEx                                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryUsersOnEncryptedFile                            :DWORD,:DWORD
+procdesc QueryWindows31FilesMigration                         :DWORD
+procdesc ReadEncryptedFileRaw                                 :DWORD,:DWORD,:DWORD
+procdesc ReadEventLogA                                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadEventLogW                                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegCloseKey                                          :DWORD
+procdesc RegConnectRegistryA                                  :DWORD,:DWORD,:DWORD
+procdesc RegConnectRegistryW                                  :DWORD,:DWORD,:DWORD
+procdesc RegCreateKeyA                                        :DWORD,:DWORD,:DWORD
+procdesc RegCreateKeyExA                                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegCreateKeyExW                                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegCreateKeyW                                        :DWORD,:DWORD,:DWORD
+procdesc RegDeleteKeyA                                        :DWORD,:DWORD
+procdesc RegDeleteKeyW                                        :DWORD,:DWORD
+procdesc RegDeleteValueA                                      :DWORD,:DWORD
+procdesc RegDeleteValueW                                      :DWORD,:DWORD
+procdesc RegDisablePredefinedCache                            
+procdesc RegEnumKeyA                                          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegEnumKeyExA                                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegEnumKeyExW                                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegEnumKeyW                                          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegEnumValueA                                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegEnumValueW                                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegFlushKey                                          :DWORD
+procdesc RegGetKeySecurity                                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegLoadKeyA                                          :DWORD,:DWORD,:DWORD
+procdesc RegLoadKeyW                                          :DWORD,:DWORD,:DWORD
+procdesc RegNotifyChangeKeyValue                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegOpenCurrentUser                                   :DWORD,:DWORD
+procdesc RegOpenKeyA                                          :DWORD,:DWORD,:DWORD
+procdesc RegOpenKeyExA                                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegOpenKeyExW                                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegOpenKeyW                                          :DWORD,:DWORD,:DWORD
+procdesc RegOpenUserClassesRoot                               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegOverridePredefKey                                 :DWORD,:DWORD
+procdesc RegQueryInfoKeyA                                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegQueryInfoKeyW                                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegQueryMultipleValuesA                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegQueryMultipleValuesW                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegQueryValueA                                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegQueryValueExA                                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegQueryValueExW                                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegQueryValueW                                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegReplaceKeyA                                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegReplaceKeyW                                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegRestoreKeyA                                       :DWORD,:DWORD,:DWORD
+procdesc RegRestoreKeyW                                       :DWORD,:DWORD,:DWORD
+procdesc RegSaveKeyA                                          :DWORD,:DWORD,:DWORD
+procdesc RegSaveKeyW                                          :DWORD,:DWORD,:DWORD
+procdesc RegSetKeySecurity                                    :DWORD,:DWORD,:DWORD
+procdesc RegSetValueA                                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegSetValueExA                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegSetValueExW                                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegSetValueW                                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegUnLoadKeyA                                        :DWORD,:DWORD
+procdesc RegUnLoadKeyW                                        :DWORD,:DWORD
+procdesc RegisterEventSourceA                                 :DWORD,:DWORD
+procdesc RegisterEventSourceW                                 :DWORD,:DWORD
+procdesc RegisterServiceCtrlHandlerA                          :DWORD,:DWORD
+procdesc RegisterServiceCtrlHandlerExA                        :DWORD,:DWORD,:DWORD
+procdesc RegisterServiceCtrlHandlerExW                        :DWORD,:DWORD,:DWORD
+procdesc RegisterServiceCtrlHandlerW                          :DWORD,:DWORD
+procdesc RegisterTraceGuidsA                                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegisterTraceGuidsW                                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RemoveTraceCallback                                  :DWORD
+procdesc RemoveUsersFromEncryptedFile                         :DWORD,:DWORD
+procdesc ReportEventA                                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReportEventW                                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RevertToSelf                                         
+procdesc SetAclInformation                                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetEntriesInAccessListA                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetEntriesInAccessListW                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetEntriesInAclA                                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetEntriesInAclW                                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetEntriesInAuditListA                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetEntriesInAuditListW                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetFileSecurityA                                     :DWORD,:DWORD,:DWORD
+procdesc SetFileSecurityW                                     :DWORD,:DWORD,:DWORD
+procdesc SetKernelObjectSecurity                              :DWORD,:DWORD,:DWORD
+procdesc SetNamedSecurityInfoA                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetNamedSecurityInfoExA                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetNamedSecurityInfoExW                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetNamedSecurityInfoW                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPrivateObjectSecurity                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPrivateObjectSecurityEx                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetSecurityDescriptorControl                         :DWORD,:DWORD,:DWORD
+procdesc SetSecurityDescriptorDacl                            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetSecurityDescriptorGroup                           :DWORD,:DWORD,:DWORD
+procdesc SetSecurityDescriptorOwner                           :DWORD,:DWORD,:DWORD
+procdesc SetSecurityDescriptorRMControl                       :DWORD,:DWORD
+procdesc SetSecurityDescriptorSacl                            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetSecurityInfo                                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetSecurityInfoExA                                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetSecurityInfoExW                                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetServiceBits                                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetServiceObjectSecurity                             :DWORD,:DWORD,:DWORD
+procdesc SetServiceStatus                                     :DWORD,:DWORD
+procdesc SetThreadToken                                       :DWORD,:DWORD
+procdesc SetTokenInformation                                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetTraceCallback                                     :DWORD,:DWORD
+procdesc SetUserFileEncryptionKey                             :DWORD
+procdesc StartServiceA                                        :DWORD,:DWORD,:DWORD
+procdesc StartServiceCtrlDispatcherA                          :DWORD
+procdesc StartServiceCtrlDispatcherW                          :DWORD
+procdesc StartServiceW                                        :DWORD,:DWORD,:DWORD
+procdesc StartTraceA                                          :DWORD,:DWORD,:DWORD
+procdesc StartTraceW                                          :DWORD,:DWORD,:DWORD
+procdesc SynchronizeWindows31FilesAndWindowsNTRegistry        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SystemFunction001                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction002                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction003                                    :DWORD,:DWORD
+procdesc SystemFunction004                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction005                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction006                                    :DWORD,:DWORD
+procdesc SystemFunction007                                    :DWORD,:DWORD
+procdesc SystemFunction008                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction009                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction010                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction011                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction012                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction013                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction014                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction015                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction016                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction017                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction018                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction019                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction020                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction021                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction022                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction023                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction024                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction025                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction026                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction027                                    :DWORD,:DWORD,:DWORD
+procdesc SystemFunction028                                    :DWORD,:DWORD
+procdesc SystemFunction029                                    :DWORD,:DWORD
+procdesc SystemFunction030                                    :DWORD,:DWORD
+procdesc SystemFunction031                                    :DWORD,:DWORD
+procdesc SystemFunction032                                    :DWORD,:DWORD
+procdesc SystemFunction033                                    :DWORD,:DWORD
+procdesc SystemFunction034                                    :DWORD,:DWORD,:DWORD
+procdesc TraceEvent                                           :DWORD,:DWORD,:DWORD
+procdesc TraceEventInstance                                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TrusteeAccessToObjectA                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TrusteeAccessToObjectW                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc UninstallApplication                                 :DWORD
+procdesc UnlockServiceDatabase                                :DWORD
+procdesc UnregisterTraceGuids                                 :DWORD,:DWORD
+procdesc WriteEncryptedFileRaw                                :DWORD,:DWORD,:DWORD

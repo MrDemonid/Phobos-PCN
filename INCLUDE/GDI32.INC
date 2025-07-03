@@ -1,0 +1,477 @@
+include 'windef.inc'
+include 'gdi32.ash'
+
+ifndef @unicode
+         AddFontResource              equ <AddFontResourceA>
+         AddFontResourceEx            equ <AddFontResourceExA>
+         CopyEnhMetaFile              equ <CopyEnhMetaFileA>
+         CopyMetaFile                 equ <CopyMetaFileA>
+         CreateColorSpace             equ <CreateColorSpaceA>
+         CreateDC                     equ <CreateDCA>
+         CreateEnhMetaFile            equ <CreateEnhMetaFileA>
+         CreateFont                   equ <CreateFontA>
+         CreateFontIndirect           equ <CreateFontIndirectA>
+         CreateFontIndirectEx         equ <CreateFontIndirectExA>
+         CreateIC                     equ <CreateICA>
+         CreateMetaFile               equ <CreateMetaFileA>
+         CreateScalableFontResource   equ <CreateScalableFontResourceA>
+         DeviceCapabilitiesEx         equ <DeviceCapabilitiesExA>
+         EnumFontFamilies             equ <EnumFontFamiliesA>
+         EnumFontFamiliesEx           equ <EnumFontFamiliesExA>
+         EnumFonts                    equ <EnumFontsA>
+         EnumICMProfiles              equ <EnumICMProfilesA>
+         ExtTextOut                   equ <ExtTextOutA>
+         GetCharABCWidths             equ <GetCharABCWidthsA>
+         GetCharABCWidthsFloat        equ <GetCharABCWidthsFloatA>
+         GetCharWidth32               equ <GetCharWidth32A>
+         GetCharWidth                 equ <GetCharWidthA>
+         GetCharWidthFloat            equ <GetCharWidthFloatA>
+         GetCharacterPlacement        equ <GetCharacterPlacementA>
+         GetEnhMetaFile               equ <GetEnhMetaFileA>
+         GetEnhMetaFileDescription    equ <GetEnhMetaFileDescriptionA>
+         GetGlyphIndices              equ <GetGlyphIndicesA>
+         GetGlyphOutline              equ <GetGlyphOutlineA>
+         GetICMProfile                equ <GetICMProfileA>
+         GetKerningPairs              equ <GetKerningPairsA>
+         GetLogColorSpace             equ <GetLogColorSpaceA>
+         GetMetaFile                  equ <GetMetaFileA>
+         GetObject                    equ <GetObjectA>
+         GetOutlineTextMetrics        equ <GetOutlineTextMetricsA>
+         GetTextExtentExPoint         equ <GetTextExtentExPointA>
+         GetTextExtentPoint32         equ <GetTextExtentPoint32A>
+         GetTextExtentPoint           equ <GetTextExtentPointA>
+         GetTextFace                  equ <GetTextFaceA>
+         GetTextMetrics               equ <GetTextMetricsA>
+         LineDD                       equ <LineDDA>
+         PolyTextOut                  equ <PolyTextOutA>
+         RemoveFontResource           equ <RemoveFontResourceA>
+         RemoveFontResourceEx         equ <RemoveFontResourceExA>
+         ResetDC                      equ <ResetDCA>
+         SetICMProfile                equ <SetICMProfileA>
+         StartDoc                     equ <StartDocA>
+         TextOut                      equ <TextOutA>
+         UpdateICMRegKey              equ <UpdateICMRegKeyA>
+    else
+         AddFontResource              equ <AddFontResourceW>
+         AddFontResourceEx            equ <AddFontResourceExW>
+         CopyEnhMetaFile              equ <CopyEnhMetaFileW>
+         CopyMetaFile                 equ <CopyMetaFileW>
+         CreateColorSpace             equ <CreateColorSpaceW>
+         CreateDC                     equ <CreateDCW>
+         CreateEnhMetaFile            equ <CreateEnhMetaFileW>
+         CreateFont                   equ <CreateFontW>
+         CreateFontIndirect           equ <CreateFontIndirectW>
+         CreateFontIndirectEx         equ <CreateFontIndirectExW>
+         CreateIC                     equ <CreateICW>
+         CreateMetaFile               equ <CreateMetaFileW>
+         CreateScalableFontResource   equ <CreateScalableFontResourceW>
+         DeviceCapabilitiesEx         equ <DeviceCapabilitiesExW>
+         EnumFontFamilies             equ <EnumFontFamiliesW>
+         EnumFontFamiliesEx           equ <EnumFontFamiliesExW>
+         EnumFonts                    equ <EnumFontsW>
+         EnumICMProfiles              equ <EnumICMProfilesW>
+         ExtTextOut                   equ <ExtTextOutW>
+         GetCharABCWidths             equ <GetCharABCWidthsW>
+         GetCharABCWidthsFloat        equ <GetCharABCWidthsFloatW>
+         GetCharWidth32               equ <GetCharWidth32W>
+         GetCharWidth                 equ <GetCharWidthW>
+         GetCharWidthFloat            equ <GetCharWidthFloatW>
+         GetCharacterPlacement        equ <GetCharacterPlacementW>
+         GetEnhMetaFile               equ <GetEnhMetaFileW>
+         GetEnhMetaFileDescription    equ <GetEnhMetaFileDescriptionW>
+         GetGlyphIndices              equ <GetGlyphIndicesW>
+         GetGlyphOutline              equ <GetGlyphOutlineW>
+         GetICMProfile                equ <GetICMProfileW>
+         GetKerningPairs              equ <GetKerningPairsW>
+         GetLogColorSpace             equ <GetLogColorSpaceW>
+         GetMetaFile                  equ <GetMetaFileW>
+         GetObject                    equ <GetObjectW>
+         GetOutlineTextMetrics        equ <GetOutlineTextMetricsW>
+         GetTextExtentExPoint         equ <GetTextExtentExPointW>
+         GetTextExtentPoint32         equ <GetTextExtentPoint32W>
+         GetTextExtentPoint           equ <GetTextExtentPointW>
+         GetTextFace                  equ <GetTextFaceW>
+         GetTextMetrics               equ <GetTextMetricsW>
+         LineDD                       equ <LineDDW>
+         PolyTextOut                  equ <PolyTextOutW>
+         RemoveFontResource           equ <RemoveFontResourceW>
+         RemoveFontResourceEx         equ <RemoveFontResourceExW>
+         ResetDC                      equ <ResetDCW>
+         SetICMProfile                equ <SetICMProfileW>
+         StartDoc                     equ <StartDocW>
+         TextOut                      equ <TextOutW>
+         UpdateICMRegKey              equ <UpdateICMRegKeyW>
+endif ; @unicode
+
+procdesc AbortDoc                     :DWORD
+procdesc AbortPath                    :DWORD
+procdesc AddFontMemResourceEx         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddFontResourceA             :DWORD
+procdesc AddFontResourceExA           :DWORD,:DWORD,:DWORD
+procdesc AddFontResourceExW           :DWORD,:DWORD,:DWORD
+procdesc AddFontResourceW             :DWORD
+procdesc AngleArc                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AnimatePalette               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc Arc                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ArcTo                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BeginPath                    :DWORD
+procdesc BitBlt                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CancelDC                     :DWORD
+procdesc CheckColorsInGamut           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ChoosePixelFormat            :DWORD,:DWORD
+procdesc Chord                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CloseEnhMetaFile             :DWORD
+procdesc CloseFigure                  :DWORD
+procdesc CloseMetaFile                :DWORD
+procdesc ColorCorrectPalette          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ColorMatchToTarget           :DWORD,:DWORD,:DWORD
+procdesc CombineRgn                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CombineTransform             :DWORD,:DWORD,:DWORD
+procdesc CopyEnhMetaFileA             :DWORD,:DWORD
+procdesc CopyEnhMetaFileW             :DWORD,:DWORD
+procdesc CopyMetaFileA                :DWORD,:DWORD
+procdesc CopyMetaFileW                :DWORD,:DWORD
+procdesc CreateBitmap                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateBitmapIndirect         :DWORD
+procdesc CreateBrushIndirect          :DWORD
+procdesc CreateColorSpaceA            :DWORD
+procdesc CreateColorSpaceW            :DWORD
+procdesc CreateCompatibleBitmap       :DWORD,:DWORD,:DWORD
+procdesc CreateCompatibleDC           :DWORD
+procdesc CreateDCA                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateDCW                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateDIBPatternBrush        :DWORD,:DWORD
+procdesc CreateDIBPatternBrushPt      :DWORD,:DWORD
+procdesc CreateDIBSection             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateDIBitmap               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateDiscardableBitmap      :DWORD,:DWORD,:DWORD
+procdesc CreateEllipticRgn            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateEllipticRgnIndirect    :DWORD
+procdesc CreateEnhMetaFileA           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateEnhMetaFileW           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateFontA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateFontIndirectA          :DWORD
+procdesc CreateFontIndirectExA        :DWORD
+procdesc CreateFontIndirectExW        :DWORD
+procdesc CreateFontIndirectW          :DWORD
+procdesc CreateFontW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateHalftonePalette        :DWORD
+procdesc CreateHatchBrush             :DWORD,:DWORD
+procdesc CreateICA                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateICW                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateMetaFileA              :DWORD
+procdesc CreateMetaFileW              :DWORD
+procdesc CreatePalette                :DWORD
+procdesc CreatePatternBrush           :DWORD
+procdesc CreatePen                    :DWORD,:DWORD,:DWORD
+procdesc CreatePenIndirect            :DWORD
+procdesc CreatePolyPolygonRgn         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreatePolygonRgn             :DWORD,:DWORD,:DWORD
+procdesc CreateRectRgn                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateRectRgnIndirect        :DWORD
+procdesc CreateRoundRectRgn           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateScalableFontResourceA  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateScalableFontResourceW  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateSolidBrush             :DWORD
+procdesc DPtoLP                       :DWORD,:DWORD,:DWORD
+procdesc DeleteColorSpace             :DWORD
+procdesc DeleteDC                     :DWORD
+procdesc DeleteEnhMetaFile            :DWORD
+procdesc DeleteMetaFile               :DWORD
+procdesc DeleteObject                 :DWORD
+procdesc DescribePixelFormat          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DeviceCapabilitiesExA        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DeviceCapabilitiesExW        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawEscape                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc Ellipse                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnableEUDC                   :DWORD
+procdesc EndDoc                       :DWORD
+procdesc EndFormPage                  :DWORD
+procdesc EndPage                      :DWORD
+procdesc EndPath                      :DWORD
+procdesc EnumEnhMetaFile              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumFontFamiliesA            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumFontFamiliesExA          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumFontFamiliesExW          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumFontFamiliesW            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumFontsA                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumFontsW                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumICMProfilesA             :DWORD,:DWORD,:DWORD
+procdesc EnumICMProfilesW             :DWORD,:DWORD,:DWORD
+procdesc EnumMetaFile                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumObjects                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EqualRgn                     :DWORD,:DWORD
+procdesc Escape                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EudcLoadLinkW                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EudcUnloadLinkW              :DWORD,:DWORD
+procdesc ExcludeClipRect              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtCreatePen                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtCreateRegion              :DWORD,:DWORD,:DWORD
+procdesc ExtEscape                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtFloodFill                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtSelectClipRgn             :DWORD,:DWORD,:DWORD
+procdesc ExtTextOutA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtTextOutW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FillPath                     :DWORD
+procdesc FillRgn                      :DWORD,:DWORD,:DWORD
+procdesc FixBrushOrgEx                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FlattenPath                  :DWORD
+procdesc FloodFill                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FrameRgn                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GdiArtificialDecrementDriver :DWORD,:DWORD
+procdesc GdiComment                   :DWORD,:DWORD,:DWORD
+procdesc GdiDeleteSpoolFileHandle     :DWORD
+procdesc GdiEndDocEMF                 :DWORD
+procdesc GdiEndPageEMF                :DWORD,:DWORD
+procdesc GdiFlush
+procdesc GdiGetBatchLimit
+procdesc GdiGetDC                     :DWORD
+procdesc GdiGetDevmodeForPage         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GdiGetPageCount              :DWORD
+procdesc GdiGetPageHandle             :DWORD,:DWORD,:DWORD
+procdesc GdiGetSpoolFileHandle        :DWORD,:DWORD,:DWORD
+procdesc GdiPlayDCScript              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GdiPlayEMF                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GdiPlayJournal               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GdiPlayPageEMF               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GdiPlayPrivatePageEMF        :DWORD,:DWORD,:DWORD
+procdesc GdiPlayScript                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GdiResetDCEMF                :DWORD,:DWORD
+procdesc GdiSetBatchLimit             :DWORD
+procdesc GdiStartDocEMF               :DWORD,:DWORD
+procdesc GdiStartPageEMF              :DWORD
+procdesc GetArcDirection              :DWORD
+procdesc GetAspectRatioFilterEx       :DWORD,:DWORD
+procdesc GetBitmapBits                :DWORD,:DWORD,:DWORD
+procdesc GetBitmapDimensionEx         :DWORD,:DWORD
+procdesc GetBkColor                   :DWORD
+procdesc GetBkMode                    :DWORD
+procdesc GetBoundsRect                :DWORD,:DWORD,:DWORD
+procdesc GetBrushOrgEx                :DWORD,:DWORD
+procdesc GetCharABCWidthsA            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharABCWidthsFloatA       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharABCWidthsFloatW       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharABCWidthsI            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharABCWidthsW            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharWidth32A              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharWidth32W              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharWidthA                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharWidthFloatA           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharWidthFloatW           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharWidthI                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharWidthW                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharacterPlacementA       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCharacterPlacementW       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetClipBox                   :DWORD,:DWORD
+procdesc GetClipRgn                   :DWORD,:DWORD
+procdesc GetColorAdjustment           :DWORD,:DWORD
+procdesc GetColorSpace                :DWORD
+procdesc GetCurrentObject             :DWORD,:DWORD
+procdesc GetCurrentPositionEx         :DWORD,:DWORD
+procdesc GetDCBrushColor              :DWORD
+procdesc GetDCOrgEx                   :DWORD,:DWORD
+procdesc GetDCPenColor                :DWORD
+procdesc GetDIBColorTable             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDIBits                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDeviceCaps                :DWORD,:DWORD
+procdesc GetDeviceGammaRamp           :DWORD,:DWORD
+procdesc GetEnhMetaFileA              :DWORD
+procdesc GetEnhMetaFileBits           :DWORD,:DWORD,:DWORD
+procdesc GetEnhMetaFileDescriptionA   :DWORD,:DWORD,:DWORD
+procdesc GetEnhMetaFileDescriptionW   :DWORD,:DWORD,:DWORD
+procdesc GetEnhMetaFileHeader         :DWORD,:DWORD,:DWORD
+procdesc GetEnhMetaFilePaletteEntries :DWORD,:DWORD,:DWORD
+procdesc GetEnhMetaFilePixelFormat    :DWORD,:DWORD,:DWORD
+procdesc GetEnhMetaFileW              :DWORD
+procdesc GetFontAssocStatus           :DWORD
+procdesc GetFontData                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetFontLanguageInfo          :DWORD
+procdesc GetFontResourceInfoW         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetFontUnicodeRanges         :DWORD,:DWORD
+procdesc GetGlyphIndicesA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetGlyphIndicesW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetGlyphOutlineA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetGlyphOutlineW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetGraphicsMode              :DWORD
+procdesc GetICMProfileA               :DWORD,:DWORD,:DWORD
+procdesc GetICMProfileW               :DWORD,:DWORD,:DWORD
+procdesc GetKerningPairsA             :DWORD,:DWORD,:DWORD
+procdesc GetKerningPairsW             :DWORD,:DWORD,:DWORD
+procdesc GetLayout                    :DWORD
+procdesc GetLogColorSpaceA            :DWORD,:DWORD,:DWORD
+procdesc GetLogColorSpaceW            :DWORD,:DWORD,:DWORD
+procdesc GetMapMode                   :DWORD
+procdesc GetMetaFileA                 :DWORD
+procdesc GetMetaFileBitsEx            :DWORD,:DWORD,:DWORD
+procdesc GetMetaFileW                 :DWORD
+procdesc GetMetaRgn                   :DWORD,:DWORD
+procdesc GetMiterLimit                :DWORD,:DWORD
+procdesc GetNearestColor              :DWORD,:DWORD
+procdesc GetNearestPaletteIndex       :DWORD,:DWORD
+procdesc GetObjectA                   :DWORD,:DWORD,:DWORD
+procdesc GetObjectType                :DWORD
+procdesc GetObjectW                   :DWORD,:DWORD,:DWORD
+procdesc GetOutlineTextMetricsA       :DWORD,:DWORD,:DWORD
+procdesc GetOutlineTextMetricsW       :DWORD,:DWORD,:DWORD
+procdesc GetPaletteEntries            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPath                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPixel                     :DWORD,:DWORD,:DWORD
+procdesc GetPixelFormat               :DWORD
+procdesc GetPolyFillMode              :DWORD
+procdesc GetROP2                      :DWORD
+procdesc GetRandomRgn                 :DWORD,:DWORD,:DWORD
+procdesc GetRasterizerCaps            :DWORD,:DWORD
+procdesc GetRegionData                :DWORD,:DWORD,:DWORD
+procdesc GetRelAbs                    :DWORD,:DWORD
+procdesc GetRgnBox                    :DWORD,:DWORD
+procdesc GetStockObject               :DWORD
+procdesc GetStretchBltMode            :DWORD
+procdesc GetSystemPaletteEntries      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetSystemPaletteUse          :DWORD
+procdesc GetTextAlign                 :DWORD
+procdesc GetTextCharacterExtra        :DWORD
+procdesc GetTextCharset               :DWORD
+procdesc GetTextCharsetInfo           :DWORD,:DWORD,:DWORD
+procdesc GetTextColor                 :DWORD
+procdesc GetTextExtentExPointA        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTextExtentExPointI        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTextExtentExPointW        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTextExtentPoint32A        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTextExtentPoint32W        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTextExtentPointA          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTextExtentPointI          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTextExtentPointW          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTextFaceA                 :DWORD,:DWORD,:DWORD
+procdesc GetTextFaceW                 :DWORD,:DWORD,:DWORD
+procdesc GetTextMetricsA              :DWORD,:DWORD
+procdesc GetTextMetricsW              :DWORD,:DWORD
+procdesc GetViewportExtEx             :DWORD,:DWORD
+procdesc GetViewportOrgEx             :DWORD,:DWORD
+procdesc GetWinMetaFileBits           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetWindowExtEx               :DWORD,:DWORD
+procdesc GetWindowOrgEx               :DWORD,:DWORD
+procdesc GetWorldTransform            :DWORD,:DWORD
+procdesc IntersectClipRect            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InvertRgn                    :DWORD,:DWORD
+procdesc LPtoDP                       :DWORD,:DWORD,:DWORD
+procdesc LineDDW                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LineDDA                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LineTo                       :DWORD,:DWORD,:DWORD
+procdesc MaskBlt                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ModifyWorldTransform         :DWORD,:DWORD,:DWORD
+procdesc MoveToEx                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc OffsetClipRgn                :DWORD,:DWORD,:DWORD
+procdesc OffsetRgn                    :DWORD,:DWORD,:DWORD
+procdesc OffsetViewportOrgEx          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc OffsetWindowOrgEx            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PaintRgn                     :DWORD,:DWORD
+procdesc PatBlt                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PathToRegion                 :DWORD
+procdesc Pie                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PlayEnhMetaFile              :DWORD,:DWORD,:DWORD
+procdesc PlayEnhMetaFileRecord        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PlayMetaFile                 :DWORD,:DWORD
+procdesc PlayMetaFileRecord           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PlgBlt                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PolyBezier                   :DWORD,:DWORD,:DWORD
+procdesc PolyBezierTo                 :DWORD,:DWORD,:DWORD
+procdesc PolyDraw                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PolyPolygon                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PolyPolyline                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PolyTextOutA                 :DWORD,:DWORD,:DWORD
+procdesc PolyTextOutW                 :DWORD,:DWORD,:DWORD
+procdesc Polygon                      :DWORD,:DWORD,:DWORD
+procdesc Polyline                     :DWORD,:DWORD,:DWORD
+procdesc PolylineTo                   :DWORD,:DWORD,:DWORD
+procdesc PtInRegion                   :DWORD,:DWORD,:DWORD
+procdesc PtVisible                    :DWORD,:DWORD,:DWORD
+procdesc RealizePalette               :DWORD
+procdesc RectInRegion                 :DWORD,:DWORD
+procdesc RectVisible                  :DWORD,:DWORD
+procdesc Rectangle                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RemoveFontMemResourceEx      :DWORD
+procdesc RemoveFontResourceA          :DWORD
+procdesc RemoveFontResourceExA        :DWORD,:DWORD,:DWORD
+procdesc RemoveFontResourceExW        :DWORD,:DWORD,:DWORD
+procdesc RemoveFontResourceW          :DWORD
+procdesc ResetDCA                     :DWORD,:DWORD
+procdesc ResetDCW                     :DWORD,:DWORD
+procdesc ResizePalette                :DWORD,:DWORD
+procdesc RestoreDC                    :DWORD,:DWORD
+procdesc RoundRect                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SaveDC                       :DWORD
+procdesc ScaleViewportExtEx           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ScaleWindowExtEx             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SelectBrushLocal             :DWORD,:DWORD
+procdesc SelectClipPath               :DWORD,:DWORD
+procdesc SelectClipRgn                :DWORD,:DWORD
+procdesc SelectFontLocal              :DWORD,:DWORD
+procdesc SelectObject                 :DWORD,:DWORD
+procdesc SelectPalette                :DWORD,:DWORD,:DWORD
+procdesc SetAbortProc                 :DWORD,:DWORD
+procdesc SetArcDirection              :DWORD,:DWORD
+procdesc SetBitmapBits                :DWORD,:DWORD,:DWORD
+procdesc SetBitmapDimensionEx         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetBkColor                   :DWORD,:DWORD
+procdesc SetBkMode                    :DWORD,:DWORD
+procdesc SetBoundsRect                :DWORD,:DWORD,:DWORD
+procdesc SetBrushOrgEx                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetColorAdjustment           :DWORD,:DWORD
+procdesc SetColorSpace                :DWORD,:DWORD
+procdesc SetDCBrushColor              :DWORD,:DWORD
+procdesc SetDCPenColor                :DWORD,:DWORD
+procdesc SetDIBColorTable             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetDIBits                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetDIBitsToDevice            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetDeviceGammaRamp           :DWORD,:DWORD
+procdesc SetEnhMetaFileBits           :DWORD,:DWORD
+procdesc SetFontEnumeration           :DWORD
+procdesc SetGraphicsMode              :DWORD,:DWORD
+procdesc SetICMMode                   :DWORD,:DWORD
+procdesc SetICMProfileA               :DWORD,:DWORD
+procdesc SetICMProfileW               :DWORD,:DWORD
+procdesc SetLayout                    :DWORD,:DWORD
+procdesc SetMagicColors               :DWORD,:DWORD,:DWORD
+procdesc SetMapMode                   :DWORD,:DWORD
+procdesc SetMapperFlags               :DWORD,:DWORD
+procdesc SetMetaFileBitsEx            :DWORD,:DWORD
+procdesc SetMetaRgn                   :DWORD
+procdesc SetMiterLimit                :DWORD,:DWORD,:DWORD
+procdesc SetPaletteEntries            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPixel                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPixelFormat               :DWORD,:DWORD,:DWORD
+procdesc SetPixelV                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPolyFillMode              :DWORD,:DWORD
+procdesc SetROP2                      :DWORD,:DWORD
+procdesc SetRectRgn                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetRelAbs                    :DWORD,:DWORD
+procdesc SetStretchBltMode            :DWORD,:DWORD
+procdesc SetSystemPaletteUse          :DWORD,:DWORD
+procdesc SetTextAlign                 :DWORD,:DWORD
+procdesc SetTextCharacterExtra        :DWORD,:DWORD
+procdesc SetTextColor                 :DWORD,:DWORD
+procdesc SetTextJustification         :DWORD,:DWORD,:DWORD
+procdesc SetViewportExtEx             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetViewportOrgEx             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetWinMetaFileBits           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetWindowExtEx               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetWindowOrgEx               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetWorldTransform            :DWORD,:DWORD
+procdesc StartDocA                    :DWORD,:DWORD
+procdesc StartDocW                    :DWORD,:DWORD
+procdesc StartFormPage                :DWORD
+procdesc StartPage                    :DWORD
+procdesc StretchBlt                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc StretchDIBits                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc StrokeAndFillPath            :DWORD
+procdesc StrokePath                   :DWORD
+procdesc SwapBuffers                  :DWORD
+procdesc TextOutA                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TextOutW                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TranslateCharsetInfo         :DWORD,:DWORD,:DWORD
+procdesc UnrealizeObject              :DWORD
+procdesc UpdateColors                 :DWORD
+procdesc UpdateICMRegKeyA             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc UpdateICMRegKeyW             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc WidenPath                    :DWORD
+procdesc gdiPlaySpoolStream           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD

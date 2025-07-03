@@ -1,0 +1,41 @@
+#include "res\resource.h"
+
+
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+1 VERSIONINFO
+FILEVERSION 2,6,0,000
+PRODUCTVERSION 2,6,0,000
+FILEOS 0x00000004
+FILETYPE 0x00000001
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "041904E3"
+    BEGIN
+      VALUE "CompanyName", "Andrey Hlus\0"
+      VALUE "FileDescription", "Сигнализация ПАО Пензмаш\0"
+      VALUE "FileVersion", "2, 6, 0, 000\0"
+      VALUE "InternalName", "ALARM\0"
+      VALUE "LegalCopyright", "Andrey Hlus, 2009\0"
+      VALUE "LegalTrademarks", "Andrey Hlus from Zagoskino\0"
+      VALUE "OriginalFilename", "ALARM.EXE\0"
+      VALUE "ProductVersion", "2, 6, 0, 000\0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x0419, 0x04E3, 0x0409, 0x04E4
+  END
+END
+
+
+#define IDI_APPICO 3020
+#define IDR_TABBMP 3021
+
+
+IDI_APPICO ICON "RES\\ALARM.ICO"
+IDR_TABBMP BITMAP "RES\\TABCTRL.BMP"
+
+
+#include "logdlg.rc"

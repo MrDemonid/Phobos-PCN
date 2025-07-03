@@ -1,0 +1,80 @@
+ifndef @unicode
+         IsLoggingEnabled                    equ <IsLoggingEnabledA>
+         URLDownload                         equ <URLDownloadA>
+         URLDownloadToCacheFile              equ <URLDownloadToCacheFileA>
+         URLDownloadToFile                   equ <URLDownloadToFileA>
+         URLOpenBlockingStream               equ <URLOpenBlockingStreamA>
+         URLOpenPullStream                   equ <URLOpenPullStreamA>
+         URLOpenStream                       equ <URLOpenStreamA>
+    else
+         IsLoggingEnabled                    equ <IsLoggingEnabledW>
+         URLDownload                         equ <URLDownloadW>
+         URLDownloadToCacheFile              equ <URLDownloadToCacheFileW>
+         URLDownloadToFile                   equ <URLDownloadToFileW>
+         URLOpenBlockingStream               equ <URLOpenBlockingStreamW>
+         URLOpenPullStream                   equ <URLOpenPullStreamW>
+         URLOpenStream                       equ <URLOpenStreamW>
+endif ; @unicode
+
+procdesc BindAsyncMoniker                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CoGetClassObjectFromURL             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CoInternetCombineUrl                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CoInternetCompareUrl                :DWORD,:DWORD,:DWORD
+procdesc CoInternetCreateSecurityManager     :DWORD,:DWORD,:DWORD
+procdesc CoInternetCreateZoneManager         :DWORD,:DWORD,:DWORD
+procdesc CoInternetGetProtocolFlags          :DWORD,:DWORD,:DWORD
+procdesc CoInternetGetSecurityUrl            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CoInternetGetSession                :DWORD,:DWORD,:DWORD
+procdesc CoInternetParseUrl                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CoInternetQueryInfo                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CopyBindInfo                        :DWORD,:DWORD
+procdesc CopyStgMedium                       :DWORD,:DWORD
+procdesc CreateAsyncBindCtx                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateAsyncBindCtxEx                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateFormatEnumerator              :DWORD,:DWORD,:DWORD
+procdesc CreateURLMoniker                    :DWORD,:DWORD,:DWORD
+procdesc Extract                             :DWORD,:DWORD
+procdesc FaultInIEFeature                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindMediaType                       :DWORD,:DWORD
+procdesc FindMediaTypeClass                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindMimeFromData                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetClassFileOrMime                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetClassURL                         :DWORD,:DWORD
+procdesc GetComponentIDFromCLSSPEC           :DWORD,:DWORD
+procdesc GetSoftwareUpdateInfo               :DWORD,:DWORD
+procdesc HlinkGoBack                         :DWORD
+procdesc HlinkGoForward                      :DWORD
+procdesc HlinkNavigateMoniker                :DWORD,:DWORD
+procdesc HlinkNavigateString                 :DWORD,:DWORD
+procdesc HlinkSimpleNavigateToMoniker        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HlinkSimpleNavigateToString         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc IsAsyncMoniker                      :DWORD
+procdesc IsLoggingEnabledA                   :DWORD
+procdesc IsLoggingEnabledW                   :DWORD
+procdesc IsValidURL                          :DWORD,:DWORD,:DWORD
+procdesc MkParseDisplayNameEx                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ObtainUserAgentString               :DWORD,:DWORD,:DWORD
+procdesc RegisterBindStatusCallback          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegisterFormatEnumerator            :DWORD,:DWORD,:DWORD
+procdesc RegisterMediaTypeClass              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegisterMediaTypes                  :DWORD,:DWORD,:DWORD
+procdesc ReleaseBindInfo                     :DWORD
+procdesc RevokeBindStatusCallback            :DWORD,:DWORD
+procdesc RevokeFormatEnumerator              :DWORD,:DWORD
+procdesc SetSoftwareUpdateAdvertisementState :DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLDownloadA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLDownloadToCacheFileA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLDownloadToCacheFileW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLDownloadToFileA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLDownloadToFileW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLDownloadW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLOpenBlockingStreamA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLOpenBlockingStreamW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLOpenPullStreamA                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLOpenPullStreamW                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLOpenStreamA                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc URLOpenStreamW                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc UrlMkBuildVersion                   
+procdesc UrlMkGetSessionOption               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc UrlMkSetSessionOption               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteHitLogging                     :DWORD

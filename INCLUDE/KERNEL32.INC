@@ -1,0 +1,1042 @@
+include 'windef.inc'
+include 'kernel32.ash'
+
+ifndef @unicode
+         AddAtom                               equ <AddAtomA>
+         BeginUpdateResource                   equ <BeginUpdateResourceA>
+         BuildCommDCB                          equ <BuildCommDCBA>
+         BuildCommDCBAndTimeouts               equ <BuildCommDCBAndTimeoutsA>
+         CallNamedPipe                         equ <CallNamedPipeA>
+         CommConfigDialog                      equ <CommConfigDialogA>
+         CompareString                         equ <CompareStringA>
+         CopyFile                              equ <CopyFileA>
+         CopyFileEx                            equ <CopyFileExA>
+         CreateDirectory                       equ <CreateDirectoryA>
+         CreateDirectoryEx                     equ <CreateDirectoryExA>
+         CreateEvent                           equ <CreateEventA>
+         CreateFile                            equ <CreateFileA>
+         CreateFileMapping                     equ <CreateFileMappingA>
+         CreateHardLink                        equ <CreateHardLinkA>
+         CreateJobObject                       equ <CreateJobObjectA>
+         CreateMailslot                        equ <CreateMailslotA>
+         CreateMutex                           equ <CreateMutexA>
+         CreateNamedPipe                       equ <CreateNamedPipeA>
+         CreateProcess                         equ <CreateProcessA>
+         CreateSemaphore                       equ <CreateSemaphoreA>
+         CreateWaitableTimer                   equ <CreateWaitableTimerA>
+         DefineDosDevice                       equ <DefineDosDeviceA>
+         DeleteFile                            equ <DeleteFileA>
+         DeleteVolumeMountPoint                equ <DeleteVolumeMountPointA>
+         DnsHostnameToComputerName             equ <DnsHostnameToComputerNameA>
+         EndUpdateResource                     equ <EndUpdateResourceA>
+         EnumCalendarInfo                      equ <EnumCalendarInfoA>
+         EnumCalendarInfoEx                    equ <EnumCalendarInfoExA>
+         EnumDateFormats                       equ <EnumDateFormatsA>
+         EnumDateFormatsEx                     equ <EnumDateFormatsExA>
+         EnumLanguageGroupLocales              equ <EnumLanguageGroupLocalesA>
+         EnumResourceLanguages                 equ <EnumResourceLanguagesA>
+         EnumResourceNames                     equ <EnumResourceNamesA>
+         EnumResourceTypes                     equ <EnumResourceTypesA>
+         EnumSystemCodePages                   equ <EnumSystemCodePagesA>
+         EnumSystemLanguageGroups              equ <EnumSystemLanguageGroupsA>
+         EnumSystemLocales                     equ <EnumSystemLocalesA>
+         EnumTimeFormats                       equ <EnumTimeFormatsA>
+         EnumUILanguages                       equ <EnumUILanguagesA>
+         ExpandEnvironmentStrings              equ <ExpandEnvironmentStringsA>
+         FatalAppExit                          equ <FatalAppExitA>
+         FillConsoleOutputCharacter            equ <FillConsoleOutputCharacterA>
+         FindAtom                              equ <FindAtomA>
+         FindFirstChangeNotification           equ <FindFirstChangeNotificationA>
+         FindFirstFile                         equ <FindFirstFileA>
+         FindFirstFileEx                       equ <FindFirstFileExA>
+         FindFirstVolume                       equ <FindFirstVolumeA>
+         FindFirstVolumeMountPoint             equ <FindFirstVolumeMountPointA>
+         FindNextFile                          equ <FindNextFileA>
+         FindNextVolume                        equ <FindNextVolumeA>
+         FindNextVolumeMountPoint              equ <FindNextVolumeMountPointA>
+         FindResource                          equ <FindResourceA>
+         FindResourceEx                        equ <FindResourceExA>
+         FoldString                            equ <FoldStringA>
+         FormatMessage                         equ <FormatMessageA>
+         FreeEnvironmentStrings                equ <FreeEnvironmentStringsA>
+         GetAtomName                           equ <GetAtomNameA>
+         GetBinaryType                         equ <GetBinaryTypeA>
+         GetCPInfoEx                           equ <GetCPInfoExA>
+         GetCalendarInfo                       equ <GetCalendarInfoA>
+         GetCommandLine                        equ <GetCommandLineA>
+         GetCompressedFileSize                 equ <GetCompressedFileSizeA>
+         GetComputerName                       equ <GetComputerNameA>
+         GetComputerNameEx                     equ <GetComputerNameExA>
+         GetConsoleTitle                       equ <GetConsoleTitleA>
+         GetCurrencyFormat                     equ <GetCurrencyFormatA>
+         GetCurrentDirectory                   equ <GetCurrentDirectoryA>
+         GetDateFormat                         equ <GetDateFormatA>
+         GetDefaultCommConfig                  equ <GetDefaultCommConfigA>
+         GetDiskFreeSpace                      equ <GetDiskFreeSpaceA>
+         GetDiskFreeSpaceEx                    equ <GetDiskFreeSpaceExA>
+         GetDriveType                          equ <GetDriveTypeA>
+         GetEnvironmentStrings                 equ <GetEnvironmentStringsA>
+         GetEnvironmentVariable                equ <GetEnvironmentVariableA>
+         GetFileAttributes                     equ <GetFileAttributesA>
+         GetFileAttributesEx                   equ <GetFileAttributesExA>
+         GetFullPathName                       equ <GetFullPathNameA>
+         GetLocaleInfo                         equ <GetLocaleInfoA>
+         GetLogicalDriveStrings                equ <GetLogicalDriveStringsA>
+         GetLongPathName                       equ <GetLongPathNameA>
+         GetModuleFileName                     equ <GetModuleFileNameA>
+         GetModuleHandle                       equ <GetModuleHandleA>
+         GetNamedPipeHandleState               equ <GetNamedPipeHandleStateA>
+         GetNumberFormat                       equ <GetNumberFormatA>
+         GetPrivateProfileInt                  equ <GetPrivateProfileIntA>
+         GetPrivateProfileSection              equ <GetPrivateProfileSectionA>
+         GetPrivateProfileSectionNames         equ <GetPrivateProfileSectionNamesA>
+         GetPrivateProfileString               equ <GetPrivateProfileStringA>
+         GetPrivateProfileStruct               equ <GetPrivateProfileStructA>
+         GetProfileInt                         equ <GetProfileIntA>
+         GetProfileSection                     equ <GetProfileSectionA>
+         GetProfileString                      equ <GetProfileStringA>
+         GetShortPathName                      equ <GetShortPathNameA>
+         GetStartupInfo                        equ <GetStartupInfoA>
+         GetStringType                         equ <GetStringTypeA>
+         GetStringTypeEx                       equ <GetStringTypeExA>
+         GetSystemDirectory                    equ <GetSystemDirectoryA>
+         GetSystemWindowsDirectory             equ <GetSystemWindowsDirectoryA>
+         GetTempFileName                       equ <GetTempFileNameA>
+         GetTempPath                           equ <GetTempPathA>
+         GetTimeFormat                         equ <GetTimeFormatA>
+         GetVersionEx                          equ <GetVersionExA>
+         GetVolumeInformation                  equ <GetVolumeInformationA>
+         GetVolumeNameForVolumeMountPoint      equ <GetVolumeNameForVolumeMountPointA>
+         GetVolumePathName                     equ <GetVolumePathNameA>
+         GetWindowsDirectory                   equ <GetWindowsDirectoryA>
+         GlobalAddAtom                         equ <GlobalAddAtomA>
+         GlobalFindAtom                        equ <GlobalFindAtomA>
+         GlobalGetAtomName                     equ <GlobalGetAtomNameA>
+         IsBadStringPtr                        equ <IsBadStringPtrA>
+         LCMapString                           equ <LCMapStringA>
+         LoadLibrary                           equ <LoadLibraryA>
+         LoadLibraryEx                         equ <LoadLibraryExA>
+         MoveFile                              equ <MoveFileA>
+         MoveFileEx                            equ <MoveFileExA>
+         MoveFileWithProgress                  equ <MoveFileWithProgressA>
+         OpenEvent                             equ <OpenEventA>
+         OpenFileMapping                       equ <OpenFileMappingA>
+         OpenJobObject                         equ <OpenJobObjectA>
+         OpenMutex                             equ <OpenMutexA>
+         OpenSemaphore                         equ <OpenSemaphoreA>
+         OpenWaitableTimer                     equ <OpenWaitableTimerA>
+         OutputDebugString                     equ <OutputDebugStringA>
+         PeekConsoleInput                      equ <PeekConsoleInputA>
+         QueryDosDevice                        equ <QueryDosDeviceA>
+         ReadConsole                           equ <ReadConsoleA>
+         ReadConsoleInput                      equ <ReadConsoleInputA>
+         ReadConsoleOutput                     equ <ReadConsoleOutputA>
+         ReadConsoleOutputCharacter            equ <ReadConsoleOutputCharacterA>
+         RemoveDirectory                       equ <RemoveDirectoryA>
+         ReplaceFile                           equ <ReplaceFileA>
+         ScrollConsoleScreenBuffer             equ <ScrollConsoleScreenBufferA>
+         SearchPath                            equ <SearchPathA>
+         SetCalendarInfo                       equ <SetCalendarInfoA>
+         SetComputerName                       equ <SetComputerNameA>
+         SetComputerNameEx                     equ <SetComputerNameExA>
+         SetConsoleTitle                       equ <SetConsoleTitleA>
+         SetCurrentDirectory                   equ <SetCurrentDirectoryA>
+         SetDefaultCommConfig                  equ <SetDefaultCommConfigA>
+         SetEnvironmentVariable                equ <SetEnvironmentVariableA>
+         SetFileAttributes                     equ <SetFileAttributesA>
+         SetLocaleInfo                         equ <SetLocaleInfoA>
+         SetVolumeLabel                        equ <SetVolumeLabelA>
+         SetVolumeMountPoint                   equ <SetVolumeMountPointA>
+         UpdateResource                        equ <UpdateResourceA>
+         VerLanguageName                       equ <VerLanguageNameA>
+         VerifyVersionInfo                     equ <VerifyVersionInfoA>
+         WaitNamedPipe                         equ <WaitNamedPipeA>
+         WriteConsole                          equ <WriteConsoleA>
+         WriteConsoleInput                     equ <WriteConsoleInputA>
+         WriteConsoleOutput                    equ <WriteConsoleOutputA>
+         WriteConsoleOutputCharacter           equ <WriteConsoleOutputCharacterA>
+         WritePrivateProfileSection            equ <WritePrivateProfileSectionA>
+         WritePrivateProfileString             equ <WritePrivateProfileStringA>
+         WritePrivateProfileStruct             equ <WritePrivateProfileStructA>
+         WriteProfileSection                   equ <WriteProfileSectionA>
+         WriteProfileString                    equ <WriteProfileStringA>
+         lstrcat                               equ <lstrcatA>
+         lstrcmp                               equ <lstrcmpA>
+         lstrcmpi                              equ <lstrcmpiA>
+         lstrcpy                               equ <lstrcpyA>
+         lstrcpyn                              equ <lstrcpynA>
+         lstrlen                               equ <lstrlenA>
+    else
+         AddAtom                               equ <AddAtomW>
+         BeginUpdateResource                   equ <BeginUpdateResourceW>
+         BuildCommDCB                          equ <BuildCommDCBW>
+         BuildCommDCBAndTimeouts               equ <BuildCommDCBAndTimeoutsW>
+         CallNamedPipe                         equ <CallNamedPipeW>
+         CommConfigDialog                      equ <CommConfigDialogW>
+         CompareString                         equ <CompareStringW>
+         CopyFile                              equ <CopyFileW>
+         CopyFileEx                            equ <CopyFileExW>
+         CreateDirectory                       equ <CreateDirectoryW>
+         CreateDirectoryEx                     equ <CreateDirectoryExW>
+         CreateEvent                           equ <CreateEventW>
+         CreateFile                            equ <CreateFileW>
+         CreateFileMapping                     equ <CreateFileMappingW>
+         CreateHardLink                        equ <CreateHardLinkW>
+         CreateJobObject                       equ <CreateJobObjectW>
+         CreateMailslot                        equ <CreateMailslotW>
+         CreateMutex                           equ <CreateMutexW>
+         CreateNamedPipe                       equ <CreateNamedPipeW>
+         CreateProcess                         equ <CreateProcessW>
+         CreateSemaphore                       equ <CreateSemaphoreW>
+         CreateWaitableTimer                   equ <CreateWaitableTimerW>
+         DefineDosDevice                       equ <DefineDosDeviceW>
+         DeleteFile                            equ <DeleteFileW>
+         DeleteVolumeMountPoint                equ <DeleteVolumeMountPointW>
+         DnsHostnameToComputerName             equ <DnsHostnameToComputerNameW>
+         EndUpdateResource                     equ <EndUpdateResourceW>
+         EnumCalendarInfo                      equ <EnumCalendarInfoW>
+         EnumCalendarInfoEx                    equ <EnumCalendarInfoExW>
+         EnumDateFormats                       equ <EnumDateFormatsW>
+         EnumDateFormatsEx                     equ <EnumDateFormatsExW>
+         EnumLanguageGroupLocales              equ <EnumLanguageGroupLocalesW>
+         EnumResourceLanguages                 equ <EnumResourceLanguagesW>
+         EnumResourceNames                     equ <EnumResourceNamesW>
+         EnumResourceTypes                     equ <EnumResourceTypesW>
+         EnumSystemCodePages                   equ <EnumSystemCodePagesW>
+         EnumSystemLanguageGroups              equ <EnumSystemLanguageGroupsW>
+         EnumSystemLocales                     equ <EnumSystemLocalesW>
+         EnumTimeFormats                       equ <EnumTimeFormatsW>
+         EnumUILanguages                       equ <EnumUILanguagesW>
+         ExpandEnvironmentStrings              equ <ExpandEnvironmentStringsW>
+         FatalAppExit                          equ <FatalAppExitW>
+         FillConsoleOutputCharacter            equ <FillConsoleOutputCharacterW>
+         FindAtom                              equ <FindAtomW>
+         FindFirstChangeNotification           equ <FindFirstChangeNotificationW>
+         FindFirstFile                         equ <FindFirstFileW>
+         FindFirstFileEx                       equ <FindFirstFileExW>
+         FindFirstVolume                       equ <FindFirstVolumeW>
+         FindFirstVolumeMountPoint             equ <FindFirstVolumeMountPointW>
+         FindNextFile                          equ <FindNextFileW>
+         FindNextVolume                        equ <FindNextVolumeW>
+         FindNextVolumeMountPoint              equ <FindNextVolumeMountPointW>
+         FindResource                          equ <FindResourceW>
+         FindResourceEx                        equ <FindResourceExW>
+         FoldString                            equ <FoldStringW>
+         FormatMessage                         equ <FormatMessageW>
+         FreeEnvironmentStrings                equ <FreeEnvironmentStringsW>
+         GetAtomName                           equ <GetAtomNameW>
+         GetBinaryType                         equ <GetBinaryTypeW>
+         GetCPInfoEx                           equ <GetCPInfoExW>
+         GetCalendarInfo                       equ <GetCalendarInfoW>
+         GetCommandLine                        equ <GetCommandLineW>
+         GetCompressedFileSize                 equ <GetCompressedFileSizeW>
+         GetComputerName                       equ <GetComputerNameW>
+         GetComputerNameEx                     equ <GetComputerNameExW>
+         GetConsoleTitle                       equ <GetConsoleTitleW>
+         GetCurrencyFormat                     equ <GetCurrencyFormatW>
+         GetCurrentDirectory                   equ <GetCurrentDirectoryW>
+         GetDateFormat                         equ <GetDateFormatW>
+         GetDefaultCommConfig                  equ <GetDefaultCommConfigW>
+         GetDiskFreeSpace                      equ <GetDiskFreeSpaceW>
+         GetDiskFreeSpaceEx                    equ <GetDiskFreeSpaceExW>
+         GetDriveType                          equ <GetDriveTypeW>
+         GetEnvironmentStrings                 equ <GetEnvironmentStringsW>
+         GetEnvironmentVariable                equ <GetEnvironmentVariableW>
+         GetFileAttributes                     equ <GetFileAttributesW>
+         GetFileAttributesEx                   equ <GetFileAttributesExW>
+         GetFullPathName                       equ <GetFullPathNameW>
+         GetLocaleInfo                         equ <GetLocaleInfoW>
+         GetLogicalDriveStrings                equ <GetLogicalDriveStringsW>
+         GetLongPathName                       equ <GetLongPathNameW>
+         GetModuleFileName                     equ <GetModuleFileNameW>
+         GetModuleHandle                       equ <GetModuleHandleW>
+         GetNamedPipeHandleState               equ <GetNamedPipeHandleStateW>
+         GetNumberFormat                       equ <GetNumberFormatW>
+         GetPrivateProfileInt                  equ <GetPrivateProfileIntW>
+         GetPrivateProfileSection              equ <GetPrivateProfileSectionW>
+         GetPrivateProfileSectionNames         equ <GetPrivateProfileSectionNamesW>
+         GetPrivateProfileString               equ <GetPrivateProfileStringW>
+         GetPrivateProfileStruct               equ <GetPrivateProfileStructW>
+         GetProfileInt                         equ <GetProfileIntW>
+         GetProfileSection                     equ <GetProfileSectionW>
+         GetProfileString                      equ <GetProfileStringW>
+         GetShortPathName                      equ <GetShortPathNameW>
+         GetStartupInfo                        equ <GetStartupInfoW>
+         GetStringType                         equ <GetStringTypeW>
+         GetStringTypeEx                       equ <GetStringTypeExW>
+         GetSystemDirectory                    equ <GetSystemDirectoryW>
+         GetSystemWindowsDirectory             equ <GetSystemWindowsDirectoryW>
+         GetTempFileName                       equ <GetTempFileNameW>
+         GetTempPath                           equ <GetTempPathW>
+         GetTimeFormat                         equ <GetTimeFormatW>
+         GetVersionEx                          equ <GetVersionExW>
+         GetVolumeInformation                  equ <GetVolumeInformationW>
+         GetVolumeNameForVolumeMountPoint      equ <GetVolumeNameForVolumeMountPointW>
+         GetVolumePathName                     equ <GetVolumePathNameW>
+         GetWindowsDirectory                   equ <GetWindowsDirectoryW>
+         GlobalAddAtom                         equ <GlobalAddAtomW>
+         GlobalFindAtom                        equ <GlobalFindAtomW>
+         GlobalGetAtomName                     equ <GlobalGetAtomNameW>
+         IsBadStringPtr                        equ <IsBadStringPtrW>
+         LCMapString                           equ <LCMapStringW>
+         LoadLibrary                           equ <LoadLibraryW>
+         LoadLibraryEx                         equ <LoadLibraryExW>
+         MoveFile                              equ <MoveFileW>
+         MoveFileEx                            equ <MoveFileExW>
+         MoveFileWithProgress                  equ <MoveFileWithProgressW>
+         OpenEvent                             equ <OpenEventW>
+         OpenFileMapping                       equ <OpenFileMappingW>
+         OpenJobObject                         equ <OpenJobObjectW>
+         OpenMutex                             equ <OpenMutexW>
+         OpenSemaphore                         equ <OpenSemaphoreW>
+         OpenWaitableTimer                     equ <OpenWaitableTimerW>
+         OutputDebugString                     equ <OutputDebugStringW>
+         PeekConsoleInput                      equ <PeekConsoleInputW>
+         QueryDosDevice                        equ <QueryDosDeviceW>
+         ReadConsole                           equ <ReadConsoleW>
+         ReadConsoleInput                      equ <ReadConsoleInputW>
+         ReadConsoleOutput                     equ <ReadConsoleOutputW>
+         ReadConsoleOutputCharacter            equ <ReadConsoleOutputCharacterW>
+         RemoveDirectory                       equ <RemoveDirectoryW>
+         ReplaceFile                           equ <ReplaceFileW>
+         ScrollConsoleScreenBuffer             equ <ScrollConsoleScreenBufferW>
+         SearchPath                            equ <SearchPathW>
+         SetCalendarInfo                       equ <SetCalendarInfoW>
+         SetComputerName                       equ <SetComputerNameW>
+         SetComputerNameEx                     equ <SetComputerNameExW>
+         SetConsoleTitle                       equ <SetConsoleTitleW>
+         SetCurrentDirectory                   equ <SetCurrentDirectoryW>
+         SetDefaultCommConfig                  equ <SetDefaultCommConfigW>
+         SetEnvironmentVariable                equ <SetEnvironmentVariableW>
+         SetFileAttributes                     equ <SetFileAttributesW>
+         SetLocaleInfo                         equ <SetLocaleInfoW>
+         SetVolumeLabel                        equ <SetVolumeLabelW>
+         SetVolumeMountPoint                   equ <SetVolumeMountPointW>
+         UpdateResource                        equ <UpdateResourceW>
+         VerLanguageName                       equ <VerLanguageNameW>
+         VerifyVersionInfo                     equ <VerifyVersionInfoW>
+         WaitNamedPipe                         equ <WaitNamedPipeW>
+         WriteConsole                          equ <WriteConsoleW>
+         WriteConsoleInput                     equ <WriteConsoleInputW>
+         WriteConsoleOutput                    equ <WriteConsoleOutputW>
+         WriteConsoleOutputCharacter           equ <WriteConsoleOutputCharacterW>
+         WritePrivateProfileSection            equ <WritePrivateProfileSectionW>
+         WritePrivateProfileString             equ <WritePrivateProfileStringW>
+         WritePrivateProfileStruct             equ <WritePrivateProfileStructW>
+         WriteProfileSection                   equ <WriteProfileSectionW>
+         WriteProfileString                    equ <WriteProfileStringW>
+         lstrcat                               equ <lstrcatW>
+         lstrcmp                               equ <lstrcmpW>
+         lstrcmpi                              equ <lstrcmpiW>
+         lstrcpy                               equ <lstrcpyW>
+         lstrcpyn                              equ <lstrcpynW>
+         lstrlen                               equ <lstrlenW>
+endif ; @unicode
+
+procdesc AddAtomA                              :DWORD
+procdesc AddAtomW                              :DWORD
+procdesc AllocConsole
+procdesc AllocateUserPhysicalPages             :DWORD,:DWORD,:DWORD
+procdesc AreFileApisANSI
+procdesc AssignProcessToJobObject              :DWORD,:DWORD
+procdesc BackupRead                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BackupSeek                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BackupWrite                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc Beep                                  :DWORD,:DWORD
+procdesc BeginUpdateResourceA                  :DWORD,:DWORD
+procdesc BeginUpdateResourceW                  :DWORD,:DWORD
+procdesc BindIoCompletionCallback              :DWORD,:DWORD,:DWORD
+procdesc BuildCommDCBA                         :DWORD,:DWORD
+procdesc BuildCommDCBAndTimeoutsA              :DWORD,:DWORD,:DWORD
+procdesc BuildCommDCBAndTimeoutsW              :DWORD,:DWORD,:DWORD
+procdesc BuildCommDCBW                         :DWORD,:DWORD
+procdesc CallNamedPipeA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CallNamedPipeW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CancelDeviceWakeupRequest             :DWORD
+procdesc CancelIo                              :DWORD
+procdesc CancelTimerQueueTimer                 :DWORD,:DWORD
+procdesc CancelWaitableTimer                   :DWORD
+procdesc ChangeTimerQueueTimer                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ClearCommBreak                        :DWORD
+procdesc ClearCommError                        :DWORD,:DWORD,:DWORD
+procdesc CloseHandle                           :DWORD
+procdesc CommConfigDialogA                     :DWORD,:DWORD,:DWORD
+procdesc CommConfigDialogW                     :DWORD,:DWORD,:DWORD
+procdesc CompareFileTime                       :DWORD,:DWORD
+procdesc CompareStringA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CompareStringW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConnectNamedPipe                      :DWORD,:DWORD
+procdesc ContinueDebugEvent                    :DWORD,:DWORD,:DWORD
+procdesc ConvertDefaultLocale                  :DWORD
+procdesc ConvertThreadToFiber                  :DWORD
+procdesc CopyFileA                             :DWORD,:DWORD,:DWORD
+procdesc CopyFileExA                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CopyFileExW                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CopyFileW                             :DWORD,:DWORD,:DWORD
+procdesc CreateConsoleScreenBuffer             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateDirectoryA                      :DWORD,:DWORD
+procdesc CreateDirectoryExA                    :DWORD,:DWORD,:DWORD
+procdesc CreateDirectoryExW                    :DWORD,:DWORD,:DWORD
+procdesc CreateDirectoryW                      :DWORD,:DWORD
+procdesc CreateEventA                          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateEventW                          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateFiber                           :DWORD,:DWORD,:DWORD
+procdesc CreateFileA                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateFileMappingA                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateFileMappingW                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateFileW                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateHardLinkA                       :DWORD,:DWORD,:DWORD
+procdesc CreateHardLinkW                       :DWORD,:DWORD,:DWORD
+procdesc CreateIoCompletionPort                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateJobObjectA                      :DWORD,:DWORD
+procdesc CreateJobObjectW                      :DWORD,:DWORD
+procdesc CreateMailslotA                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateMailslotW                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateMutexA                          :DWORD,:DWORD,:DWORD
+procdesc CreateMutexW                          :DWORD,:DWORD,:DWORD
+procdesc CreateNamedPipeA                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateNamedPipeW                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreatePipe                            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateProcessA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateProcessW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateRemoteThread                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateSemaphoreA                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateSemaphoreW                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateTapePartition                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateThread                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateTimerQueue
+procdesc CreateTimerQueueTimer                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateToolhelp32Snapshot              :DWORD,:DWORD
+procdesc CreateWaitableTimerA                  :DWORD,:DWORD,:DWORD
+procdesc CreateWaitableTimerW                  :DWORD,:DWORD,:DWORD
+procdesc DebugActiveProcess                    :DWORD
+procdesc DebugBreak
+procdesc DefineDosDeviceA                      :DWORD,:DWORD,:DWORD
+procdesc DefineDosDeviceW                      :DWORD,:DWORD,:DWORD
+procdesc DeleteAtom                            :DWORD
+procdesc DeleteCriticalSection                 :DWORD
+procdesc DeleteFiber                           :DWORD
+procdesc DeleteFileA                           :DWORD
+procdesc DeleteFileW                           :DWORD
+procdesc DeleteTimerQueue                      :DWORD
+procdesc DeleteTimerQueueEx                    :DWORD,:DWORD
+procdesc DeleteTimerQueueTimer                 :DWORD,:DWORD,:DWORD
+procdesc DeleteVolumeMountPointA               :DWORD
+procdesc DeleteVolumeMountPointW               :DWORD
+procdesc DeviceIoControl                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DisableThreadLibraryCalls             :DWORD
+procdesc DisconnectNamedPipe                   :DWORD
+procdesc DnsHostnameToComputerNameA            :DWORD,:DWORD,:DWORD
+procdesc DnsHostnameToComputerNameW            :DWORD,:DWORD,:DWORD
+procdesc DosDateTimeToFileTime                 :DWORD,:DWORD,:DWORD
+procdesc DuplicateHandle                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EndUpdateResourceA                    :DWORD,:DWORD
+procdesc EndUpdateResourceW                    :DWORD,:DWORD
+procdesc EnterCriticalSection                  :DWORD
+procdesc EnumCalendarInfoA                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumCalendarInfoExA                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumCalendarInfoExW                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumCalendarInfoW                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumDateFormatsA                      :DWORD,:DWORD,:DWORD
+procdesc EnumDateFormatsExA                    :DWORD,:DWORD,:DWORD
+procdesc EnumDateFormatsExW                    :DWORD,:DWORD,:DWORD
+procdesc EnumDateFormatsW                      :DWORD,:DWORD,:DWORD
+procdesc EnumLanguageGroupLocalesA             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumLanguageGroupLocalesW             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumResourceLanguagesA                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumResourceLanguagesW                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumResourceNamesA                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumResourceNamesW                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumResourceTypesA                    :DWORD,:DWORD,:DWORD
+procdesc EnumResourceTypesW                    :DWORD,:DWORD,:DWORD
+procdesc EnumSystemCodePagesA                  :DWORD,:DWORD
+procdesc EnumSystemCodePagesW                  :DWORD,:DWORD
+procdesc EnumSystemLanguageGroupsA             :DWORD,:DWORD,:DWORD
+procdesc EnumSystemLanguageGroupsW             :DWORD,:DWORD,:DWORD
+procdesc EnumSystemLocalesA                    :DWORD,:DWORD
+procdesc EnumSystemLocalesW                    :DWORD,:DWORD
+procdesc EnumTimeFormatsA                      :DWORD,:DWORD,:DWORD
+procdesc EnumTimeFormatsW                      :DWORD,:DWORD,:DWORD
+procdesc EnumUILanguagesA                      :DWORD,:DWORD,:DWORD
+procdesc EnumUILanguagesW                      :DWORD,:DWORD,:DWORD
+procdesc EraseTape                             :DWORD,:DWORD,:DWORD
+procdesc EscapeCommFunction                    :DWORD,:DWORD
+procdesc ExitProcess                           :DWORD
+procdesc ExitThread                            :DWORD
+procdesc ExpandEnvironmentStringsA             :DWORD,:DWORD,:DWORD
+procdesc ExpandEnvironmentStringsW             :DWORD,:DWORD,:DWORD
+procdesc FatalAppExitA                         :DWORD,:DWORD
+procdesc FatalAppExitW                         :DWORD,:DWORD
+procdesc FatalExit                             :DWORD
+procdesc FileTimeToDosDateTime                 :DWORD,:DWORD,:DWORD
+procdesc FileTimeToLocalFileTime               :DWORD,:DWORD
+procdesc FileTimeToSystemTime                  :DWORD,:DWORD
+procdesc FillConsoleOutputAttribute            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FillConsoleOutputCharacterA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FillConsoleOutputCharacterW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindAtomA                             :DWORD
+procdesc FindAtomW                             :DWORD
+procdesc FindClose                             :DWORD
+procdesc FindCloseChangeNotification           :DWORD
+procdesc FindFirstChangeNotificationA          :DWORD,:DWORD,:DWORD
+procdesc FindFirstChangeNotificationW          :DWORD,:DWORD,:DWORD
+procdesc FindFirstFileA                        :DWORD,:DWORD
+procdesc FindFirstFileExA                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindFirstFileExW                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindFirstFileW                        :DWORD,:DWORD
+procdesc FindFirstVolumeA                      :DWORD,:DWORD
+procdesc FindFirstVolumeMountPointA            :DWORD,:DWORD,:DWORD
+procdesc FindFirstVolumeMountPointW            :DWORD,:DWORD,:DWORD
+procdesc FindFirstVolumeW                      :DWORD,:DWORD
+procdesc FindNextChangeNotification            :DWORD
+procdesc FindNextFileA                         :DWORD,:DWORD
+procdesc FindNextFileW                         :DWORD,:DWORD
+procdesc FindNextVolumeA                       :DWORD,:DWORD,:DWORD
+procdesc FindNextVolumeMountPointA             :DWORD,:DWORD,:DWORD
+procdesc FindNextVolumeMountPointW             :DWORD,:DWORD,:DWORD
+procdesc FindNextVolumeW                       :DWORD,:DWORD,:DWORD
+procdesc FindResourceA                         :DWORD,:DWORD,:DWORD
+procdesc FindResourceExA                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindResourceExW                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindResourceW                         :DWORD,:DWORD,:DWORD
+procdesc FindVolumeClose                       :DWORD
+procdesc FindVolumeMountPointClose             :DWORD
+procdesc FlushConsoleInputBuffer               :DWORD
+procdesc FlushFileBuffers                      :DWORD
+procdesc FlushInstructionCache                 :DWORD,:DWORD,:DWORD
+procdesc FlushViewOfFile                       :DWORD,:DWORD
+procdesc FoldStringA                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FoldStringW                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FormatMessageA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FormatMessageW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FreeConsole
+procdesc FreeEnvironmentStringsA               :DWORD
+procdesc FreeEnvironmentStringsW               :DWORD
+procdesc FreeLibrary                           :DWORD
+procdesc FreeLibraryAndExitThread              :DWORD,:DWORD
+procdesc FreeResource                          :DWORD
+procdesc FreeUserPhysicalPages                 :DWORD,:DWORD,:DWORD
+procdesc GenerateConsoleCtrlEvent              :DWORD,:DWORD
+procdesc GetACP
+procdesc GetAtomNameA                          :DWORD,:DWORD,:DWORD
+procdesc GetAtomNameW                          :DWORD,:DWORD,:DWORD
+procdesc GetBinaryTypeA                        :DWORD,:DWORD
+procdesc GetBinaryTypeW                        :DWORD,:DWORD
+procdesc GetCPInfo                             :DWORD,:DWORD
+procdesc GetCPInfoExA                          :DWORD,:DWORD,:DWORD
+procdesc GetCPInfoExW                          :DWORD,:DWORD,:DWORD
+procdesc GetCalendarInfoA                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCalendarInfoW                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCommConfig                         :DWORD,:DWORD,:DWORD
+procdesc GetCommMask                           :DWORD,:DWORD
+procdesc GetCommModemStatus                    :DWORD,:DWORD
+procdesc GetCommProperties                     :DWORD,:DWORD
+procdesc GetCommState                          :DWORD,:DWORD
+procdesc GetCommTimeouts                       :DWORD,:DWORD
+procdesc GetCommandLineA
+procdesc GetCommandLineW
+procdesc GetCompressedFileSizeA                :DWORD,:DWORD
+procdesc GetCompressedFileSizeW                :DWORD,:DWORD
+procdesc GetComputerNameA                      :DWORD,:DWORD
+procdesc GetComputerNameExA                    :DWORD,:DWORD,:DWORD
+procdesc GetComputerNameExW                    :DWORD,:DWORD,:DWORD
+procdesc GetComputerNameW                      :DWORD,:DWORD
+procdesc GetConsoleCP
+procdesc GetConsoleCursorInfo                  :DWORD,:DWORD
+procdesc GetConsoleMode                        :DWORD,:DWORD
+procdesc GetConsoleOutputCP
+procdesc GetConsoleScreenBufferInfo            :DWORD,:DWORD
+procdesc GetConsoleTitleA                      :DWORD,:DWORD
+procdesc GetConsoleTitleW                      :DWORD,:DWORD
+procdesc GetConsoleWindow       ; Win2000 or highter
+procdesc GetConsoleDisplayMode                 :DWORD ; Win2000 or highter
+procdesc GetCurrencyFormatA                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCurrencyFormatW                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetCurrentDirectoryA                  :DWORD,:DWORD
+procdesc GetCurrentDirectoryW                  :DWORD,:DWORD
+procdesc GetCurrentProcess
+procdesc GetCurrentProcessId
+procdesc GetCurrentThread
+procdesc GetCurrentThreadId
+procdesc GetDateFormatA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDateFormatW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDefaultCommConfigA                 :DWORD,:DWORD,:DWORD
+procdesc GetDefaultCommConfigW                 :DWORD,:DWORD,:DWORD
+procdesc GetDevicePowerState                   :DWORD,:DWORD
+procdesc GetDiskFreeSpaceA                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDiskFreeSpaceExA                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDiskFreeSpaceExW                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDiskFreeSpaceW                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDriveTypeA                         :DWORD
+procdesc GetDriveTypeW                         :DWORD
+procdesc GetEnvironmentStringsA
+procdesc GetEnvironmentStringsW
+procdesc GetEnvironmentVariableA               :DWORD,:DWORD,:DWORD
+procdesc GetEnvironmentVariableW               :DWORD,:DWORD,:DWORD
+procdesc GetExitCodeProcess                    :DWORD,:DWORD
+procdesc GetExitCodeThread                     :DWORD,:DWORD
+procdesc GetFileAttributesA                    :DWORD
+procdesc GetFileAttributesExA                  :DWORD,:DWORD,:DWORD
+procdesc GetFileAttributesExW                  :DWORD,:DWORD,:DWORD
+procdesc GetFileAttributesW                    :DWORD
+procdesc GetFileInformationByHandle            :DWORD,:DWORD
+procdesc GetFileSize                           :DWORD,:DWORD
+procdesc GetFileSizeEx                         :DWORD,:DWORD
+procdesc GetFileTime                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetFileType                           :DWORD
+procdesc GetFullPathNameA                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetFullPathNameW                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetHandleInformation                  :DWORD,:DWORD
+procdesc GetLargestConsoleWindowSize           :DWORD
+procdesc GetLastError
+procdesc GetLocalTime                          :DWORD
+procdesc GetLocaleInfoA                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetLocaleInfoW                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetLogicalDriveStringsA               :DWORD,:DWORD
+procdesc GetLogicalDriveStringsW               :DWORD,:DWORD
+procdesc GetLogicalDrives
+procdesc GetLongPathNameA                      :DWORD,:DWORD,:DWORD
+procdesc GetLongPathNameW                      :DWORD,:DWORD,:DWORD
+procdesc GetMailslotInfo                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetModuleFileNameA                    :DWORD,:DWORD,:DWORD
+procdesc GetModuleFileNameW                    :DWORD,:DWORD,:DWORD
+procdesc GetModuleHandleA                      :DWORD
+procdesc GetModuleHandleW                      :DWORD
+procdesc GetNamedPipeHandleStateA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetNamedPipeHandleStateW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetNamedPipeInfo                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetNumberFormatA                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetNumberFormatW                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetNumberOfConsoleInputEvents         :DWORD,:DWORD
+procdesc GetNumberOfConsoleMouseButtons        :DWORD
+procdesc GetOEMCP
+procdesc GetOverlappedResult                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPriorityClass                      :DWORD
+procdesc GetPrivateProfileIntA                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrivateProfileIntW                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrivateProfileSectionA             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrivateProfileSectionNamesA        :DWORD,:DWORD,:DWORD
+procdesc GetPrivateProfileSectionNamesW        :DWORD,:DWORD,:DWORD
+procdesc GetPrivateProfileSectionW             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrivateProfileStringA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrivateProfileStringW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrivateProfileStructA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrivateProfileStructW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetProcAddress                        :DWORD,:DWORD
+procdesc GetProcessAffinityMask                :DWORD,:DWORD,:DWORD
+procdesc GetProcessHeap
+procdesc GetProcessHeaps                       :DWORD,:DWORD
+procdesc GetProcessIoCounters                  :DWORD,:DWORD
+procdesc GetProcessPriorityBoost               :DWORD,:DWORD
+procdesc GetProcessShutdownParameters          :DWORD,:DWORD
+procdesc GetProcessTimes                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetProcessVersion                     :DWORD
+procdesc GetProcessWorkingSetSize              :DWORD,:DWORD,:DWORD
+procdesc GetProfileIntA                        :DWORD,:DWORD,:DWORD
+procdesc GetProfileIntW                        :DWORD,:DWORD,:DWORD
+procdesc GetProfileSectionA                    :DWORD,:DWORD,:DWORD
+procdesc GetProfileSectionW                    :DWORD,:DWORD,:DWORD
+procdesc GetProfileStringA                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetProfileStringW                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetQueuedCompletionStatus             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetShortPathNameA                     :DWORD,:DWORD,:DWORD
+procdesc GetShortPathNameW                     :DWORD,:DWORD,:DWORD
+procdesc GetStartupInfoA                       :DWORD
+procdesc GetStartupInfoW                       :DWORD
+procdesc GetStdHandle                          :DWORD
+procdesc GetStringTypeA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetStringTypeExA                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetStringTypeExW                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetStringTypeW                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetSystemDefaultLCID
+procdesc GetSystemDefaultLangID
+procdesc GetSystemDefaultUILanguage
+procdesc GetSystemDirectoryA                   :DWORD,:DWORD
+procdesc GetSystemDirectoryW                   :DWORD,:DWORD
+procdesc GetSystemInfo                         :DWORD
+procdesc GetSystemPowerStatus                  :DWORD
+procdesc GetSystemTime                         :DWORD
+procdesc GetSystemTimeAdjustment               :DWORD,:DWORD,:DWORD
+procdesc GetSystemTimeAsFileTime               :DWORD
+procdesc GetSystemWindowsDirectoryA            :DWORD,:DWORD
+procdesc GetSystemWindowsDirectoryW            :DWORD,:DWORD
+procdesc GetTapeParameters                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTapePosition                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTapeStatus                         :DWORD
+procdesc GetTempFileNameA                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTempFileNameW                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTempPathA                          :DWORD,:DWORD
+procdesc GetTempPathW                          :DWORD,:DWORD
+procdesc GetThreadContext                      :DWORD,:DWORD
+procdesc GetThreadLocale
+procdesc GetThreadPriority                     :DWORD
+procdesc GetThreadPriorityBoost                :DWORD,:DWORD
+procdesc GetThreadSelectorEntry                :DWORD,:DWORD,:DWORD
+procdesc GetThreadTimes                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTickCount
+procdesc GetTimeFormatA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTimeFormatW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTimeZoneInformation                :DWORD
+procdesc GetUserDefaultLCID
+procdesc GetUserDefaultLangID
+procdesc GetUserDefaultUILanguage
+procdesc GetVersion
+procdesc GetVersionExA                         :DWORD
+procdesc GetVersionExW                         :DWORD
+procdesc GetVolumeInformationA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetVolumeInformationW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetVolumeNameForVolumeMountPointA     :DWORD,:DWORD,:DWORD
+procdesc GetVolumeNameForVolumeMountPointW     :DWORD,:DWORD,:DWORD
+procdesc GetVolumePathNameA                    :DWORD,:DWORD,:DWORD
+procdesc GetVolumePathNameW                    :DWORD,:DWORD,:DWORD
+procdesc GetWindowsDirectoryA                  :DWORD,:DWORD
+procdesc GetWindowsDirectoryW                  :DWORD,:DWORD
+procdesc GetWriteWatch                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GlobalAddAtomA                        :DWORD
+procdesc GlobalAddAtomW                        :DWORD
+procdesc GlobalAlloc                           :DWORD,:DWORD
+procdesc GlobalCompact                         :DWORD
+procdesc GlobalDeleteAtom                      :DWORD
+procdesc GlobalFindAtomA                       :DWORD
+procdesc GlobalFindAtomW                       :DWORD
+procdesc GlobalFix                             :DWORD
+procdesc GlobalFlags                           :DWORD
+procdesc GlobalFree                            :DWORD
+procdesc GlobalGetAtomNameA                    :DWORD,:DWORD,:DWORD
+procdesc GlobalGetAtomNameW                    :DWORD,:DWORD,:DWORD
+procdesc GlobalHandle                          :DWORD
+procdesc GlobalLock                            :DWORD
+procdesc GlobalMemoryStatus                    :DWORD
+procdesc GlobalMemoryStatusEx                  :DWORD
+procdesc GlobalReAlloc                         :DWORD,:DWORD,:DWORD
+procdesc GlobalSize                            :DWORD
+procdesc GlobalUnWire                          :DWORD
+procdesc GlobalUnfix                           :DWORD
+procdesc GlobalUnlock                          :DWORD
+procdesc GlobalWire                            :DWORD
+procdesc Heap32First                           :DWORD,:DWORD,:DWORD
+procdesc Heap32ListFirst                       :DWORD,:DWORD
+procdesc Heap32ListNext                        :DWORD,:DWORD
+procdesc Heap32Next                            :DWORD
+procdesc HeapAlloc                             :DWORD,:DWORD,:DWORD
+procdesc HeapCompact                           :DWORD,:DWORD
+procdesc HeapCreate                            :DWORD,:DWORD,:DWORD
+procdesc HeapDestroy                           :DWORD
+procdesc HeapFree                              :DWORD,:DWORD,:DWORD
+procdesc HeapLock                              :DWORD
+procdesc HeapReAlloc                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc HeapSize                              :DWORD,:DWORD,:DWORD
+procdesc HeapUnlock                            :DWORD
+procdesc HeapValidate                          :DWORD,:DWORD,:DWORD
+procdesc HeapWalk                              :DWORD,:DWORD
+procdesc InitAtomTable                         :DWORD
+procdesc InitializeCriticalSection             :DWORD
+procdesc InitializeCriticalSectionAndSpinCount :DWORD,:DWORD
+procdesc InterlockedCompareExchange            :DWORD,:DWORD,:DWORD
+procdesc InterlockedDecrement                  :DWORD
+procdesc InterlockedExchange                   :DWORD,:DWORD
+procdesc InterlockedExchangeAdd                :DWORD,:DWORD
+procdesc InterlockedIncrement                  :DWORD
+procdesc IsBadCodePtr                          :DWORD
+procdesc IsBadHugeReadPtr                      :DWORD,:DWORD
+procdesc IsBadHugeWritePtr                     :DWORD,:DWORD
+procdesc IsBadReadPtr                          :DWORD,:DWORD
+procdesc IsBadStringPtrA                       :DWORD,:DWORD
+procdesc IsBadStringPtrW                       :DWORD,:DWORD
+procdesc IsBadWritePtr                         :DWORD,:DWORD
+procdesc IsDBCSLeadByte                        :DWORD
+procdesc IsDBCSLeadByteEx                      :DWORD,:DWORD
+procdesc IsDebuggerPresent
+procdesc IsProcessorFeaturePresent             :DWORD
+procdesc IsSystemResumeAutomatic
+procdesc IsValidCodePage                       :DWORD
+procdesc IsValidLanguageGroup                  :DWORD,:DWORD
+procdesc IsValidLocale                         :DWORD,:DWORD
+procdesc LCMapStringA                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LCMapStringW                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LeaveCriticalSection                  :DWORD
+procdesc LoadLibraryA                          :DWORD
+procdesc LoadLibraryExA                        :DWORD,:DWORD,:DWORD
+procdesc LoadLibraryExW                        :DWORD,:DWORD,:DWORD
+procdesc LoadLibraryW                          :DWORD
+procdesc LoadModule                            :DWORD,:DWORD
+procdesc LoadResource                          :DWORD,:DWORD
+procdesc LocalAlloc                            :DWORD,:DWORD
+procdesc LocalCompact                          :DWORD
+procdesc LocalFileTimeToFileTime               :DWORD,:DWORD
+procdesc LocalFlags                            :DWORD
+procdesc LocalFree                             :DWORD
+procdesc LocalHandle                           :DWORD
+procdesc LocalLock                             :DWORD
+procdesc LocalReAlloc                          :DWORD,:DWORD,:DWORD
+procdesc LocalShrink                           :DWORD,:DWORD
+procdesc LocalSize                             :DWORD
+procdesc LocalUnlock                           :DWORD
+procdesc LockFile                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LockFileEx                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LockResource                          :DWORD
+procdesc MapUserPhysicalPages                  :DWORD,:DWORD,:DWORD
+procdesc MapUserPhysicalPagesScatter           :DWORD,:DWORD,:DWORD
+procdesc MapViewOfFile                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc MapViewOfFileEx                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc Module32First                         :DWORD,:DWORD
+procdesc Module32FirstW                        :DWORD,:DWORD
+procdesc Module32Next                          :DWORD,:DWORD
+procdesc Module32NextW                         :DWORD,:DWORD
+procdesc MoveFileA                             :DWORD,:DWORD
+procdesc MoveFileExA                           :DWORD,:DWORD,:DWORD
+procdesc MoveFileExW                           :DWORD,:DWORD,:DWORD
+procdesc MoveFileW                             :DWORD,:DWORD
+procdesc MoveFileWithProgressA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc MoveFileWithProgressW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc MulDiv                                :DWORD,:DWORD,:DWORD
+procdesc MultiByteToWideChar                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc OpenEventA                            :DWORD,:DWORD,:DWORD
+procdesc OpenEventW                            :DWORD,:DWORD,:DWORD
+procdesc OpenFile                              :DWORD,:DWORD,:DWORD
+procdesc OpenFileMappingA                      :DWORD,:DWORD,:DWORD
+procdesc OpenFileMappingW                      :DWORD,:DWORD,:DWORD
+procdesc OpenJobObjectA                        :DWORD,:DWORD,:DWORD
+procdesc OpenJobObjectW                        :DWORD,:DWORD,:DWORD
+procdesc OpenMutexA                            :DWORD,:DWORD,:DWORD
+procdesc OpenMutexW                            :DWORD,:DWORD,:DWORD
+procdesc OpenProcess                           :DWORD,:DWORD,:DWORD
+procdesc OpenSemaphoreA                        :DWORD,:DWORD,:DWORD
+procdesc OpenSemaphoreW                        :DWORD,:DWORD,:DWORD
+procdesc OpenThread                            :DWORD,:DWORD,:DWORD
+procdesc OpenWaitableTimerA                    :DWORD,:DWORD,:DWORD
+procdesc OpenWaitableTimerW                    :DWORD,:DWORD,:DWORD
+procdesc OutputDebugStringA                    :DWORD
+procdesc OutputDebugStringW                    :DWORD
+procdesc PeekConsoleInputA                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PeekConsoleInputW                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PeekNamedPipe                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PostQueuedCompletionStatus            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PrepareTape                           :DWORD,:DWORD,:DWORD
+procdesc Process32First                        :DWORD,:DWORD
+procdesc Process32FirstW                       :DWORD,:DWORD
+procdesc Process32Next                         :DWORD,:DWORD
+procdesc Process32NextW                        :DWORD,:DWORD
+procdesc ProcessIdToSessionId                  :DWORD,:DWORD
+procdesc PulseEvent                            :DWORD
+procdesc PurgeComm                             :DWORD,:DWORD
+procdesc QueryDosDeviceA                       :DWORD,:DWORD,:DWORD
+procdesc QueryDosDeviceW                       :DWORD,:DWORD,:DWORD
+procdesc QueryInformationJobObject             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryPerformanceCounter               :DWORD
+procdesc QueryPerformanceFrequency             :DWORD
+procdesc QueueUserAPC                          :DWORD,:DWORD,:DWORD
+procdesc QueueUserWorkItem                     :DWORD,:DWORD,:DWORD
+procdesc RaiseException                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadConsoleA                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadConsoleInputA                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadConsoleInputW                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadConsoleOutputA                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadConsoleOutputAttribute            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadConsoleOutputCharacterA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadConsoleOutputCharacterW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadConsoleOutputW                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadConsoleW                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadDirectoryChangesW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadFile                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadFileEx                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadFileScatter                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadProcessMemory                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegisterWaitForSingleObject           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegisterWaitForSingleObjectEx         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReleaseMutex                          :DWORD
+procdesc ReleaseSemaphore                      :DWORD,:DWORD,:DWORD
+procdesc RemoveDirectoryA                      :DWORD
+procdesc RemoveDirectoryW                      :DWORD
+procdesc ReplaceFileA                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReplaceFileW                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RequestDeviceWakeup                   :DWORD
+procdesc RequestWakeupLatency                  :DWORD
+procdesc ResetEvent                            :DWORD
+procdesc ResetWriteWatch                       :DWORD,:DWORD
+procdesc ResumeThread                          :DWORD
+procdesc RtlFillMemory                         :DWORD,:DWORD,:DWORD
+procdesc RtlMoveMemory                         :DWORD,:DWORD,:DWORD
+procdesc RtlUnwind                             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RtlZeroMemory                         :DWORD,:DWORD
+procdesc ScrollConsoleScreenBufferA            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ScrollConsoleScreenBufferW            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SearchPathA                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SearchPathW                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetCalendarInfoA                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetCalendarInfoW                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetCommBreak                          :DWORD
+procdesc SetCommConfig                         :DWORD,:DWORD,:DWORD
+procdesc SetCommMask                           :DWORD,:DWORD
+procdesc SetCommState                          :DWORD,:DWORD
+procdesc SetCommTimeouts                       :DWORD,:DWORD
+procdesc SetComputerNameA                      :DWORD
+procdesc SetComputerNameExA                    :DWORD,:DWORD
+procdesc SetComputerNameExW                    :DWORD,:DWORD
+procdesc SetComputerNameW                      :DWORD
+procdesc SetConsoleActiveScreenBuffer          :DWORD
+procdesc SetConsoleCP                          :DWORD
+procdesc SetConsoleCtrlHandler                 :DWORD,:DWORD
+procdesc SetConsoleCursor                      :DWORD,:DWORD
+procdesc SetConsoleCursorInfo                  :DWORD,:DWORD
+procdesc SetConsoleCursorPosition              :DWORD,:DWORD
+procdesc SetConsoleMode                        :DWORD,:DWORD
+procdesc SetConsoleOutputCP                    :DWORD
+procdesc SetConsoleScreenBufferSize            :DWORD,:DWORD
+procdesc SetConsoleTextAttribute               :DWORD,:DWORD
+procdesc SetConsoleTitleA                      :DWORD
+procdesc SetConsoleTitleW                      :DWORD
+procdesc SetConsoleWindowInfo                  :DWORD,:DWORD,:DWORD
+procdesc SetCriticalSectionSpinCount           :DWORD,:DWORD
+procdesc SetCurrentDirectoryA                  :DWORD
+procdesc SetCurrentDirectoryW                  :DWORD
+procdesc SetDefaultCommConfigA                 :DWORD,:DWORD,:DWORD
+procdesc SetDefaultCommConfigW                 :DWORD,:DWORD,:DWORD
+procdesc SetEndOfFile                          :DWORD
+procdesc SetEnvironmentVariableA               :DWORD,:DWORD
+procdesc SetEnvironmentVariableW               :DWORD,:DWORD
+procdesc SetErrorMode                          :DWORD
+procdesc SetEvent                              :DWORD
+procdesc SetFileApisToANSI
+procdesc SetFileApisToOEM
+procdesc SetFileAttributesA                    :DWORD,:DWORD
+procdesc SetFileAttributesW                    :DWORD,:DWORD
+procdesc SetFilePointer                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetFilePointerEx                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetFileTime                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetHandleCount                        :DWORD
+procdesc SetHandleInformation                  :DWORD,:DWORD,:DWORD
+procdesc SetInformationJobObject               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetLastError                          :DWORD
+procdesc SetLocalTime                          :DWORD
+procdesc SetLocaleInfoA                        :DWORD,:DWORD,:DWORD
+procdesc SetLocaleInfoW                        :DWORD,:DWORD,:DWORD
+procdesc SetMailslotInfo                       :DWORD,:DWORD
+procdesc SetMessageWaitingIndicator            :DWORD,:DWORD
+procdesc SetNamedPipeHandleState               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPriorityClass                      :DWORD,:DWORD
+procdesc SetProcessAffinityMask                :DWORD,:DWORD
+procdesc SetProcessPriorityBoost               :DWORD,:DWORD
+procdesc SetProcessShutdownParameters          :DWORD,:DWORD
+procdesc SetProcessWorkingSetSize              :DWORD,:DWORD,:DWORD
+procdesc SetStdHandle                          :DWORD,:DWORD
+procdesc SetSystemPowerState                   :DWORD,:DWORD
+procdesc SetSystemTime                         :DWORD
+procdesc SetSystemTimeAdjustment               :DWORD,:DWORD
+procdesc SetTapeParameters                     :DWORD,:DWORD,:DWORD
+procdesc SetTapePosition                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetThreadAffinityMask                 :DWORD,:DWORD
+procdesc SetThreadContext                      :DWORD,:DWORD
+procdesc SetThreadExecutionState               :DWORD
+procdesc SetThreadIdealProcessor               :DWORD,:DWORD
+procdesc SetThreadLocale                       :DWORD
+procdesc SetThreadPriority                     :DWORD,:DWORD
+procdesc SetThreadPriorityBoost                :DWORD,:DWORD
+procdesc SetTimeZoneInformation                :DWORD
+procdesc SetTimerQueueTimer                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetUnhandledExceptionFilter           :DWORD
+procdesc SetVolumeLabelA                       :DWORD,:DWORD
+procdesc SetVolumeLabelW                       :DWORD,:DWORD
+procdesc SetVolumeMountPointA                  :DWORD,:DWORD
+procdesc SetVolumeMountPointW                  :DWORD,:DWORD
+procdesc SetWaitableTimer                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetupComm                             :DWORD,:DWORD,:DWORD
+procdesc SignalObjectAndWait                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SizeofResource                        :DWORD,:DWORD
+procdesc Sleep                                 :DWORD
+procdesc SleepEx                               :DWORD,:DWORD
+procdesc SuspendThread                         :DWORD
+procdesc SwitchToFiber                         :DWORD
+procdesc SwitchToThread
+procdesc SystemTimeToFileTime                  :DWORD,:DWORD
+procdesc SystemTimeToTzSpecificLocalTime       :DWORD,:DWORD,:DWORD
+procdesc TerminateJobObject                    :DWORD,:DWORD
+procdesc TerminateProcess                      :DWORD,:DWORD
+procdesc TerminateThread                       :DWORD,:DWORD
+procdesc Thread32First                         :DWORD,:DWORD
+procdesc Thread32Next                          :DWORD,:DWORD
+procdesc TlsAlloc
+procdesc TlsFree                               :DWORD
+procdesc TlsGetValue                           :DWORD
+procdesc TlsSetValue                           :DWORD,:DWORD
+procdesc Toolhelp32ReadProcessMemory           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TransactNamedPipe                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TransmitCommChar                      :DWORD,:DWORD
+procdesc TryEnterCriticalSection               :DWORD
+procdesc UnhandledExceptionFilter              :DWORD
+procdesc UnlockFile                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc UnlockFileEx                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc UnmapViewOfFile                       :DWORD
+procdesc UnregisterWait                        :DWORD
+procdesc UnregisterWaitEx                      :DWORD,:DWORD
+procdesc UpdateResourceA                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc UpdateResourceW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc VerLanguageNameA                      :DWORD,:DWORD,:DWORD
+procdesc VerLanguageNameW                      :DWORD,:DWORD,:DWORD
+procdesc VerSetConditionMask                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc VerifyVersionInfoA                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc VerifyVersionInfoW                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc VirtualAlloc                          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc VirtualAllocEx                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc VirtualFree                           :DWORD,:DWORD,:DWORD
+procdesc VirtualFreeEx                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc VirtualLock                           :DWORD,:DWORD
+procdesc VirtualProtect                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc VirtualProtectEx                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc VirtualQuery                          :DWORD,:DWORD,:DWORD
+procdesc VirtualQueryEx                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc VirtualUnlock                         :DWORD,:DWORD
+procdesc WaitCommEvent                         :DWORD,:DWORD,:DWORD
+procdesc WaitForDebugEvent                     :DWORD,:DWORD
+procdesc WaitForMultipleObjects                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc WaitForMultipleObjectsEx              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WaitForSingleObject                   :DWORD,:DWORD
+procdesc WaitForSingleObjectEx                 :DWORD,:DWORD,:DWORD
+procdesc WaitNamedPipeA                        :DWORD,:DWORD
+procdesc WaitNamedPipeW                        :DWORD,:DWORD
+procdesc WideCharToMultiByte                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WinExec                               :DWORD,:DWORD
+procdesc WriteConsoleA                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteConsoleInputA                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteConsoleInputW                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteConsoleOutputA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteConsoleOutputAttribute           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteConsoleOutputCharacterA          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteConsoleOutputCharacterW          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteConsoleOutputW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteConsoleW                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteFile                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteFileEx                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteFileGather                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WritePrivateProfileSectionA           :DWORD,:DWORD,:DWORD
+procdesc WritePrivateProfileSectionW           :DWORD,:DWORD,:DWORD
+procdesc WritePrivateProfileStringA            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc WritePrivateProfileStringW            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc WritePrivateProfileStructA            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WritePrivateProfileStructW            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteProcessMemory                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WriteProfileSectionA                  :DWORD,:DWORD
+procdesc WriteProfileSectionW                  :DWORD,:DWORD
+procdesc WriteProfileStringA                   :DWORD,:DWORD,:DWORD
+procdesc WriteProfileStringW                   :DWORD,:DWORD,:DWORD
+procdesc WriteTapemark                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc _hread                                :DWORD,:DWORD,:DWORD
+procdesc _hwrite                               :DWORD,:DWORD,:DWORD
+procdesc _lclose                               :DWORD
+procdesc _lcreat                               :DWORD,:DWORD
+procdesc _llseek                               :DWORD,:DWORD,:DWORD
+procdesc _lopen                                :DWORD,:DWORD
+procdesc _lread                                :DWORD,:DWORD,:DWORD
+procdesc _lwrite                               :DWORD,:DWORD,:DWORD
+procdesc lstrcatA                              :DWORD,:DWORD
+procdesc lstrcatW                              :DWORD,:DWORD
+procdesc lstrcmpA                              :DWORD,:DWORD
+procdesc lstrcmpW                              :DWORD,:DWORD
+procdesc lstrcmpiA                             :DWORD,:DWORD
+procdesc lstrcmpiW                             :DWORD,:DWORD
+procdesc lstrcpyA                              :DWORD,:DWORD
+procdesc lstrcpyW                              :DWORD,:DWORD
+procdesc lstrcpynA                             :DWORD,:DWORD,:DWORD
+procdesc lstrcpynW                             :DWORD,:DWORD,:DWORD
+procdesc lstrlenA                              :DWORD
+procdesc lstrlenW                              :DWORD

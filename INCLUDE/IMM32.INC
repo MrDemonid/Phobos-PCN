@@ -1,0 +1,124 @@
+ifndef @unicode
+         ImmConfigureIME           equ <ImmConfigureIMEA>
+         ImmEnumRegisterWord       equ <ImmEnumRegisterWordA>
+         ImmEscape                 equ <ImmEscapeA>
+         ImmGetCandidateList       equ <ImmGetCandidateListA>
+         ImmGetCandidateListCount  equ <ImmGetCandidateListCountA>
+         ImmGetCompositionFont     equ <ImmGetCompositionFontA>
+         ImmGetCompositionString   equ <ImmGetCompositionStringA>
+         ImmGetConversionList      equ <ImmGetConversionListA>
+         ImmGetDescription         equ <ImmGetDescriptionA>
+         ImmGetGuideLine           equ <ImmGetGuideLineA>
+         ImmGetIMEFileName         equ <ImmGetIMEFileNameA>
+         ImmGetImeMenuItems        equ <ImmGetImeMenuItemsA>
+         ImmGetRegisterWordStyle   equ <ImmGetRegisterWordStyleA>
+         ImmInstallIME             equ <ImmInstallIMEA>
+         ImmIsUIMessage            equ <ImmIsUIMessageA>
+         ImmRegisterWord           equ <ImmRegisterWordA>
+         ImmRequestMessage         equ <ImmRequestMessageA>
+         ImmSetCompositionFont     equ <ImmSetCompositionFontA>
+         ImmSetCompositionString   equ <ImmSetCompositionStringA>
+         ImmUnregisterWord         equ <ImmUnregisterWordA>
+    else
+         ImmConfigureIME           equ <ImmConfigureIMEW>
+         ImmEnumRegisterWord       equ <ImmEnumRegisterWordW>
+         ImmEscape                 equ <ImmEscapeW>
+         ImmGetCandidateList       equ <ImmGetCandidateListW>
+         ImmGetCandidateListCount  equ <ImmGetCandidateListCountW>
+         ImmGetCompositionFont     equ <ImmGetCompositionFontW>
+         ImmGetCompositionString   equ <ImmGetCompositionStringW>
+         ImmGetConversionList      equ <ImmGetConversionListW>
+         ImmGetDescription         equ <ImmGetDescriptionW>
+         ImmGetGuideLine           equ <ImmGetGuideLineW>
+         ImmGetIMEFileName         equ <ImmGetIMEFileNameW>
+         ImmGetImeMenuItems        equ <ImmGetImeMenuItemsW>
+         ImmGetRegisterWordStyle   equ <ImmGetRegisterWordStyleW>
+         ImmInstallIME             equ <ImmInstallIMEW>
+         ImmIsUIMessage            equ <ImmIsUIMessageW>
+         ImmRegisterWord           equ <ImmRegisterWordW>
+         ImmRequestMessage         equ <ImmRequestMessageW>
+         ImmSetCompositionFont     equ <ImmSetCompositionFontW>
+         ImmSetCompositionString   equ <ImmSetCompositionStringW>
+         ImmUnregisterWord         equ <ImmUnregisterWordW>
+endif ; @unicode
+
+procdesc ImmAssociateContext       :DWORD,:DWORD
+procdesc ImmAssociateContextEx     :DWORD,:DWORD,:DWORD
+procdesc ImmConfigureIMEA          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmConfigureIMEW          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmCreateContext          
+procdesc ImmCreateIMCC             :DWORD
+procdesc ImmCreateSoftKeyboard     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmDestroyContext         :DWORD
+procdesc ImmDestroyIMCC            :DWORD
+procdesc ImmDestroySoftKeyboard    :DWORD
+procdesc ImmDisableIME             :DWORD
+procdesc ImmEnumInputContext       :DWORD,:DWORD,:DWORD
+procdesc ImmEnumRegisterWordA      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmEnumRegisterWordW      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmEscapeA                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmEscapeW                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGenerateMessage        :DWORD
+procdesc ImmGetCandidateListA      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGetCandidateListCountA :DWORD,:DWORD
+procdesc ImmGetCandidateListCountW :DWORD,:DWORD
+procdesc ImmGetCandidateListW      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGetCandidateWindow     :DWORD,:DWORD,:DWORD
+procdesc ImmGetCompositionFontA    :DWORD,:DWORD
+procdesc ImmGetCompositionFontW    :DWORD,:DWORD
+procdesc ImmGetCompositionStringA  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGetCompositionStringW  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGetCompositionWindow   :DWORD,:DWORD
+procdesc ImmGetContext             :DWORD
+procdesc ImmGetConversionListA     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGetConversionListW     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGetConversionStatus    :DWORD,:DWORD,:DWORD
+procdesc ImmGetDefaultIMEWnd       :DWORD
+procdesc ImmGetDescriptionA        :DWORD,:DWORD,:DWORD
+procdesc ImmGetDescriptionW        :DWORD,:DWORD,:DWORD
+procdesc ImmGetGuideLineA          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGetGuideLineW          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGetHotKey              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGetIMCCLockCount       :DWORD
+procdesc ImmGetIMCCSize            :DWORD
+procdesc ImmGetIMCLockCount        :DWORD
+procdesc ImmGetIMEFileNameA        :DWORD,:DWORD,:DWORD
+procdesc ImmGetIMEFileNameW        :DWORD,:DWORD,:DWORD
+procdesc ImmGetImeMenuItemsA       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGetImeMenuItemsW       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmGetOpenStatus          :DWORD
+procdesc ImmGetProperty            :DWORD,:DWORD
+procdesc ImmGetRegisterWordStyleA  :DWORD,:DWORD,:DWORD
+procdesc ImmGetRegisterWordStyleW  :DWORD,:DWORD,:DWORD
+procdesc ImmGetStatusWindowPos     :DWORD,:DWORD
+procdesc ImmGetVirtualKey          :DWORD
+procdesc ImmInstallIMEA            :DWORD,:DWORD
+procdesc ImmInstallIMEW            :DWORD,:DWORD
+procdesc ImmIsIME                  :DWORD
+procdesc ImmIsUIMessageA           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmIsUIMessageW           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmLockIMC                :DWORD
+procdesc ImmLockIMCC               :DWORD
+procdesc ImmNotifyIME              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmReSizeIMCC             :DWORD,:DWORD
+procdesc ImmRegisterWordA          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmRegisterWordW          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmReleaseContext         :DWORD,:DWORD
+procdesc ImmRequestMessageA        :DWORD,:DWORD,:DWORD
+procdesc ImmRequestMessageW        :DWORD,:DWORD,:DWORD
+procdesc ImmSetCandidateWindow     :DWORD,:DWORD
+procdesc ImmSetCompositionFontA    :DWORD,:DWORD
+procdesc ImmSetCompositionFontW    :DWORD,:DWORD
+procdesc ImmSetCompositionStringA  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmSetCompositionStringW  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmSetCompositionWindow   :DWORD,:DWORD
+procdesc ImmSetConversionStatus    :DWORD,:DWORD,:DWORD
+procdesc ImmSetHotKey              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmSetOpenStatus          :DWORD,:DWORD
+procdesc ImmSetStatusWindowPos     :DWORD,:DWORD
+procdesc ImmShowSoftKeyboard       :DWORD,:DWORD
+procdesc ImmSimulateHotKey         :DWORD,:DWORD
+procdesc ImmUnlockIMC              :DWORD
+procdesc ImmUnlockIMCC             :DWORD
+procdesc ImmUnregisterWordA        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImmUnregisterWordW        :DWORD,:DWORD,:DWORD,:DWORD

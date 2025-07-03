@@ -1,0 +1,309 @@
+ifndef @unicode
+         AddForm                            equ <AddFormA>
+         AddJob                             equ <AddJobA>
+         AddMonitor                         equ <AddMonitorA>
+         AddPerMachineConnection            equ <AddPerMachineConnectionA>
+         AddPort                            equ <AddPortA>
+         AddPortEx                          equ <AddPortExA>
+         AddPrintProcessor                  equ <AddPrintProcessorA>
+         AddPrintProvidor                   equ <AddPrintProvidorA>
+         AddPrinter                         equ <AddPrinterA>
+         AddPrinterConnection               equ <AddPrinterConnectionA>
+         AddPrinterDriver                   equ <AddPrinterDriverA>
+         AddPrinterDriverEx                 equ <AddPrinterDriverExA>
+         AdvancedDocumentProperties         equ <AdvancedDocumentPropertiesA>
+         ConfigurePort                      equ <ConfigurePortA>
+         DeleteForm                         equ <DeleteFormA>
+         DeleteMonitor                      equ <DeleteMonitorA>
+         DeletePerMachineConnection         equ <DeletePerMachineConnectionA>
+         DeletePort                         equ <DeletePortA>
+         DeletePrintProcessor               equ <DeletePrintProcessorA>
+         DeletePrintProvidor                equ <DeletePrintProvidorA>
+         DeletePrinterConnection            equ <DeletePrinterConnectionA>
+         DeletePrinterData                  equ <DeletePrinterDataA>
+         DeletePrinterDataEx                equ <DeletePrinterDataExA>
+         DeletePrinterDriver                equ <DeletePrinterDriverA>
+         DeletePrinterDriverEx              equ <DeletePrinterDriverExA>
+         DeletePrinterKey                   equ <DeletePrinterKeyA>
+         DeviceCapabilities                 equ <DeviceCapabilitiesA>
+         DocumentProperties                 equ <DocumentPropertiesA>
+         EnumForms                          equ <EnumFormsA>
+         EnumJobs                           equ <EnumJobsA>
+         EnumMonitors                       equ <EnumMonitorsA>
+         EnumPerMachineConnections          equ <EnumPerMachineConnectionsA>
+         EnumPorts                          equ <EnumPortsA>
+         EnumPrintProcessorDatatypes        equ <EnumPrintProcessorDatatypesA>
+         EnumPrintProcessors                equ <EnumPrintProcessorsA>
+         EnumPrinterData                    equ <EnumPrinterDataA>
+         EnumPrinterDataEx                  equ <EnumPrinterDataExA>
+         EnumPrinterDrivers                 equ <EnumPrinterDriversA>
+         EnumPrinterKey                     equ <EnumPrinterKeyA>
+         EnumPrinters                       equ <EnumPrintersA>
+         GetDefaultPrinter                  equ <GetDefaultPrinterA>
+         GetForm                            equ <GetFormA>
+         GetJob                             equ <GetJobA>
+         GetPrintProcessorDirectory         equ <GetPrintProcessorDirectoryA>
+         GetPrinter                         equ <GetPrinterA>
+         GetPrinterData                     equ <GetPrinterDataA>
+         GetPrinterDataEx                   equ <GetPrinterDataExA>
+         GetPrinterDriver                   equ <GetPrinterDriverA>
+         GetPrinterDriverDirectory          equ <GetPrinterDriverDirectoryA>
+         OpenPrinter                        equ <OpenPrinterA>
+         PrinterMessageBox                  equ <PrinterMessageBoxA>
+         PublishPrinter                     equ <PublishPrinterA>
+         ResetPrinter                       equ <ResetPrinterA>
+         SetDefaultPrinter                  equ <SetDefaultPrinterA>
+         SetForm                            equ <SetFormA>
+         SetJob                             equ <SetJobA>
+         SetPort                            equ <SetPortA>
+         SetPrinter                         equ <SetPrinterA>
+         SetPrinterData                     equ <SetPrinterDataA>
+         SetPrinterDataEx                   equ <SetPrinterDataExA>
+         StartDocDlg                        equ <StartDocDlgA>
+         StartDocPrinter                    equ <StartDocPrinterA>
+    else
+         AddForm                            equ <AddFormW>
+         AddJob                             equ <AddJobW>
+         AddMonitor                         equ <AddMonitorW>
+         AddPerMachineConnection            equ <AddPerMachineConnectionW>
+         AddPort                            equ <AddPortW>
+         AddPortEx                          equ <AddPortExW>
+         AddPrintProcessor                  equ <AddPrintProcessorW>
+         AddPrintProvidor                   equ <AddPrintProvidorW>
+         AddPrinter                         equ <AddPrinterW>
+         AddPrinterConnection               equ <AddPrinterConnectionW>
+         AddPrinterDriver                   equ <AddPrinterDriverW>
+         AddPrinterDriverEx                 equ <AddPrinterDriverExW>
+         AdvancedDocumentProperties         equ <AdvancedDocumentPropertiesW>
+         ConfigurePort                      equ <ConfigurePortW>
+         DeleteForm                         equ <DeleteFormW>
+         DeleteMonitor                      equ <DeleteMonitorW>
+         DeletePerMachineConnection         equ <DeletePerMachineConnectionW>
+         DeletePort                         equ <DeletePortW>
+         DeletePrintProcessor               equ <DeletePrintProcessorW>
+         DeletePrintProvidor                equ <DeletePrintProvidorW>
+         DeletePrinterConnection            equ <DeletePrinterConnectionW>
+         DeletePrinterData                  equ <DeletePrinterDataW>
+         DeletePrinterDataEx                equ <DeletePrinterDataExW>
+         DeletePrinterDriver                equ <DeletePrinterDriverW>
+         DeletePrinterDriverEx              equ <DeletePrinterDriverExW>
+         DeletePrinterKey                   equ <DeletePrinterKeyW>
+         DeviceCapabilities                 equ <DeviceCapabilitiesW>
+         DocumentProperties                 equ <DocumentPropertiesW>
+         EnumForms                          equ <EnumFormsW>
+         EnumJobs                           equ <EnumJobsW>
+         EnumMonitors                       equ <EnumMonitorsW>
+         EnumPerMachineConnections          equ <EnumPerMachineConnectionsW>
+         EnumPorts                          equ <EnumPortsW>
+         EnumPrintProcessorDatatypes        equ <EnumPrintProcessorDatatypesW>
+         EnumPrintProcessors                equ <EnumPrintProcessorsW>
+         EnumPrinterData                    equ <EnumPrinterDataW>
+         EnumPrinterDataEx                  equ <EnumPrinterDataExW>
+         EnumPrinterDrivers                 equ <EnumPrinterDriversW>
+         EnumPrinterKey                     equ <EnumPrinterKeyW>
+         EnumPrinters                       equ <EnumPrintersW>
+         GetDefaultPrinter                  equ <GetDefaultPrinterW>
+         GetForm                            equ <GetFormW>
+         GetJob                             equ <GetJobW>
+         GetPrintProcessorDirectory         equ <GetPrintProcessorDirectoryW>
+         GetPrinter                         equ <GetPrinterW>
+         GetPrinterData                     equ <GetPrinterDataW>
+         GetPrinterDataEx                   equ <GetPrinterDataExW>
+         GetPrinterDriver                   equ <GetPrinterDriverW>
+         GetPrinterDriverDirectory          equ <GetPrinterDriverDirectoryW>
+         OpenPrinter                        equ <OpenPrinterW>
+         PrinterMessageBox                  equ <PrinterMessageBoxW>
+         PublishPrinter                     equ <PublishPrinterW>
+         ResetPrinter                       equ <ResetPrinterW>
+         SetDefaultPrinter                  equ <SetDefaultPrinterW>
+         SetForm                            equ <SetFormW>
+         SetJob                             equ <SetJobW>
+         SetPort                            equ <SetPortW>
+         SetPrinter                         equ <SetPrinterW>
+         SetPrinterData                     equ <SetPrinterDataW>
+         SetPrinterDataEx                   equ <SetPrinterDataExW>
+         StartDocDlg                        equ <StartDocDlgW>
+         StartDocPrinter                    equ <StartDocPrinterW>
+endif ; @unicode
+
+procdesc ADVANCEDSETUPDIALOG                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AbortPrinter                       :DWORD
+procdesc AddFormA                           :DWORD,:DWORD,:DWORD
+procdesc AddFormW                           :DWORD,:DWORD,:DWORD
+procdesc AddJobA                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddJobW                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddMonitorA                        :DWORD,:DWORD,:DWORD
+procdesc AddMonitorW                        :DWORD,:DWORD,:DWORD
+procdesc AddPerMachineConnectionA           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddPerMachineConnectionW           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddPortA                           :DWORD,:DWORD,:DWORD
+procdesc AddPortExA                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddPortExW                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddPortW                           :DWORD,:DWORD,:DWORD
+procdesc AddPrintProcessorA                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddPrintProcessorW                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddPrintProvidorA                  :DWORD,:DWORD,:DWORD
+procdesc AddPrintProvidorW                  :DWORD,:DWORD,:DWORD
+procdesc AddPrinterA                        :DWORD,:DWORD,:DWORD
+procdesc AddPrinterConnectionA              :DWORD
+procdesc AddPrinterConnectionW              :DWORD
+procdesc AddPrinterDriverA                  :DWORD,:DWORD,:DWORD
+procdesc AddPrinterDriverExA                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddPrinterDriverExW                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AddPrinterDriverW                  :DWORD,:DWORD,:DWORD
+procdesc AddPrinterW                        :DWORD,:DWORD,:DWORD
+procdesc AdvancedDocumentPropertiesA        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AdvancedDocumentPropertiesW        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc AdvancedSetupDialog                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ClosePrinter                       :DWORD
+procdesc CloseSpoolFileHandle               :DWORD,:DWORD
+procdesc ClusterSplClose                    :DWORD
+procdesc ClusterSplIsAlive                  :DWORD
+procdesc ClusterSplOpen                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CommitSpoolData                    :DWORD,:DWORD,:DWORD
+procdesc ConfigurePortA                     :DWORD,:DWORD,:DWORD
+procdesc ConfigurePortW                     :DWORD,:DWORD,:DWORD
+procdesc ConnectToPrinterDlg                :DWORD,:DWORD
+procdesc ConvertAnsiDevModeToUnicodeDevmode :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ConvertUnicodeDevModeToAnsiDevmode :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreatePrinterIC                    :DWORD,:DWORD
+procdesc DEVICECAPABILITIES                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DEVICEMODE                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DeleteFormA                        :DWORD,:DWORD
+procdesc DeleteFormW                        :DWORD,:DWORD
+procdesc DeleteMonitorA                     :DWORD,:DWORD,:DWORD
+procdesc DeleteMonitorW                     :DWORD,:DWORD,:DWORD
+procdesc DeletePerMachineConnectionA        :DWORD,:DWORD
+procdesc DeletePerMachineConnectionW        :DWORD,:DWORD
+procdesc DeletePortA                        :DWORD,:DWORD,:DWORD
+procdesc DeletePortW                        :DWORD,:DWORD,:DWORD
+procdesc DeletePrintProcessorA              :DWORD,:DWORD,:DWORD
+procdesc DeletePrintProcessorW              :DWORD,:DWORD,:DWORD
+procdesc DeletePrintProvidorA               :DWORD,:DWORD,:DWORD
+procdesc DeletePrintProvidorW               :DWORD,:DWORD,:DWORD
+procdesc DeletePrinter                      :DWORD
+procdesc DeletePrinterConnectionA           :DWORD
+procdesc DeletePrinterConnectionW           :DWORD
+procdesc DeletePrinterDataA                 :DWORD,:DWORD
+procdesc DeletePrinterDataExA               :DWORD,:DWORD,:DWORD
+procdesc DeletePrinterDataExW               :DWORD,:DWORD,:DWORD
+procdesc DeletePrinterDataW                 :DWORD,:DWORD
+procdesc DeletePrinterDriverA               :DWORD,:DWORD,:DWORD
+procdesc DeletePrinterDriverExA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DeletePrinterDriverExW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DeletePrinterDriverW               :DWORD,:DWORD,:DWORD
+procdesc DeletePrinterIC                    :DWORD
+procdesc DeletePrinterKeyA                  :DWORD,:DWORD
+procdesc DeletePrinterKeyW                  :DWORD,:DWORD
+procdesc DevQueryPrint                      :DWORD,:DWORD,:DWORD
+procdesc DevQueryPrintEx                    :DWORD
+procdesc DeviceCapabilitiesA                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DeviceCapabilitiesW                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DeviceMode                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DevicePropertySheets               :DWORD,:DWORD
+procdesc DocumentEvent                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DocumentPropertiesA                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DocumentPropertiesW                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DocumentPropertySheets             :DWORD,:DWORD
+procdesc EXTDEVICEMODE                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EndDocPrinter                      :DWORD
+procdesc EndPagePrinter                     :DWORD
+procdesc EnumFormsA                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumFormsW                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumJobsA                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumJobsW                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumMonitorsA                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumMonitorsW                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPerMachineConnectionsA         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPerMachineConnectionsW         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPortsA                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPortsW                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrintProcessorDatatypesA       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrintProcessorDatatypesW       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrintProcessorsA               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrintProcessorsW               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrinterDataA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrinterDataExA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrinterDataExW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrinterDataW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrinterDriversA                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrinterDriversW                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrinterKeyA                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrinterKeyW                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrinterPropertySheets          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrintersA                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumPrintersW                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ExtDeviceMode                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindClosePrinterChangeNotification :DWORD
+procdesc FindFirstPrinterChangeNotification :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindNextPrinterChangeNotification  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FlushPrinter                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ForceUnloadDriver                  :DWORD
+procdesc FreePrinterNotifyInfo              :DWORD
+procdesc GetDefaultPrinterA                 :DWORD,:DWORD
+procdesc GetDefaultPrinterW                 :DWORD,:DWORD
+procdesc GetFormA                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetFormW                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetJobA                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetJobW                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrintProcessorDirectoryA        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrintProcessorDirectoryW        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrinterA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrinterDataA                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrinterDataExA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrinterDataExW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrinterDataW                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrinterDriverA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrinterDriverDirectoryA         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrinterDriverDirectoryW         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrinterDriverW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetPrinterW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetSpoolFileHandle                 :DWORD
+procdesc InitializeDll                      :DWORD,:DWORD,:DWORD
+procdesc LoadPrinterDriver                  :DWORD
+procdesc OpenPrinterA                       :DWORD,:DWORD,:DWORD
+procdesc OpenPrinterW                       :DWORD,:DWORD,:DWORD
+procdesc PlayGdiScriptOnPrinterIC           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PrinterMessageBoxA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PrinterMessageBoxW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PrinterProperties                  :DWORD,:DWORD
+procdesc PublishPrinterA                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PublishPrinterW                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryColorProfile                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc QueryRemoteFonts                   :DWORD,:DWORD,:DWORD
+procdesc QuerySpoolMode                     :DWORD,:DWORD,:DWORD
+procdesc ReadPrinter                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RefCntLoadDriver                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RefCntUnloadDriver                 :DWORD,:DWORD
+procdesc ResetPrinterA                      :DWORD,:DWORD
+procdesc ResetPrinterW                      :DWORD,:DWORD
+procdesc ScheduleJob                        :DWORD,:DWORD
+procdesc SeekPrinter                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetAllocFailCount                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetDefaultPrinterA                 :DWORD
+procdesc SetDefaultPrinterW                 :DWORD
+procdesc SetFormA                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetFormW                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetJobA                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetJobW                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPortA                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPortW                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPrinterA                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPrinterDataA                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPrinterDataExA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPrinterDataExW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPrinterDataW                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetPrinterW                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SplDriverUnloadComplete            :DWORD
+procdesc SplReadPrinter                     :DWORD,:DWORD,:DWORD
+procdesc SpoolerDevQueryPrintW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SpoolerInit                        
+procdesc SpoolerPrinterEvent                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc StartDocDlgA                       :DWORD,:DWORD
+procdesc StartDocDlgW                       :DWORD,:DWORD
+procdesc StartDocPrinterA                   :DWORD,:DWORD,:DWORD
+procdesc StartDocPrinterW                   :DWORD,:DWORD,:DWORD
+procdesc StartPagePrinter                   :DWORD
+procdesc WaitForPrinterChange               :DWORD,:DWORD
+procdesc WritePrinter                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc XcvDataW                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD

@@ -1,0 +1,365 @@
+ifndef @unicode
+         CommitUrlCacheEntry                        equ <CommitUrlCacheEntryA>
+         CreateUrlCacheContainer                    equ <CreateUrlCacheContainerA>
+         CreateUrlCacheEntry                        equ <CreateUrlCacheEntryA>
+         DeleteUrlCacheContainer                    equ <DeleteUrlCacheContainerA>
+         DeleteUrlCacheEntry                        equ <DeleteUrlCacheEntryA>
+         ExportCookieFile                           equ <ExportCookieFileA>
+         FindFirstUrlCacheContainer                 equ <FindFirstUrlCacheContainerA>
+         FindFirstUrlCacheEntry                     equ <FindFirstUrlCacheEntryA>
+         FindFirstUrlCacheEntryEx                   equ <FindFirstUrlCacheEntryExA>
+         FindNextUrlCacheContainer                  equ <FindNextUrlCacheContainerA>
+         FindNextUrlCacheEntry                      equ <FindNextUrlCacheEntryA>
+         FindNextUrlCacheEntryEx                    equ <FindNextUrlCacheEntryExA>
+         FreeUrlCacheSpace                          equ <FreeUrlCacheSpaceA>
+         FtpCommand                                 equ <FtpCommandA>
+         FtpCreateDirectory                         equ <FtpCreateDirectoryA>
+         FtpDeleteFile                              equ <FtpDeleteFileA>
+         FtpFindFirstFile                           equ <FtpFindFirstFileA>
+         FtpGetCurrentDirectory                     equ <FtpGetCurrentDirectoryA>
+         FtpGetFile                                 equ <FtpGetFileA>
+         FtpOpenFile                                equ <FtpOpenFileA>
+         FtpPutFile                                 equ <FtpPutFileA>
+         FtpRemoveDirectory                         equ <FtpRemoveDirectoryA>
+         FtpRenameFile                              equ <FtpRenameFileA>
+         FtpSetCurrentDirectory                     equ <FtpSetCurrentDirectoryA>
+         GetDiskInfo                                equ <GetDiskInfoA>
+         GetUrlCacheConfigInfo                      equ <GetUrlCacheConfigInfoA>
+         GetUrlCacheEntryInfo                       equ <GetUrlCacheEntryInfoA>
+         GetUrlCacheEntryInfoEx                     equ <GetUrlCacheEntryInfoExA>
+         GetUrlCacheGroupAttribute                  equ <GetUrlCacheGroupAttributeA>
+         GopherCreateLocator                        equ <GopherCreateLocatorA>
+         GopherFindFirstFile                        equ <GopherFindFirstFileA>
+         GopherGetAttribute                         equ <GopherGetAttributeA>
+         GopherGetLocatorType                       equ <GopherGetLocatorTypeA>
+         GopherOpenFile                             equ <GopherOpenFileA>
+         HttpAddRequestHeaders                      equ <HttpAddRequestHeadersA>
+         HttpCheckDavCompliance                     equ <HttpCheckDavComplianceA>
+         HttpEndRequest                             equ <HttpEndRequestA>
+         HttpOpenRequest                            equ <HttpOpenRequestA>
+         HttpQueryInfo                              equ <HttpQueryInfoA>
+         HttpSendRequest                            equ <HttpSendRequestA>
+         HttpSendRequestEx                          equ <HttpSendRequestExA>
+         ImportCookieFile                           equ <ImportCookieFileA>
+         InternetAlgIdToString                      equ <InternetAlgIdToStringA>
+         InternetCanonicalizeUrl                    equ <InternetCanonicalizeUrlA>
+         InternetCheckConnection                    equ <InternetCheckConnectionA>
+         InternetCombineUrl                         equ <InternetCombineUrlA>
+         InternetConfirmZoneCrossing                equ <InternetConfirmZoneCrossingA>
+         InternetConnect                            equ <InternetConnectA>
+         InternetCrackUrl                           equ <InternetCrackUrlA>
+         InternetCreateUrl                          equ <InternetCreateUrlA>
+         InternetDial                               equ <InternetDialA>
+         InternetFindNextFile                       equ <InternetFindNextFileA>
+         InternetGetCertByURL                       equ <InternetGetCertByURLA>
+         InternetGetConnectedStateEx                equ <InternetGetConnectedStateExA>
+         InternetGetCookie                          equ <InternetGetCookieA>
+         InternetGetLastResponseInfo                equ <InternetGetLastResponseInfoA>
+         InternetGoOnline                           equ <InternetGoOnlineA>
+         InternetOpen                               equ <InternetOpenA>
+         InternetOpenUrl                            equ <InternetOpenUrlA>
+         InternetQueryOption                        equ <InternetQueryOptionA>
+         InternetReadFileEx                         equ <InternetReadFileExA>
+         InternetSecurityProtocolToString           equ <InternetSecurityProtocolToStringA>
+         InternetSetCookie                          equ <InternetSetCookieA>
+         InternetSetDialState                       equ <InternetSetDialStateA>
+         InternetSetOption                          equ <InternetSetOptionA>
+         InternetSetOptionEx                        equ <InternetSetOptionExA>
+         InternetSetStatusCallback                  equ <InternetSetStatusCallbackA>
+         InternetShowSecurityInfoByURL              equ <InternetShowSecurityInfoByURLA>
+         InternetTimeFromSystemTime                 equ <InternetTimeFromSystemTimeA>
+         InternetTimeToSystemTime                   equ <InternetTimeToSystemTimeA>
+         InternetWriteFileEx                        equ <InternetWriteFileExA>
+         IsUrlCacheEntryExpired                     equ <IsUrlCacheEntryExpiredA>
+         PerformOperationOverUrlCache               equ <PerformOperationOverUrlCacheA>
+         RetrieveUrlCacheEntryFile                  equ <RetrieveUrlCacheEntryFileA>
+         RetrieveUrlCacheEntryStream                equ <RetrieveUrlCacheEntryStreamA>
+         SetUrlCacheConfigInfo                      equ <SetUrlCacheConfigInfoA>
+         SetUrlCacheEntryGroup                      equ <SetUrlCacheEntryGroupA>
+         SetUrlCacheEntryInfo                       equ <SetUrlCacheEntryInfoA>
+         SetUrlCacheGroupAttribute                  equ <SetUrlCacheGroupAttributeA>
+         UnlockUrlCacheEntryFile                    equ <UnlockUrlCacheEntryFileA>
+    else
+         CommitUrlCacheEntry                        equ <CommitUrlCacheEntryW>
+         CreateUrlCacheContainer                    equ <CreateUrlCacheContainerW>
+         CreateUrlCacheEntry                        equ <CreateUrlCacheEntryW>
+         DeleteUrlCacheContainer                    equ <DeleteUrlCacheContainerW>
+         DeleteUrlCacheEntry                        equ <DeleteUrlCacheEntryW>
+         ExportCookieFile                           equ <ExportCookieFileW>
+         FindFirstUrlCacheContainer                 equ <FindFirstUrlCacheContainerW>
+         FindFirstUrlCacheEntry                     equ <FindFirstUrlCacheEntryW>
+         FindFirstUrlCacheEntryEx                   equ <FindFirstUrlCacheEntryExW>
+         FindNextUrlCacheContainer                  equ <FindNextUrlCacheContainerW>
+         FindNextUrlCacheEntry                      equ <FindNextUrlCacheEntryW>
+         FindNextUrlCacheEntryEx                    equ <FindNextUrlCacheEntryExW>
+         FreeUrlCacheSpace                          equ <FreeUrlCacheSpaceW>
+         FtpCommand                                 equ <FtpCommandW>
+         FtpCreateDirectory                         equ <FtpCreateDirectoryW>
+         FtpDeleteFile                              equ <FtpDeleteFileW>
+         FtpFindFirstFile                           equ <FtpFindFirstFileW>
+         FtpGetCurrentDirectory                     equ <FtpGetCurrentDirectoryW>
+         FtpGetFile                                 equ <FtpGetFileW>
+         FtpOpenFile                                equ <FtpOpenFileW>
+         FtpPutFile                                 equ <FtpPutFileW>
+         FtpRemoveDirectory                         equ <FtpRemoveDirectoryW>
+         FtpRenameFile                              equ <FtpRenameFileW>
+         FtpSetCurrentDirectory                     equ <FtpSetCurrentDirectoryW>
+         GetDiskInfo                                equ <GetDiskInfoW>
+         GetUrlCacheConfigInfo                      equ <GetUrlCacheConfigInfoW>
+         GetUrlCacheEntryInfo                       equ <GetUrlCacheEntryInfoW>
+         GetUrlCacheEntryInfoEx                     equ <GetUrlCacheEntryInfoExW>
+         GetUrlCacheGroupAttribute                  equ <GetUrlCacheGroupAttributeW>
+         GopherCreateLocator                        equ <GopherCreateLocatorW>
+         GopherFindFirstFile                        equ <GopherFindFirstFileW>
+         GopherGetAttribute                         equ <GopherGetAttributeW>
+         GopherGetLocatorType                       equ <GopherGetLocatorTypeW>
+         GopherOpenFile                             equ <GopherOpenFileW>
+         HttpAddRequestHeaders                      equ <HttpAddRequestHeadersW>
+         HttpCheckDavCompliance                     equ <HttpCheckDavComplianceW>
+         HttpEndRequest                             equ <HttpEndRequestW>
+         HttpOpenRequest                            equ <HttpOpenRequestW>
+         HttpQueryInfo                              equ <HttpQueryInfoW>
+         HttpSendRequest                            equ <HttpSendRequestW>
+         HttpSendRequestEx                          equ <HttpSendRequestExW>
+         ImportCookieFile                           equ <ImportCookieFileW>
+         InternetAlgIdToString                      equ <InternetAlgIdToStringW>
+         InternetCanonicalizeUrl                    equ <InternetCanonicalizeUrlW>
+         InternetCheckConnection                    equ <InternetCheckConnectionW>
+         InternetCombineUrl                         equ <InternetCombineUrlW>
+         InternetConfirmZoneCrossing                equ <InternetConfirmZoneCrossingW>
+         InternetConnect                            equ <InternetConnectW>
+         InternetCrackUrl                           equ <InternetCrackUrlW>
+         InternetCreateUrl                          equ <InternetCreateUrlW>
+         InternetDial                               equ <InternetDialW>
+         InternetFindNextFile                       equ <InternetFindNextFileW>
+         InternetGetCertByURL                       equ <InternetGetCertByURLW>
+         InternetGetConnectedStateEx                equ <InternetGetConnectedStateExW>
+         InternetGetCookie                          equ <InternetGetCookieW>
+         InternetGetLastResponseInfo                equ <InternetGetLastResponseInfoW>
+         InternetGoOnline                           equ <InternetGoOnlineW>
+         InternetOpen                               equ <InternetOpenW>
+         InternetOpenUrl                            equ <InternetOpenUrlW>
+         InternetQueryOption                        equ <InternetQueryOptionW>
+         InternetReadFileEx                         equ <InternetReadFileExW>
+         InternetSecurityProtocolToString           equ <InternetSecurityProtocolToStringW>
+         InternetSetCookie                          equ <InternetSetCookieW>
+         InternetSetDialState                       equ <InternetSetDialStateW>
+         InternetSetOption                          equ <InternetSetOptionW>
+         InternetSetOptionEx                        equ <InternetSetOptionExW>
+         InternetSetStatusCallback                  equ <InternetSetStatusCallbackW>
+         InternetShowSecurityInfoByURL              equ <InternetShowSecurityInfoByURLW>
+         InternetTimeFromSystemTime                 equ <InternetTimeFromSystemTimeW>
+         InternetTimeToSystemTime                   equ <InternetTimeToSystemTimeW>
+         InternetWriteFileEx                        equ <InternetWriteFileExW>
+         IsUrlCacheEntryExpired                     equ <IsUrlCacheEntryExpiredW>
+         PerformOperationOverUrlCache               equ <PerformOperationOverUrlCacheW>
+         RetrieveUrlCacheEntryFile                  equ <RetrieveUrlCacheEntryFileW>
+         RetrieveUrlCacheEntryStream                equ <RetrieveUrlCacheEntryStreamW>
+         SetUrlCacheConfigInfo                      equ <SetUrlCacheConfigInfoW>
+         SetUrlCacheEntryGroup                      equ <SetUrlCacheEntryGroupW>
+         SetUrlCacheEntryInfo                       equ <SetUrlCacheEntryInfoW>
+         SetUrlCacheGroupAttribute                  equ <SetUrlCacheGroupAttributeW>
+         UnlockUrlCacheEntryFile                    equ <UnlockUrlCacheEntryFileW>
+endif ; @unicode
+
+procdesc CommitUrlCacheEntryA                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CommitUrlCacheEntryW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateUrlCacheContainerA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateUrlCacheContainerW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateUrlCacheEntryA                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateUrlCacheEntryW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateUrlCacheGroup                        :DWORD,:DWORD
+procdesc DeleteIE3Cache                             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DeleteUrlCacheContainerA                   :DWORD,:DWORD
+procdesc DeleteUrlCacheContainerW                   :DWORD,:DWORD
+procdesc DeleteUrlCacheEntryA                       :DWORD
+procdesc DeleteUrlCacheEntryW                       :DWORD
+procdesc DeleteUrlCacheGroup                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DoConnectoidsExist                         
+procdesc ExportCookieFileA                          :DWORD,:DWORD
+procdesc ExportCookieFileW                          :DWORD,:DWORD
+procdesc FindCloseUrlCache                          :DWORD
+procdesc FindFirstUrlCacheContainerA                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindFirstUrlCacheContainerW                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindFirstUrlCacheEntryA                    :DWORD,:DWORD,:DWORD
+procdesc FindFirstUrlCacheEntryExA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindFirstUrlCacheEntryExW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindFirstUrlCacheEntryW                    :DWORD,:DWORD,:DWORD
+procdesc FindFirstUrlCacheGroup                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindNextUrlCacheContainerA                 :DWORD,:DWORD,:DWORD
+procdesc FindNextUrlCacheContainerW                 :DWORD,:DWORD,:DWORD
+procdesc FindNextUrlCacheEntryA                     :DWORD,:DWORD,:DWORD
+procdesc FindNextUrlCacheEntryExA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindNextUrlCacheEntryExW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindNextUrlCacheEntryW                     :DWORD,:DWORD,:DWORD
+procdesc FindNextUrlCacheGroup                      :DWORD,:DWORD,:DWORD
+procdesc FreeUrlCacheSpaceA                         :DWORD,:DWORD,:DWORD
+procdesc FreeUrlCacheSpaceW                         :DWORD,:DWORD,:DWORD
+procdesc FtpCommandA                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpCommandW                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpCreateDirectoryA                        :DWORD,:DWORD
+procdesc FtpCreateDirectoryW                        :DWORD,:DWORD
+procdesc FtpDeleteFileA                             :DWORD,:DWORD
+procdesc FtpDeleteFileW                             :DWORD,:DWORD
+procdesc FtpFindFirstFileA                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpFindFirstFileW                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpGetCurrentDirectoryA                    :DWORD,:DWORD,:DWORD
+procdesc FtpGetCurrentDirectoryW                    :DWORD,:DWORD,:DWORD
+procdesc FtpGetFileA                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpGetFileEx                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpGetFileSize                             :DWORD,:DWORD
+procdesc FtpGetFileW                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpOpenFileA                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpOpenFileW                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpPutFileA                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpPutFileEx                               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpPutFileW                                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc FtpRemoveDirectoryA                        :DWORD,:DWORD
+procdesc FtpRemoveDirectoryW                        :DWORD,:DWORD
+procdesc FtpRenameFileA                             :DWORD,:DWORD,:DWORD
+procdesc FtpRenameFileW                             :DWORD,:DWORD,:DWORD
+procdesc FtpSetCurrentDirectoryA                    :DWORD,:DWORD
+procdesc FtpSetCurrentDirectoryW                    :DWORD,:DWORD
+procdesc GetDiskInfoW                               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDiskInfoA                               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetUrlCacheConfigInfoA                     :DWORD,:DWORD,:DWORD
+procdesc GetUrlCacheConfigInfoW                     :DWORD,:DWORD,:DWORD
+procdesc GetUrlCacheEntryInfoA                      :DWORD,:DWORD,:DWORD
+procdesc GetUrlCacheEntryInfoExA                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetUrlCacheEntryInfoExW                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetUrlCacheEntryInfoW                      :DWORD,:DWORD,:DWORD
+procdesc GetUrlCacheGroupAttributeA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetUrlCacheGroupAttributeW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetUrlCacheHeaderData                      :DWORD,:DWORD
+procdesc GopherCreateLocatorA                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GopherCreateLocatorW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GopherFindFirstFileA                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GopherFindFirstFileW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GopherGetAttributeA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GopherGetAttributeW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GopherGetLocatorTypeA                      :DWORD,:DWORD
+procdesc GopherGetLocatorTypeW                      :DWORD,:DWORD
+procdesc GopherOpenFileA                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GopherOpenFileW                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpAddRequestHeadersA                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpAddRequestHeadersW                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpCheckDavComplianceA                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpCheckDavComplianceW                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpEndRequestA                            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpEndRequestW                            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpOpenRequestA                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpOpenRequestW                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpQueryInfoA                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpQueryInfoW                             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpSendRequestA                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpSendRequestExA                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpSendRequestExW                         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HttpSendRequestW                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ImportCookieFileA                          :DWORD
+procdesc ImportCookieFileW                          :DWORD
+procdesc IncrementUrlCacheHeaderData                :DWORD,:DWORD
+procdesc InternetAlgIdToStringA                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetAlgIdToStringW                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetAttemptConnect                     :DWORD
+procdesc InternetAutodial                           :DWORD,:DWORD
+procdesc InternetAutodialCallback                   :DWORD,:DWORD
+procdesc InternetAutodialHangup                     :DWORD
+procdesc InternetCanonicalizeUrlA                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetCanonicalizeUrlW                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetCheckConnectionA                   :DWORD,:DWORD,:DWORD
+procdesc InternetCheckConnectionW                   :DWORD,:DWORD,:DWORD
+procdesc InternetCloseHandle                        :DWORD
+procdesc InternetCombineUrlA                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetCombineUrlW                        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetConfirmZoneCrossingA               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetConfirmZoneCrossingW               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetConnectA                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetConnectW                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetCrackUrlA                          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetCrackUrlW                          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetCreateUrlA                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetCreateUrlW                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetDialA                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetDialW                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetErrorDlg                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetFindNextFileA                      :DWORD,:DWORD
+procdesc InternetFindNextFileW                      :DWORD,:DWORD
+procdesc InternetFortezzaCommand                    :DWORD,:DWORD,:DWORD
+procdesc InternetGetCertByURLW                      :DWORD,:DWORD,:DWORD
+procdesc InternetGetCertByURLA                      :DWORD,:DWORD,:DWORD
+procdesc InternetGetConnectedState                  :DWORD,:DWORD
+procdesc InternetGetConnectedStateExA               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetGetConnectedStateExW               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetGetCookieA                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetGetCookieW                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetGetLastResponseInfoA               :DWORD,:DWORD,:DWORD
+procdesc InternetGetLastResponseInfoW               :DWORD,:DWORD,:DWORD
+procdesc InternetGoOnlineA                          :DWORD,:DWORD,:DWORD
+procdesc InternetGoOnlineW                          :DWORD,:DWORD,:DWORD
+procdesc InternetHangUp                             :DWORD,:DWORD
+procdesc InternetLockRequestFile                    :DWORD,:DWORD
+procdesc InternetOpenA                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetOpenUrlA                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetOpenUrlW                           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetOpenW                              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetQueryDataAvailable                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetQueryFortezzaStatus                :DWORD,:DWORD
+procdesc InternetQueryOptionA                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetQueryOptionW                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetReadFile                           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetReadFileExA                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetReadFileExW                        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetSecurityProtocolToStringA          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetSecurityProtocolToStringW          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetSetCookieA                         :DWORD,:DWORD,:DWORD
+procdesc InternetSetCookieW                         :DWORD,:DWORD,:DWORD
+procdesc InternetSetDialStateA                      :DWORD,:DWORD,:DWORD
+procdesc InternetSetDialStateW                      :DWORD,:DWORD,:DWORD
+procdesc InternetSetFilePointer                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetSetOptionA                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetSetOptionExA                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetSetOptionExW                       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetSetOptionW                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetSetStatusCallbackA                 :DWORD,:DWORD
+procdesc InternetSetStatusCallbackW                 :DWORD,:DWORD
+procdesc InternetShowSecurityInfoByURLA             :DWORD,:DWORD
+procdesc InternetShowSecurityInfoByURLW             :DWORD,:DWORD
+procdesc InternetTimeFromSystemTimeA                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetTimeFromSystemTimeW                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetTimeToSystemTimeA                  :DWORD,:DWORD,:DWORD
+procdesc InternetTimeToSystemTimeW                  :DWORD,:DWORD,:DWORD
+procdesc InternetUnlockRequestFile                  :DWORD
+procdesc InternetWriteFile                          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetWriteFileExA                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InternetWriteFileExW                       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc IsHostInProxyBypassList                    :DWORD,:DWORD,:DWORD
+procdesc IsUrlCacheEntryExpiredA                    :DWORD,:DWORD,:DWORD
+procdesc IsUrlCacheEntryExpiredW                    :DWORD,:DWORD,:DWORD
+procdesc LoadUrlCacheContent                        
+procdesc ParseX509EncodedCertificateForListBoxEntry :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PerformOperationOverUrlCacheW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PerformOperationOverUrlCacheA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ReadUrlCacheEntryStream                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegisterUrlCacheNotification               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ResumeSuspendedDownload                    :DWORD,:DWORD
+procdesc RetrieveUrlCacheEntryFileA                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RetrieveUrlCacheEntryFileW                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RetrieveUrlCacheEntryStreamA               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RetrieveUrlCacheEntryStreamW               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RunOnceUrlCache                            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetUrlCacheConfigInfoA                     :DWORD,:DWORD
+procdesc SetUrlCacheConfigInfoW                     :DWORD,:DWORD
+procdesc SetUrlCacheEntryGroupA                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetUrlCacheEntryGroupW                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetUrlCacheEntryInfoA                      :DWORD,:DWORD,:DWORD
+procdesc SetUrlCacheEntryInfoW                      :DWORD,:DWORD,:DWORD
+procdesc SetUrlCacheGroupAttributeA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetUrlCacheGroupAttributeW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetUrlCacheHeaderData                      :DWORD,:DWORD
+procdesc ShowClientAuthCerts                        :DWORD
+procdesc ShowSecurityInfo                           :DWORD,:DWORD
+procdesc ShowX509EncodedCertificate                 :DWORD,:DWORD,:DWORD
+procdesc UnlockUrlCacheEntryFileA                   :DWORD,:DWORD
+procdesc UnlockUrlCacheEntryFileW                   :DWORD,:DWORD
+procdesc UnlockUrlCacheEntryStream                  :DWORD,:DWORD
+procdesc UpdateUrlCacheContentPath                  :DWORD

@@ -1,0 +1,224 @@
+ifndef @unicode
+         RasConnectionNotification           equ <RasConnectionNotificationA>
+         RasCreatePhonebookEntry             equ <RasCreatePhonebookEntryA>
+         RasDeleteEntry                      equ <RasDeleteEntryA>
+         RasDial                             equ <RasDialA>
+         RasEditPhonebookEntry               equ <RasEditPhonebookEntryA>
+         RasEnumAutodialAddresses            equ <RasEnumAutodialAddressesA>
+         RasEnumConnections                  equ <RasEnumConnectionsA>
+         RasEnumDevices                      equ <RasEnumDevicesA>
+         RasEnumEntries                      equ <RasEnumEntriesA>
+         RasFreeEapUserIdentity              equ <RasFreeEapUserIdentityA>
+         RasGetAutodialAddress               equ <RasGetAutodialAddressA>
+         RasGetAutodialEnable                equ <RasGetAutodialEnableA>
+         RasGetAutodialParam                 equ <RasGetAutodialParamA>
+         RasGetConnectStatus                 equ <RasGetConnectStatusA>
+         RasGetCountryInfo                   equ <RasGetCountryInfoA>
+         RasGetCredentials                   equ <RasGetCredentialsA>
+         RasGetCustomAuthData                equ <RasGetCustomAuthDataA>
+         RasGetEapUserData                   equ <RasGetEapUserDataA>
+         RasGetEapUserIdentity               equ <RasGetEapUserIdentityA>
+         RasGetEntryDialParams               equ <RasGetEntryDialParamsA>
+         RasGetEntryHrasconn                 equ <RasGetEntryHrasconnA>
+         RasGetEntryProperties               equ <RasGetEntryPropertiesA>
+         RasGetErrorString                   equ <RasGetErrorStringA>
+         RasGetProjectionInfo                equ <RasGetProjectionInfoA>
+         RasGetSubEntryHandle                equ <RasGetSubEntryHandleA>
+         RasGetSubEntryProperties            equ <RasGetSubEntryPropertiesA>
+         RasHangUp                           equ <RasHangUpA>
+         RasRenameEntry                      equ <RasRenameEntryA>
+         RasSetAutodialAddress               equ <RasSetAutodialAddressA>
+         RasSetAutodialEnable                equ <RasSetAutodialEnableA>
+         RasSetAutodialParam                 equ <RasSetAutodialParamA>
+         RasSetCredentials                   equ <RasSetCredentialsA>
+         RasSetCustomAuthData                equ <RasSetCustomAuthDataA>
+         RasSetEapUserData                   equ <RasSetEapUserDataA>
+         RasSetEntryDialParams               equ <RasSetEntryDialParamsA>
+         RasSetEntryProperties               equ <RasSetEntryPropertiesA>
+         RasSetSubEntryProperties            equ <RasSetSubEntryPropertiesA>
+         RasValidateEntryName                equ <RasValidateEntryNameA>
+    else
+         RasConnectionNotification           equ <RasConnectionNotificationW>
+         RasCreatePhonebookEntry             equ <RasCreatePhonebookEntryW>
+         RasDeleteEntry                      equ <RasDeleteEntryW>
+         RasDial                             equ <RasDialW>
+         RasEditPhonebookEntry               equ <RasEditPhonebookEntryW>
+         RasEnumAutodialAddresses            equ <RasEnumAutodialAddressesW>
+         RasEnumConnections                  equ <RasEnumConnectionsW>
+         RasEnumDevices                      equ <RasEnumDevicesW>
+         RasEnumEntries                      equ <RasEnumEntriesW>
+         RasFreeEapUserIdentity              equ <RasFreeEapUserIdentityW>
+         RasGetAutodialAddress               equ <RasGetAutodialAddressW>
+         RasGetAutodialEnable                equ <RasGetAutodialEnableW>
+         RasGetAutodialParam                 equ <RasGetAutodialParamW>
+         RasGetConnectStatus                 equ <RasGetConnectStatusW>
+         RasGetCountryInfo                   equ <RasGetCountryInfoW>
+         RasGetCredentials                   equ <RasGetCredentialsW>
+         RasGetCustomAuthData                equ <RasGetCustomAuthDataW>
+         RasGetEapUserData                   equ <RasGetEapUserDataW>
+         RasGetEapUserIdentity               equ <RasGetEapUserIdentityW>
+         RasGetEntryDialParams               equ <RasGetEntryDialParamsW>
+         RasGetEntryHrasconn                 equ <RasGetEntryHrasconnW>
+         RasGetEntryProperties               equ <RasGetEntryPropertiesW>
+         RasGetErrorString                   equ <RasGetErrorStringW>
+         RasGetProjectionInfo                equ <RasGetProjectionInfoW>
+         RasGetSubEntryHandle                equ <RasGetSubEntryHandleW>
+         RasGetSubEntryProperties            equ <RasGetSubEntryPropertiesW>
+         RasHangUp                           equ <RasHangUpW>
+         RasRenameEntry                      equ <RasRenameEntryW>
+         RasSetAutodialAddress               equ <RasSetAutodialAddressW>
+         RasSetAutodialEnable                equ <RasSetAutodialEnableW>
+         RasSetAutodialParam                 equ <RasSetAutodialParamW>
+         RasSetCredentials                   equ <RasSetCredentialsW>
+         RasSetCustomAuthData                equ <RasSetCustomAuthDataW>
+         RasSetEapUserData                   equ <RasSetEapUserDataW>
+         RasSetEntryDialParams               equ <RasSetEntryDialParamsW>
+         RasSetEntryProperties               equ <RasSetEntryPropertiesW>
+         RasSetSubEntryProperties            equ <RasSetSubEntryPropertiesW>
+         RasValidateEntryName                equ <RasValidateEntryNameW>
+endif ; @unicode
+
+procdesc DDMGetPhonebookInfo                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DwCloneEntry                        :DWORD,:DWORD,:DWORD
+procdesc DwDeleteSubEntry                    :DWORD,:DWORD,:DWORD
+procdesc DwEnumEntriesForAllUsers            :DWORD,:DWORD,:DWORD
+procdesc DwEnumEntryDetails                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FreeSharedAccessApplication         :DWORD
+procdesc FreeSharedAccessServer              :DWORD
+procdesc RasAutoDialSharedConnection         
+procdesc RasAutodialAddressToNetwork         :DWORD,:DWORD,:DWORD
+procdesc RasAutodialEntryToNetwork           :DWORD,:DWORD,:DWORD
+procdesc RasClearConnectionStatistics        :DWORD
+procdesc RasClearLinkStatistics              :DWORD,:DWORD
+procdesc RasConnectionNotificationA          :DWORD,:DWORD,:DWORD
+procdesc RasConnectionNotificationW          :DWORD,:DWORD,:DWORD
+procdesc RasCreatePhonebookEntryA            :DWORD,:DWORD
+procdesc RasCreatePhonebookEntryW            :DWORD,:DWORD
+procdesc RasDeleteEntryA                     :DWORD,:DWORD
+procdesc RasDeleteEntryW                     :DWORD,:DWORD
+procdesc RasDialA                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasDialW                            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasDialWow                          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasEditPhonebookEntryA              :DWORD,:DWORD,:DWORD
+procdesc RasEditPhonebookEntryW              :DWORD,:DWORD,:DWORD
+procdesc RasEnumAutodialAddressesA           :DWORD,:DWORD,:DWORD
+procdesc RasEnumAutodialAddressesW           :DWORD,:DWORD,:DWORD
+procdesc RasEnumConnectionsA                 :DWORD,:DWORD,:DWORD
+procdesc RasEnumConnectionsW                 :DWORD,:DWORD,:DWORD
+procdesc RasEnumConnectionsWow               :DWORD,:DWORD,:DWORD
+procdesc RasEnumDevicesA                     :DWORD,:DWORD,:DWORD
+procdesc RasEnumDevicesW                     :DWORD,:DWORD,:DWORD
+procdesc RasEnumEntriesA                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasEnumEntriesW                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasEnumEntriesWow                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasFreeEapUserIdentityA             :DWORD
+procdesc RasFreeEapUserIdentityW             :DWORD
+procdesc RasFreeLanConnTable                 :DWORD,:DWORD
+procdesc RasFreeSharedAccessSettings         :DWORD
+procdesc RasGetAutodialAddressA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetAutodialAddressW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetAutodialEnableA               :DWORD,:DWORD
+procdesc RasGetAutodialEnableW               :DWORD,:DWORD
+procdesc RasGetAutodialParamA                :DWORD,:DWORD,:DWORD
+procdesc RasGetAutodialParamW                :DWORD,:DWORD,:DWORD
+procdesc RasGetConnectResponse               :DWORD,:DWORD
+procdesc RasGetConnectStatusA                :DWORD,:DWORD
+procdesc RasGetConnectStatusW                :DWORD,:DWORD
+procdesc RasGetConnectStatusWow              :DWORD,:DWORD
+procdesc RasGetConnectionStatistics          :DWORD,:DWORD
+procdesc RasGetCountryInfoA                  :DWORD,:DWORD
+procdesc RasGetCountryInfoW                  :DWORD,:DWORD
+procdesc RasGetCredentialsA                  :DWORD,:DWORD,:DWORD
+procdesc RasGetCredentialsW                  :DWORD,:DWORD,:DWORD
+procdesc RasGetCustomAuthDataA               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetCustomAuthDataW               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetEapUserDataA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetEapUserDataW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetEapUserIdentityA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetEapUserIdentityW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetEntryDialParamsA              :DWORD,:DWORD,:DWORD
+procdesc RasGetEntryDialParamsW              :DWORD,:DWORD,:DWORD
+procdesc RasGetEntryHrasconnA                :DWORD,:DWORD,:DWORD
+procdesc RasGetEntryHrasconnW                :DWORD,:DWORD,:DWORD
+procdesc RasGetEntryPropertiesA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetEntryPropertiesW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetErrorStringA                  :DWORD,:DWORD,:DWORD
+procdesc RasGetErrorStringW                  :DWORD,:DWORD,:DWORD
+procdesc RasGetErrorStringWow                :DWORD,:DWORD,:DWORD
+procdesc RasGetHport                         :DWORD
+procdesc RasGetLinkStatistics                :DWORD,:DWORD,:DWORD
+procdesc RasGetProjectionInfoA               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetProjectionInfoW               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetSubEntryHandleA               :DWORD,:DWORD,:DWORD
+procdesc RasGetSubEntryHandleW               :DWORD,:DWORD,:DWORD
+procdesc RasGetSubEntryPropertiesA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasGetSubEntryPropertiesW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasHangUpA                          :DWORD
+procdesc RasHangUpW                          :DWORD
+procdesc RasHangUpWow                        :DWORD
+procdesc RasInvokeEapUI                      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasIsRouterConnection               :DWORD
+procdesc RasIsSharedConnection               :DWORD,:DWORD
+procdesc RasLoadSharedAccessSettings         :DWORD
+procdesc RasNameFromSharedConnection         :DWORD,:DWORD
+procdesc RasQueryLanConnTable                :DWORD,:DWORD,:DWORD
+procdesc RasQueryRedialOnLinkFailure         :DWORD,:DWORD,:DWORD
+procdesc RasQuerySharedAutoDial              :DWORD
+procdesc RasQuerySharedConnection            :DWORD
+procdesc RasQuerySharedConnectionCredentials :DWORD,:DWORD
+procdesc RasQuerySharedPrivateLan            :DWORD
+procdesc RasQuerySharedPrivateLanAddress     :DWORD
+procdesc RasRenameEntryA                     :DWORD,:DWORD,:DWORD
+procdesc RasRenameEntryW                     :DWORD,:DWORD,:DWORD
+procdesc RasSaveSharedAccessSettings         :DWORD
+procdesc RasSetAutodialAddressA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasSetAutodialAddressW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasSetAutodialEnableA               :DWORD,:DWORD
+procdesc RasSetAutodialEnableW               :DWORD,:DWORD
+procdesc RasSetAutodialParamA                :DWORD,:DWORD,:DWORD
+procdesc RasSetAutodialParamW                :DWORD,:DWORD,:DWORD
+procdesc RasSetCredentialsA                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasSetCredentialsW                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasSetCustomAuthDataA               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasSetCustomAuthDataW               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasSetEapUserDataA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasSetEapUserDataW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasSetEntryDialParamsA              :DWORD,:DWORD,:DWORD
+procdesc RasSetEntryDialParamsW              :DWORD,:DWORD,:DWORD
+procdesc RasSetEntryPropertiesA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasSetEntryPropertiesW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasSetOldPassword                   :DWORD,:DWORD
+procdesc RasSetSharedAutoDial                :DWORD
+procdesc RasSetSharedConnectionCredentials   :DWORD,:DWORD
+procdesc RasSetSubEntryPropertiesA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasSetSubEntryPropertiesW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasShareConnection                  :DWORD,:DWORD
+procdesc RasUnshareConnection                :DWORD
+procdesc RasValidateEntryNameA               :DWORD,:DWORD
+procdesc RasValidateEntryNameW               :DWORD,:DWORD
+procdesc RasfileClose                        :DWORD
+procdesc RasfileDeleteLine                   :DWORD
+procdesc RasfileFindFirstLine                :DWORD,:DWORD,:DWORD
+procdesc RasfileFindLastLine                 :DWORD,:DWORD,:DWORD
+procdesc RasfileFindMarkedLine               :DWORD,:DWORD
+procdesc RasfileFindNextKeyLine              :DWORD,:DWORD,:DWORD
+procdesc RasfileFindNextLine                 :DWORD,:DWORD,:DWORD
+procdesc RasfileFindPrevLine                 :DWORD,:DWORD,:DWORD
+procdesc RasfileFindSectionLine              :DWORD,:DWORD,:DWORD
+procdesc RasfileGetKeyValueFields            :DWORD,:DWORD,:DWORD
+procdesc RasfileGetLine                      :DWORD
+procdesc RasfileGetLineMark                  :DWORD
+procdesc RasfileGetLineText                  :DWORD,:DWORD
+procdesc RasfileGetLineType                  :DWORD
+procdesc RasfileGetSectionName               :DWORD,:DWORD
+procdesc RasfileInsertLine                   :DWORD,:DWORD,:DWORD
+procdesc RasfileLoad                         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RasfileLoadInfo                     :DWORD,:DWORD
+procdesc RasfilePutKeyValueFields            :DWORD,:DWORD,:DWORD
+procdesc RasfilePutLineMark                  :DWORD,:DWORD
+procdesc RasfilePutLineText                  :DWORD,:DWORD
+procdesc RasfilePutSectionName               :DWORD,:DWORD
+procdesc RasfileWrite                        :DWORD,:DWORD
+procdesc SharedAccessResponseListToString    :DWORD,:DWORD
+procdesc SharedAccessResponseStringToList    :DWORD,:DWORD,:DWORD
+procdesc UnInitializeRAS                     

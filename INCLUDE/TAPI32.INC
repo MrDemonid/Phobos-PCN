@@ -1,0 +1,328 @@
+ifndef @unicode
+         lineAddProvider               equ <lineAddProviderA>
+         lineBlindTransfer             equ <lineBlindTransferA>
+         lineConfigDialog              equ <lineConfigDialogA>
+         lineConfigDialogEdit          equ <lineConfigDialogEditA>
+         lineCreateAgent               equ <lineCreateAgentA>
+         lineCreateAgentSession        equ <lineCreateAgentSessionA>
+         lineDial                      equ <lineDialA>
+         lineForward                   equ <lineForwardA>
+         lineGatherDigits              equ <lineGatherDigitsA>
+         lineGenerateDigits            equ <lineGenerateDigitsA>
+         lineGetAddressCaps            equ <lineGetAddressCapsA>
+         lineGetAddressID              equ <lineGetAddressIDA>
+         lineGetAddressStatus          equ <lineGetAddressStatusA>
+         lineGetAgentActivityList      equ <lineGetAgentActivityListA>
+         lineGetAgentCaps              equ <lineGetAgentCapsA>
+         lineGetAgentGroupList         equ <lineGetAgentGroupListA>
+         lineGetAgentStatus            equ <lineGetAgentStatusA>
+         lineGetAppPriority            equ <lineGetAppPriorityA>
+         lineGetCallInfo               equ <lineGetCallInfoA>
+         lineGetCountry                equ <lineGetCountryA>
+         lineGetDevCaps                equ <lineGetDevCapsA>
+         lineGetDevConfig              equ <lineGetDevConfigA>
+         lineGetGroupList              equ <lineGetGroupListA>
+         lineGetID                     equ <lineGetIDA>
+         lineGetIcon                   equ <lineGetIconA>
+         lineGetLineDevStatus          equ <lineGetLineDevStatusA>
+         lineGetProviderList           equ <lineGetProviderListA>
+         lineGetQueueList              equ <lineGetQueueListA>
+         lineGetRequest                equ <lineGetRequestA>
+         lineGetTranslateCaps          equ <lineGetTranslateCapsA>
+         lineHandoff                   equ <lineHandoffA>
+         lineInitializeEx              equ <lineInitializeExA>
+         lineMakeCall                  equ <lineMakeCallA>
+         lineOpen                      equ <lineOpenA>
+         linePark                      equ <lineParkA>
+         linePickup                    equ <linePickupA>
+         linePrepareAddToConference    equ <linePrepareAddToConferenceA>
+         lineRedirect                  equ <lineRedirectA>
+         lineSetAppPriority            equ <lineSetAppPriorityA>
+         lineSetDevConfig              equ <lineSetDevConfigA>
+         lineSetTollList               equ <lineSetTollListA>
+         lineSetupConference           equ <lineSetupConferenceA>
+         lineSetupTransfer             equ <lineSetupTransferA>
+         lineTranslateAddress          equ <lineTranslateAddressA>
+         lineTranslateDialog           equ <lineTranslateDialogA>
+         lineUnpark                    equ <lineUnparkA>
+         phoneConfigDialog             equ <phoneConfigDialogA>
+         phoneGetButtonInfo            equ <phoneGetButtonInfoA>
+         phoneGetDevCaps               equ <phoneGetDevCapsA>
+         phoneGetID                    equ <phoneGetIDA>
+         phoneGetIcon                  equ <phoneGetIconA>
+         phoneGetStatus                equ <phoneGetStatusA>
+         phoneInitializeEx             equ <phoneInitializeExA>
+         phoneSetButtonInfo            equ <phoneSetButtonInfoA>
+         tapiGetLocationInfo           equ <tapiGetLocationInfoA>
+         tapiRequestMakeCall           equ <tapiRequestMakeCallA>
+         tapiRequestMediaCall          equ <tapiRequestMediaCallA>
+    else
+         lineAddProvider               equ <lineAddProviderW>
+         lineBlindTransfer             equ <lineBlindTransferW>
+         lineConfigDialog              equ <lineConfigDialogW>
+         lineConfigDialogEdit          equ <lineConfigDialogEditW>
+         lineCreateAgent               equ <lineCreateAgentW>
+         lineCreateAgentSession        equ <lineCreateAgentSessionW>
+         lineDial                      equ <lineDialW>
+         lineForward                   equ <lineForwardW>
+         lineGatherDigits              equ <lineGatherDigitsW>
+         lineGenerateDigits            equ <lineGenerateDigitsW>
+         lineGetAddressCaps            equ <lineGetAddressCapsW>
+         lineGetAddressID              equ <lineGetAddressIDW>
+         lineGetAddressStatus          equ <lineGetAddressStatusW>
+         lineGetAgentActivityList      equ <lineGetAgentActivityListW>
+         lineGetAgentCaps              equ <lineGetAgentCapsW>
+         lineGetAgentGroupList         equ <lineGetAgentGroupListW>
+         lineGetAgentStatus            equ <lineGetAgentStatusW>
+         lineGetAppPriority            equ <lineGetAppPriorityW>
+         lineGetCallInfo               equ <lineGetCallInfoW>
+         lineGetCountry                equ <lineGetCountryW>
+         lineGetDevCaps                equ <lineGetDevCapsW>
+         lineGetDevConfig              equ <lineGetDevConfigW>
+         lineGetGroupList              equ <lineGetGroupListW>
+         lineGetID                     equ <lineGetIDW>
+         lineGetIcon                   equ <lineGetIconW>
+         lineGetLineDevStatus          equ <lineGetLineDevStatusW>
+         lineGetProviderList           equ <lineGetProviderListW>
+         lineGetQueueList              equ <lineGetQueueListW>
+         lineGetRequest                equ <lineGetRequestW>
+         lineGetTranslateCaps          equ <lineGetTranslateCapsW>
+         lineHandoff                   equ <lineHandoffW>
+         lineInitializeEx              equ <lineInitializeExW>
+         lineMakeCall                  equ <lineMakeCallW>
+         lineOpen                      equ <lineOpenW>
+         linePark                      equ <lineParkW>
+         linePickup                    equ <linePickupW>
+         linePrepareAddToConference    equ <linePrepareAddToConferenceW>
+         lineRedirect                  equ <lineRedirectW>
+         lineSetAppPriority            equ <lineSetAppPriorityW>
+         lineSetDevConfig              equ <lineSetDevConfigW>
+         lineSetTollList               equ <lineSetTollListW>
+         lineSetupConference           equ <lineSetupConferenceW>
+         lineSetupTransfer             equ <lineSetupTransferW>
+         lineTranslateAddress          equ <lineTranslateAddressW>
+         lineTranslateDialog           equ <lineTranslateDialogW>
+         lineUnpark                    equ <lineUnparkW>
+         phoneConfigDialog             equ <phoneConfigDialogW>
+         phoneGetButtonInfo            equ <phoneGetButtonInfoW>
+         phoneGetDevCaps               equ <phoneGetDevCapsW>
+         phoneGetID                    equ <phoneGetIDW>
+         phoneGetIcon                  equ <phoneGetIconW>
+         phoneGetStatus                equ <phoneGetStatusW>
+         phoneInitializeEx             equ <phoneInitializeExW>
+         phoneSetButtonInfo            equ <phoneSetButtonInfoW>
+         tapiGetLocationInfo           equ <tapiGetLocationInfoW>
+         tapiRequestMakeCall           equ <tapiRequestMakeCallW>
+         tapiRequestMediaCall          equ <tapiRequestMediaCallW>
+endif ; @unicode
+
+procdesc ADDRESS_CHANGE_FN             :DWORD
+procdesc CLIENT_ALLOC                  :DWORD
+procdesc CLIENT_FREE                   :DWORD
+procdesc FORWARD_FUNCTION              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTheFunctionPtr             :DWORD,:DWORD
+procdesc IF_CALLBACK_FN                :DWORD,:DWORD
+procdesc OBJECT_INQ_FN                 :DWORD,:DWORD,:DWORD
+procdesc ROUTINE                       :DWORD,:DWORD,:DWORD
+procdesc lineAccept                    :DWORD,:DWORD,:DWORD
+procdesc lineAddProviderA              :DWORD,:DWORD,:DWORD
+procdesc lineAddProviderW              :DWORD,:DWORD,:DWORD
+procdesc lineAddToConference           :DWORD,:DWORD
+procdesc lineAgentSpecific             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineAnswer                    :DWORD,:DWORD,:DWORD
+procdesc lineBlindTransferA            :DWORD,:DWORD,:DWORD
+procdesc lineBlindTransferW            :DWORD,:DWORD,:DWORD
+procdesc lineClose                     :DWORD
+procdesc lineCompleteCall              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineCompleteTransfer          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineConfigDialogA             :DWORD,:DWORD,:DWORD
+procdesc lineConfigDialogEditA         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineConfigDialogEditW         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineConfigDialogW             :DWORD,:DWORD,:DWORD
+procdesc lineConfigProvider            :DWORD,:DWORD
+procdesc lineCreateAgentA              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineCreateAgentSessionA       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineCreateAgentSessionW       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineCreateAgentW              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineDeallocateCall            :DWORD
+procdesc lineDevSpecific               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineDevSpecificFeature        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineDialA                     :DWORD,:DWORD,:DWORD
+procdesc lineDialW                     :DWORD,:DWORD,:DWORD
+procdesc lineDrop                      :DWORD,:DWORD,:DWORD
+procdesc lineForwardA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineForwardW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGatherDigitsA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGatherDigitsW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGenerateDigitsA           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGenerateDigitsW           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGenerateTone              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetAddressCapsA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetAddressCapsW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetAddressIDA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetAddressIDW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetAddressStatusA         :DWORD,:DWORD,:DWORD
+procdesc lineGetAddressStatusW         :DWORD,:DWORD,:DWORD
+procdesc lineGetAgentActivityListA     :DWORD,:DWORD,:DWORD
+procdesc lineGetAgentActivityListW     :DWORD,:DWORD,:DWORD
+procdesc lineGetAgentCapsA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetAgentCapsW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetAgentGroupListA        :DWORD,:DWORD,:DWORD
+procdesc lineGetAgentGroupListW        :DWORD,:DWORD,:DWORD
+procdesc lineGetAgentInfo              :DWORD,:DWORD,:DWORD
+procdesc lineGetAgentSessionInfo       :DWORD,:DWORD,:DWORD
+procdesc lineGetAgentSessionList       :DWORD,:DWORD,:DWORD
+procdesc lineGetAgentStatusA           :DWORD,:DWORD,:DWORD
+procdesc lineGetAgentStatusW           :DWORD,:DWORD,:DWORD
+procdesc lineGetAppPriorityA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetAppPriorityW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetCallInfoA              :DWORD,:DWORD
+procdesc lineGetCallInfoW              :DWORD,:DWORD
+procdesc lineGetCallStatus             :DWORD,:DWORD
+procdesc lineGetConfRelatedCalls       :DWORD,:DWORD
+procdesc lineGetCountryA               :DWORD,:DWORD,:DWORD
+procdesc lineGetCountryW               :DWORD,:DWORD,:DWORD
+procdesc lineGetDevCapsA               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetDevCapsW               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetDevConfigA             :DWORD,:DWORD,:DWORD
+procdesc lineGetDevConfigW             :DWORD,:DWORD,:DWORD
+procdesc lineGetGroupListA             :DWORD,:DWORD
+procdesc lineGetGroupListW             :DWORD,:DWORD
+procdesc lineGetIDA                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetIDW                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetIconA                  :DWORD,:DWORD,:DWORD
+procdesc lineGetIconW                  :DWORD,:DWORD,:DWORD
+procdesc lineGetLineDevStatusA         :DWORD,:DWORD
+procdesc lineGetLineDevStatusW         :DWORD,:DWORD
+procdesc lineGetMessage                :DWORD,:DWORD,:DWORD
+procdesc lineGetNewCalls               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetNumRings               :DWORD,:DWORD,:DWORD
+procdesc lineGetProviderListA          :DWORD,:DWORD
+procdesc lineGetProviderListW          :DWORD,:DWORD
+procdesc lineGetProxyStatus            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineGetQueueInfo              :DWORD,:DWORD,:DWORD
+procdesc lineGetQueueListA             :DWORD,:DWORD,:DWORD
+procdesc lineGetQueueListW             :DWORD,:DWORD,:DWORD
+procdesc lineGetRequestA               :DWORD,:DWORD,:DWORD
+procdesc lineGetRequestW               :DWORD,:DWORD,:DWORD
+procdesc lineGetStatusMessages         :DWORD,:DWORD,:DWORD
+procdesc lineGetTranslateCapsA         :DWORD,:DWORD,:DWORD
+procdesc lineGetTranslateCapsW         :DWORD,:DWORD,:DWORD
+procdesc lineHandoffA                  :DWORD,:DWORD,:DWORD
+procdesc lineHandoffW                  :DWORD,:DWORD,:DWORD
+procdesc lineHold                      :DWORD
+procdesc lineInitialize                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineInitializeExA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineInitializeExW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineMakeCallA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineMakeCallW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineMonitorDigits             :DWORD,:DWORD
+procdesc lineMonitorMedia              :DWORD,:DWORD
+procdesc lineMonitorTones              :DWORD,:DWORD,:DWORD
+procdesc lineNegotiateAPIVersion       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineNegotiateExtVersion       :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineOpenA                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineOpenW                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineParkA                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineParkW                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc linePickupA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc linePickupW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc linePrepareAddToConferenceA   :DWORD,:DWORD,:DWORD
+procdesc linePrepareAddToConferenceW   :DWORD,:DWORD,:DWORD
+procdesc lineProxyMessage              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineProxyResponse             :DWORD,:DWORD,:DWORD
+procdesc lineRedirectA                 :DWORD,:DWORD,:DWORD
+procdesc lineRedirectW                 :DWORD,:DWORD,:DWORD
+procdesc lineRegisterRequestRecipient  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineReleaseUserUserInfo       :DWORD
+procdesc lineRemoveFromConference      :DWORD
+procdesc lineRemoveProvider            :DWORD,:DWORD
+procdesc lineSecureCall                :DWORD
+procdesc lineSendUserUserInfo          :DWORD,:DWORD,:DWORD
+procdesc lineSetAgentActivity          :DWORD,:DWORD,:DWORD
+procdesc lineSetAgentGroup             :DWORD,:DWORD,:DWORD
+procdesc lineSetAgentMeasurementPeriod :DWORD,:DWORD,:DWORD
+procdesc lineSetAgentSessionState      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetAgentState             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetAgentStateEx           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetAppPriorityA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetAppPriorityW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetAppSpecific            :DWORD,:DWORD
+procdesc lineSetCallData               :DWORD,:DWORD,:DWORD
+procdesc lineSetCallParams             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetCallPrivilege          :DWORD,:DWORD
+procdesc lineSetCallQualityOfService   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetCallTreatment          :DWORD,:DWORD
+procdesc lineSetCurrentLocation        :DWORD,:DWORD
+procdesc lineSetDevConfigA             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetDevConfigW             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetLineDevStatus          :DWORD,:DWORD,:DWORD
+procdesc lineSetMediaControl           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetMediaMode              :DWORD,:DWORD
+procdesc lineSetNumRings               :DWORD,:DWORD,:DWORD
+procdesc lineSetQueueMeasurementPeriod :DWORD,:DWORD,:DWORD
+procdesc lineSetStatusMessages         :DWORD,:DWORD,:DWORD
+procdesc lineSetTerminal               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetTollListA              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetTollListW              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetupConferenceA          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetupConferenceW          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineSetupTransferA            :DWORD,:DWORD,:DWORD
+procdesc lineSetupTransferW            :DWORD,:DWORD,:DWORD
+procdesc lineShutdown                  :DWORD
+procdesc lineSwapHold                  :DWORD,:DWORD
+procdesc lineTranslateAddressA         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineTranslateAddressW         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineTranslateDialogA          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineTranslateDialogW          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineUncompleteCall            :DWORD,:DWORD
+procdesc lineUnhold                    :DWORD
+procdesc lineUnparkA                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc lineUnparkW                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneClose                    :DWORD
+procdesc phoneConfigDialogA            :DWORD,:DWORD,:DWORD
+procdesc phoneConfigDialogW            :DWORD,:DWORD,:DWORD
+procdesc phoneDevSpecific              :DWORD,:DWORD,:DWORD
+procdesc phoneGetButtonInfoA           :DWORD,:DWORD,:DWORD
+procdesc phoneGetButtonInfoW           :DWORD,:DWORD,:DWORD
+procdesc phoneGetData                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneGetDevCapsA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneGetDevCapsW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneGetDisplay               :DWORD,:DWORD
+procdesc phoneGetGain                  :DWORD,:DWORD,:DWORD
+procdesc phoneGetHookSwitch            :DWORD,:DWORD
+procdesc phoneGetIDA                   :DWORD,:DWORD,:DWORD
+procdesc phoneGetIDW                   :DWORD,:DWORD,:DWORD
+procdesc phoneGetIconA                 :DWORD,:DWORD,:DWORD
+procdesc phoneGetIconW                 :DWORD,:DWORD,:DWORD
+procdesc phoneGetLamp                  :DWORD,:DWORD,:DWORD
+procdesc phoneGetMessage               :DWORD,:DWORD,:DWORD
+procdesc phoneGetRing                  :DWORD,:DWORD,:DWORD
+procdesc phoneGetStatusA               :DWORD,:DWORD
+procdesc phoneGetStatusMessages        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneGetStatusW               :DWORD,:DWORD
+procdesc phoneGetVolume                :DWORD,:DWORD,:DWORD
+procdesc phoneInitialize               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneInitializeExA            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneInitializeExW            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneNegotiateAPIVersion      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneNegotiateExtVersion      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneOpen                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneSetButtonInfoA           :DWORD,:DWORD,:DWORD
+procdesc phoneSetButtonInfoW           :DWORD,:DWORD,:DWORD
+procdesc phoneSetData                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneSetDisplay               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneSetGain                  :DWORD,:DWORD,:DWORD
+procdesc phoneSetHookSwitch            :DWORD,:DWORD,:DWORD
+procdesc phoneSetLamp                  :DWORD,:DWORD,:DWORD
+procdesc phoneSetRing                  :DWORD,:DWORD,:DWORD
+procdesc phoneSetStatusMessages        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc phoneSetVolume                :DWORD,:DWORD,:DWORD
+procdesc phoneShutdown                 :DWORD
+procdesc tapiGetLocationInfoA          :DWORD,:DWORD
+procdesc tapiGetLocationInfoW          :DWORD,:DWORD
+procdesc tapiRequestDrop               :DWORD,:DWORD
+procdesc tapiRequestMakeCallA          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc tapiRequestMakeCallW          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc tapiRequestMediaCallA         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc tapiRequestMediaCallW         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD

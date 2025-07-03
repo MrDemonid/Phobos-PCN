@@ -1,0 +1,43 @@
+run programm
+start aux thread
+AUX Init
+put to queue: $\01~
+rcv: #\01w000
+1 - 000  'Взят'
+run timer: C1030A
+rcv: #\01w018
+1 - 018  'Взят'
+rcv: #\01w074
+1 - 074  'Взят'
+run timer: C1030A
+put to queue: $\02|000
+rcv: #\02e000
+2 - 000  'Направление подключено'
+put to queue: $\02o000
+rcv: #\02/4j000
+2 - 000  'Определенный тип УО'
+done typeUO
+run timer: C1030A
+rcv: #\02/ s000
+Unknown TC: #\02/ s000
+run timer: 9E0300
+run timer: 9E0314
+put to queue: $\02p000
+rcv: #\02/4j000
+2 - 000  'Определенный тип УО'
+done typeUO
+run timer: 9E0314
+put to queue: $\02p000
+rcv: #\02/4j000
+2 - 000  'Определенный тип УО'
+done typeUO
+run timer: 9E0314
+put to queue: $\02o000
+btn: 9E0314
+rcv: #\02/4j000
+2 - 000  'Определенный тип УО'
+done typeUO
+run timer: 9E0314
+rcv: #\02/ s000
+Unknown TC: #\02/ s000
+btn: 9E0314

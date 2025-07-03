@@ -1,0 +1,229 @@
+include 'windef.inc'
+include "sql.ash"
+include "sqltypes.ash"
+include "sqlext.ash"
+include "odbcinst.ash"
+
+ifndef @unicode
+  SQL_C_TCHAR  equ SQL_C_CHAR
+else
+  SQL_C_TCHAR  equ SQL_C_WCHAR
+endif
+
+ifndef @unicode
+         SQLBrowseConnect            equ <SQLBrowseConnectA>
+         SQLColAttribute             equ <SQLColAttributeA>
+         SQLColAttributes            equ <SQLColAttributesA>
+         SQLColumnPrivileges         equ <SQLColumnPrivilegesA>
+         SQLColumns                  equ <SQLColumnsA>
+         SQLConnect                  equ <SQLConnectA>
+         SQLDataSources              equ <SQLDataSourcesA>
+         SQLDescribeCol              equ <SQLDescribeColA>
+         SQLDriverConnect            equ <SQLDriverConnectA>
+         SQLDrivers                  equ <SQLDriversA>
+         SQLError                    equ <SQLErrorA>
+         SQLExecDirect               equ <SQLExecDirectA>
+         SQLForeignKeys              equ <SQLForeignKeysA>
+         SQLGetConnectAttr           equ <SQLGetConnectAttrA>
+         SQLGetConnectOption         equ <SQLGetConnectOptionA>
+         SQLGetCursorName            equ <SQLGetCursorNameA>
+         SQLGetDescField             equ <SQLGetDescFieldA>
+         SQLGetDescRec               equ <SQLGetDescRecA>
+         SQLGetDiagField             equ <SQLGetDiagFieldA>
+         SQLGetDiagRec               equ <SQLGetDiagRecA>
+         SQLGetInfo                  equ <SQLGetInfoA>
+         SQLGetStmtAttr              equ <SQLGetStmtAttrA>
+         SQLGetTypeInfo              equ <SQLGetTypeInfoA>
+         SQLNativeSql                equ <SQLNativeSqlA>
+         SQLPrepare                  equ <SQLPrepareA>
+         SQLPrimaryKeys              equ <SQLPrimaryKeysA>
+         SQLProcedureColumns         equ <SQLProcedureColumnsA>
+         SQLProcedures               equ <SQLProceduresA>
+         SQLSetConnectAttr           equ <SQLSetConnectAttrA>
+         SQLSetConnectOption         equ <SQLSetConnectOptionA>
+         SQLSetCursorName            equ <SQLSetCursorNameA>
+         SQLSetDescField             equ <SQLSetDescFieldA>
+         SQLSetStmtAttr              equ <SQLSetStmtAttrA>
+         SQLSpecialColumns           equ <SQLSpecialColumnsA>
+         SQLStatistics               equ <SQLStatisticsA>
+         SQLTablePrivileges          equ <SQLTablePrivilegesA>
+         SQLTables                   equ <SQLTablesA>
+         SQLConfigDataSource         equ <SQLConfigDataSourceA>
+    else
+         SQLBrowseConnect            equ <SQLBrowseConnectW>
+         SQLColAttribute             equ <SQLColAttributeW>
+         SQLColAttributes            equ <SQLColAttributesW>
+         SQLColumnPrivileges         equ <SQLColumnPrivilegesW>
+         SQLColumns                  equ <SQLColumnsW>
+         SQLConnect                  equ <SQLConnectW>
+         SQLDataSources              equ <SQLDataSourcesW>
+         SQLDescribeCol              equ <SQLDescribeColW>
+         SQLDriverConnect            equ <SQLDriverConnectW>
+         SQLDrivers                  equ <SQLDriversW>
+         SQLError                    equ <SQLErrorW>
+         SQLExecDirect               equ <SQLExecDirectW>
+         SQLForeignKeys              equ <SQLForeignKeysW>
+         SQLGetConnectAttr           equ <SQLGetConnectAttrW>
+         SQLGetConnectOption         equ <SQLGetConnectOptionW>
+         SQLGetCursorName            equ <SQLGetCursorNameW>
+         SQLGetDescField             equ <SQLGetDescFieldW>
+         SQLGetDescRec               equ <SQLGetDescRecW>
+         SQLGetDiagField             equ <SQLGetDiagFieldW>
+         SQLGetDiagRec               equ <SQLGetDiagRecW>
+         SQLGetInfo                  equ <SQLGetInfoW>
+         SQLGetStmtAttr              equ <SQLGetStmtAttrW>
+         SQLGetTypeInfo              equ <SQLGetTypeInfoW>
+         SQLNativeSql                equ <SQLNativeSqlW>
+         SQLPrepare                  equ <SQLPrepareW>
+         SQLPrimaryKeys              equ <SQLPrimaryKeysW>
+         SQLProcedureColumns         equ <SQLProcedureColumnsW>
+         SQLProcedures               equ <SQLProceduresW>
+         SQLSetConnectAttr           equ <SQLSetConnectAttrW>
+         SQLSetConnectOption         equ <SQLSetConnectOptionW>
+         SQLSetCursorName            equ <SQLSetCursorNameW>
+         SQLSetDescField             equ <SQLSetDescFieldW>
+         SQLSetStmtAttr              equ <SQLSetStmtAttrW>
+         SQLSpecialColumns           equ <SQLSpecialColumnsW>
+         SQLStatistics               equ <SQLStatisticsW>
+         SQLTablePrivileges          equ <SQLTablePrivilegesW>
+         SQLTables                   equ <SQLTablesW>
+         SQLConfigDataSource         equ <SQLConfigDataSourceW>
+endif ; @unicode
+
+procdesc CloseODBCPerfData
+procdesc CollectODBCPerfData         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CursorLibLockDbc            :DWORD,:DWORD
+procdesc CursorLibLockDesc           :DWORD,:DWORD
+procdesc CursorLibLockStmt           :DWORD,:DWORD
+procdesc CursorLibTransact           :DWORD,:DWORD,:DWORD
+procdesc LockHandle                  :DWORD,:DWORD,:DWORD
+procdesc ODBCGetTryWaitValue
+procdesc ODBCInternalConnectW        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ODBCQualifyFileDSNW         :DWORD
+procdesc ODBCSetTryWaitValue         :DWORD
+procdesc OpenODBCPerfData            :DWORD
+procdesc PostComponentError          :DWORD
+procdesc PostODBCComponentError      :DWORD
+procdesc PostODBCError               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLAllocConnect             :DWORD,:DWORD
+procdesc SQLAllocEnv                 :DWORD
+procdesc SQLAllocHandle              :DWORD,:DWORD,:DWORD
+procdesc SQLAllocHandleStd           :DWORD,:DWORD,:DWORD
+procdesc SQLAllocStmt                :DWORD,:DWORD
+procdesc SQLBindCol                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLBindParam                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLBindParameter            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLBrowseConnectA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLBrowseConnectW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLBulkOperations           :DWORD,:DWORD
+procdesc SQLCancel                   :DWORD
+procdesc SQLCloseCursor              :DWORD
+procdesc SQLColAttributeA            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLColAttributeW            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLColAttributesA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLColAttributesW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLColumnPrivilegesA        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLColumnPrivilegesW        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLColumnsA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLColumnsW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLConnectA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLConnectW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLCopyDesc                 :DWORD,:DWORD
+procdesc SQLDataSourcesA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLDataSourcesW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLDescribeColA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLDescribeColW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLDescribeParam            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLDisconnect               :DWORD
+procdesc SQLDriverConnectA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLDriverConnectW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLDriversA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLDriversW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLEndTran                  :DWORD,:DWORD,:DWORD
+procdesc SQLErrorA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLErrorW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLExecDirectA              :DWORD,:DWORD,:DWORD
+procdesc SQLExecDirectW              :DWORD,:DWORD,:DWORD
+procdesc SQLExecute                  :DWORD
+procdesc SQLExtendedFetch            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLFetch                    :DWORD
+procdesc SQLFetchScroll              :DWORD,:DWORD,:DWORD
+procdesc SQLForeignKeysA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLForeignKeysW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLFreeConnect              :DWORD
+procdesc SQLFreeEnv                  :DWORD
+procdesc SQLFreeHandle               :DWORD,:DWORD
+procdesc SQLFreeStmt                 :DWORD,:DWORD
+procdesc SQLGetConnectAttrA          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetConnectAttrW          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetConnectOptionA        :DWORD,:DWORD,:DWORD
+procdesc SQLGetConnectOptionW        :DWORD,:DWORD,:DWORD
+procdesc SQLGetCursorNameA           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetCursorNameW           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetData                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetDescFieldA            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetDescFieldW            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetDescRecA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetDescRecW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetDiagFieldA            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetDiagFieldW            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetDiagRecA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetDiagRecW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetEnvAttr               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetFunctions             :DWORD,:DWORD,:DWORD
+procdesc SQLGetInfoA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetInfoW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetStmtAttrA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetStmtAttrW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLGetStmtOption            :DWORD,:DWORD,:DWORD
+procdesc SQLGetTypeInfoA             :DWORD,:DWORD
+procdesc SQLGetTypeInfoW             :DWORD,:DWORD
+procdesc SQLMoreResults              :DWORD
+procdesc SQLNativeSqlA               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLNativeSqlW               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLNumParams                :DWORD,:DWORD
+procdesc SQLNumResultCols            :DWORD,:DWORD
+procdesc SQLParamData                :DWORD,:DWORD
+procdesc SQLParamOptions             :DWORD,:DWORD,:DWORD
+procdesc SQLPrepareA                 :DWORD,:DWORD,:DWORD
+procdesc SQLPrepareW                 :DWORD,:DWORD,:DWORD
+procdesc SQLPrimaryKeysA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLPrimaryKeysW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLProcedureColumnsA        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLProcedureColumnsW        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLProceduresA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLProceduresW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLPutData                  :DWORD,:DWORD,:DWORD
+procdesc SQLRowCount                 :DWORD,:DWORD
+procdesc SQLSetConnectAttrA          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSetConnectAttrW          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSetConnectOptionA        :DWORD,:DWORD,:DWORD
+procdesc SQLSetConnectOptionW        :DWORD,:DWORD,:DWORD
+procdesc SQLSetCursorNameA           :DWORD,:DWORD,:DWORD
+procdesc SQLSetCursorNameW           :DWORD,:DWORD,:DWORD
+procdesc SQLSetDescFieldA            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSetDescFieldW            :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSetDescRec               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSetEnvAttr               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSetParam                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSetPos                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSetScrollOptions         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSetStmtAttrA             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSetStmtAttrW             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSetStmtOption            :DWORD,:DWORD,:DWORD
+procdesc SQLSpecialColumnsA          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLSpecialColumnsW          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLStatisticsA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLStatisticsW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLTablePrivilegesA         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLTablePrivilegesW         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLTablesA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLTablesW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLTransact                 :DWORD,:DWORD,:DWORD
+procdesc SearchStatusCode            :DWORD,:DWORD
+procdesc VFreeErrors                 :DWORD
+procdesc VRetrieveDriverErrorsRowCol :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ValidateErrorQueue          :DWORD,:DWORD
+procdesc SQLConfigDataSourceA        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SQLConfigDataSourceW        :DWORD,:DWORD,:DWORD,:DWORD
+

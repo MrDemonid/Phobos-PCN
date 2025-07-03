@@ -1,0 +1,895 @@
+include 'windef.inc'
+include 'user32.ash'
+
+ifndef @unicode
+         wsprintf                     equ <wsprintfA>
+         AppendMenu                   equ <AppendMenuA>
+         BroadcastSystemMessage       equ <BroadcastSystemMessageA>
+         CallMsgFilter                equ <CallMsgFilterA>
+         CallWindowProc               equ <CallWindowProcA>
+         ChangeDisplaySettings        equ <ChangeDisplaySettingsA>
+         ChangeDisplaySettingsEx      equ <ChangeDisplaySettingsExA>
+         ChangeMenu                   equ <ChangeMenuA>
+         CharLower                    equ <CharLowerA>
+         CharLowerBuff                equ <CharLowerBuffA>
+         CharNext                     equ <CharNextA>
+         CharNextEx                   equ <CharNextExA>
+         CharPrev                     equ <CharPrevA>
+         CharPrevEx                   equ <CharPrevExA>
+         CharToOem                    equ <CharToOemA>
+         CharToOemBuff                equ <CharToOemBuffA>
+         CharUpper                    equ <CharUpperA>
+         CharUpperBuff                equ <CharUpperBuffA>
+         CopyAcceleratorTable         equ <CopyAcceleratorTableA>
+         CreateAcceleratorTable       equ <CreateAcceleratorTableA>
+         CreateDesktop                equ <CreateDesktopA>
+         CreateDialogIndirectParam    equ <CreateDialogIndirectParamA>
+         CreateDialogParam            equ <CreateDialogParamA>
+         CreateMDIWindow              equ <CreateMDIWindowA>
+         CreateWindowEx               equ <CreateWindowExA>
+         CreateWindowStation          equ <CreateWindowStationA>
+         DdeCreateStringHandle        equ <DdeCreateStringHandleA>
+         DdeInitialize                equ <DdeInitializeA>
+         DdeQueryString               equ <DdeQueryStringA>
+         DefDlgProc                   equ <DefDlgProcA>
+         DefFrameProc                 equ <DefFrameProcA>
+         DefMDIChildProc              equ <DefMDIChildProcA>
+         DefWindowProc                equ <DefWindowProcA>
+         DialogBoxIndirectParam       equ <DialogBoxIndirectParamA>
+         DialogBoxParam               equ <DialogBoxParamA>
+         DispatchMessage              equ <DispatchMessageA>
+         DlgDirList                   equ <DlgDirListA>
+         DlgDirListComboBox           equ <DlgDirListComboBoxA>
+         DlgDirSelectComboBoxEx       equ <DlgDirSelectComboBoxExA>
+         DlgDirSelectEx               equ <DlgDirSelectExA>
+         DrawState                    equ <DrawStateA>
+         DrawText                     equ <DrawTextA>
+         DrawTextEx                   equ <DrawTextExA>
+         EnumDesktops                 equ <EnumDesktopsA>
+         EnumDisplayDevices           equ <EnumDisplayDevicesA>
+         EnumDisplaySettings          equ <EnumDisplaySettingsA>
+         EnumDisplaySettingsEx        equ <EnumDisplaySettingsExA>
+         EnumProps                    equ <EnumPropsA>
+         EnumPropsEx                  equ <EnumPropsExA>
+         EnumWindowStations           equ <EnumWindowStationsA>
+         FindWindow                   equ <FindWindowA>
+         FindWindowEx                 equ <FindWindowExA>
+         GetAltTabInfo                equ <GetAltTabInfoA>
+         GetClassInfo                 equ <GetClassInfoA>
+         GetClassInfoEx               equ <GetClassInfoExA>
+         GetClassLong                 equ <GetClassLongA>
+         GetClassName                 equ <GetClassNameA>
+         GetClipboardFormatName       equ <GetClipboardFormatNameA>
+         GetDlgItemText               equ <GetDlgItemTextA>
+         GetKeyNameText               equ <GetKeyNameTextA>
+         GetKeyboardLayoutName        equ <GetKeyboardLayoutNameA>
+         GetMenuItemInfo              equ <GetMenuItemInfoA>
+         GetMenuString                equ <GetMenuStringA>
+         GetMessage                   equ <GetMessageA>
+         GetMonitorInfo               equ <GetMonitorInfoA>
+         GetProp                      equ <GetPropA>
+         GetTabbedTextExtent          equ <GetTabbedTextExtentA>
+         GetUserObjectInformation     equ <GetUserObjectInformationA>
+         GetWindowLong                equ <GetWindowLongA>
+         GetWindowModuleFileName      equ <GetWindowModuleFileNameA>
+         GetWindowText                equ <GetWindowTextA>
+         GetWindowTextLength          equ <GetWindowTextLengthA>
+         GrayString                   equ <GrayStringA>
+         IMPGetIME                    equ <IMPGetIMEA>
+         IMPQueryIME                  equ <IMPQueryIMEA>
+         IMPSetIME                    equ <IMPSetIMEA>
+         InsertMenu                   equ <InsertMenuA>
+         InsertMenuItem               equ <InsertMenuItemA>
+         IsCharAlpha                  equ <IsCharAlphaA>
+         IsCharAlphaNumeric           equ <IsCharAlphaNumericA>
+         IsCharLower                  equ <IsCharLowerA>
+         IsCharUpper                  equ <IsCharUpperA>
+         IsDialogMessage              equ <IsDialogMessageA>
+         LoadAccelerators             equ <LoadAcceleratorsA>
+         LoadBitmap                   equ <LoadBitmapA>
+         LoadCursor                   equ <LoadCursorA>
+         LoadCursorFromFile           equ <LoadCursorFromFileA>
+         LoadIcon                     equ <LoadIconA>
+         LoadImage                    equ <LoadImageA>
+         LoadKeyboardLayout           equ <LoadKeyboardLayoutA>
+         LoadMenu                     equ <LoadMenuA>
+         LoadMenuIndirect             equ <LoadMenuIndirectA>
+         LoadString                   equ <LoadStringA>
+         MapVirtualKey                equ <MapVirtualKeyA>
+         MapVirtualKeyEx              equ <MapVirtualKeyExA>
+         MessageBox                   equ <MessageBoxA>
+         MessageBoxEx                 equ <MessageBoxExA>
+         MessageBoxIndirect           equ <MessageBoxIndirectA>
+         ModifyMenu                   equ <ModifyMenuA>
+         OemToChar                    equ <OemToCharA>
+         OemToCharBuff                equ <OemToCharBuffA>
+         OpenDesktop                  equ <OpenDesktopA>
+         OpenWindowStation            equ <OpenWindowStationA>
+         PeekMessage                  equ <PeekMessageA>
+         PostMessage                  equ <PostMessageA>
+         PostThreadMessage            equ <PostThreadMessageA>
+         RealGetWindowClass           equ <RealGetWindowClassA>
+         RegisterClass                equ <RegisterClassA>
+         RegisterClassEx              equ <RegisterClassExA>
+         RegisterClipboardFormat      equ <RegisterClipboardFormatA>
+         RegisterDeviceNotification   equ <RegisterDeviceNotificationA>
+         RegisterWindowMessage        equ <RegisterWindowMessageA>
+         RemoveProp                   equ <RemovePropA>
+         SendDlgItemMessage           equ <SendDlgItemMessageA>
+         SendIMEMessageEx             equ <SendIMEMessageExA>
+         SendMessage                  equ <SendMessageA>
+         SendMessageCallback          equ <SendMessageCallbackA>
+         SendMessageTimeout           equ <SendMessageTimeoutA>
+         SendNotifyMessage            equ <SendNotifyMessageA>
+         SetClassLong                 equ <SetClassLongA>
+         SetDlgItemText               equ <SetDlgItemTextA>
+         SetMenuItemInfo              equ <SetMenuItemInfoA>
+         SetProp                      equ <SetPropA>
+         SetUserObjectInformation     equ <SetUserObjectInformationA>
+         SetWindowLong                equ <SetWindowLongA>
+         SetWindowText                equ <SetWindowTextA>
+         SetWindowsHook               equ <SetWindowsHookA>
+         SetWindowsHookEx             equ <SetWindowsHookExA>
+         SystemParametersInfo         equ <SystemParametersInfoA>
+         TabbedTextOut                equ <TabbedTextOutA>
+         TranslateAccelerator         equ <TranslateAcceleratorA>
+         UnregisterClass              equ <UnregisterClassA>
+         VkKeyScan                    equ <VkKeyScanA>
+         VkKeyScanEx                  equ <VkKeyScanExA>
+         WinHelp                      equ <WinHelpA>
+         wvsprintf                    equ <wvsprintfA>
+    else
+         wsprintf                     equ <wsprintfW>
+         AppendMenu                   equ <AppendMenuW>
+         BroadcastSystemMessage       equ <BroadcastSystemMessageW>
+         CallMsgFilter                equ <CallMsgFilterW>
+         CallWindowProc               equ <CallWindowProcW>
+         ChangeDisplaySettings        equ <ChangeDisplaySettingsW>
+         ChangeDisplaySettingsEx      equ <ChangeDisplaySettingsExW>
+         ChangeMenu                   equ <ChangeMenuW>
+         CharLower                    equ <CharLowerW>
+         CharLowerBuff                equ <CharLowerBuffW>
+         CharNext                     equ <CharNextW>
+         CharNextEx                   equ <CharNextExW>
+         CharPrev                     equ <CharPrevW>
+         CharPrevEx                   equ <CharPrevExW>
+         CharToOem                    equ <CharToOemW>
+         CharToOemBuff                equ <CharToOemBuffW>
+         CharUpper                    equ <CharUpperW>
+         CharUpperBuff                equ <CharUpperBuffW>
+         CopyAcceleratorTable         equ <CopyAcceleratorTableW>
+         CreateAcceleratorTable       equ <CreateAcceleratorTableW>
+         CreateDesktop                equ <CreateDesktopW>
+         CreateDialogIndirectParam    equ <CreateDialogIndirectParamW>
+         CreateDialogParam            equ <CreateDialogParamW>
+         CreateMDIWindow              equ <CreateMDIWindowW>
+         CreateWindowEx               equ <CreateWindowExW>
+         CreateWindowStation          equ <CreateWindowStationW>
+         DdeCreateStringHandle        equ <DdeCreateStringHandleW>
+         DdeInitialize                equ <DdeInitializeW>
+         DdeQueryString               equ <DdeQueryStringW>
+         DefDlgProc                   equ <DefDlgProcW>
+         DefFrameProc                 equ <DefFrameProcW>
+         DefMDIChildProc              equ <DefMDIChildProcW>
+         DefWindowProc                equ <DefWindowProcW>
+         DialogBoxIndirectParam       equ <DialogBoxIndirectParamW>
+         DialogBoxParam               equ <DialogBoxParamW>
+         DispatchMessage              equ <DispatchMessageW>
+         DlgDirList                   equ <DlgDirListW>
+         DlgDirListComboBox           equ <DlgDirListComboBoxW>
+         DlgDirSelectComboBoxEx       equ <DlgDirSelectComboBoxExW>
+         DlgDirSelectEx               equ <DlgDirSelectExW>
+         DrawState                    equ <DrawStateW>
+         DrawText                     equ <DrawTextW>
+         DrawTextEx                   equ <DrawTextExW>
+         EnumDesktops                 equ <EnumDesktopsW>
+         EnumDisplayDevices           equ <EnumDisplayDevicesW>
+         EnumDisplaySettings          equ <EnumDisplaySettingsW>
+         EnumDisplaySettingsEx        equ <EnumDisplaySettingsExW>
+         EnumProps                    equ <EnumPropsW>
+         EnumPropsEx                  equ <EnumPropsExW>
+         EnumWindowStations           equ <EnumWindowStationsW>
+         FindWindow                   equ <FindWindowW>
+         FindWindowEx                 equ <FindWindowExW>
+         GetAltTabInfo                equ <GetAltTabInfoW>
+         GetClassInfo                 equ <GetClassInfoW>
+         GetClassInfoEx               equ <GetClassInfoExW>
+         GetClassLong                 equ <GetClassLongW>
+         GetClassName                 equ <GetClassNameW>
+         GetClipboardFormatName       equ <GetClipboardFormatNameW>
+         GetDlgItemText               equ <GetDlgItemTextW>
+         GetKeyNameText               equ <GetKeyNameTextW>
+         GetKeyboardLayoutName        equ <GetKeyboardLayoutNameW>
+         GetMenuItemInfo              equ <GetMenuItemInfoW>
+         GetMenuString                equ <GetMenuStringW>
+         GetMessage                   equ <GetMessageW>
+         GetMonitorInfo               equ <GetMonitorInfoW>
+         GetProp                      equ <GetPropW>
+         GetTabbedTextExtent          equ <GetTabbedTextExtentW>
+         GetUserObjectInformation     equ <GetUserObjectInformationW>
+         GetWindowLong                equ <GetWindowLongW>
+         GetWindowModuleFileName      equ <GetWindowModuleFileNameW>
+         GetWindowText                equ <GetWindowTextW>
+         GetWindowTextLength          equ <GetWindowTextLengthW>
+         GrayString                   equ <GrayStringW>
+         IMPGetIME                    equ <IMPGetIMEW>
+         IMPQueryIME                  equ <IMPQueryIMEW>
+         IMPSetIME                    equ <IMPSetIMEW>
+         InsertMenu                   equ <InsertMenuW>
+         InsertMenuItem               equ <InsertMenuItemW>
+         IsCharAlpha                  equ <IsCharAlphaW>
+         IsCharAlphaNumeric           equ <IsCharAlphaNumericW>
+         IsCharLower                  equ <IsCharLowerW>
+         IsCharUpper                  equ <IsCharUpperW>
+         IsDialogMessage              equ <IsDialogMessageW>
+         LoadAccelerators             equ <LoadAcceleratorsW>
+         LoadBitmap                   equ <LoadBitmapW>
+         LoadCursor                   equ <LoadCursorW>
+         LoadCursorFromFile           equ <LoadCursorFromFileW>
+         LoadIcon                     equ <LoadIconW>
+         LoadImage                    equ <LoadImageW>
+         LoadKeyboardLayout           equ <LoadKeyboardLayoutW>
+         LoadMenu                     equ <LoadMenuW>
+         LoadMenuIndirect             equ <LoadMenuIndirectW>
+         LoadString                   equ <LoadStringW>
+         MapVirtualKey                equ <MapVirtualKeyW>
+         MapVirtualKeyEx              equ <MapVirtualKeyExW>
+         MessageBox                   equ <MessageBoxW>
+         MessageBoxEx                 equ <MessageBoxExW>
+         MessageBoxIndirect           equ <MessageBoxIndirectW>
+         ModifyMenu                   equ <ModifyMenuW>
+         OemToChar                    equ <OemToCharW>
+         OemToCharBuff                equ <OemToCharBuffW>
+         OpenDesktop                  equ <OpenDesktopW>
+         OpenWindowStation            equ <OpenWindowStationW>
+         PeekMessage                  equ <PeekMessageW>
+         PostMessage                  equ <PostMessageW>
+         PostThreadMessage            equ <PostThreadMessageW>
+         RealGetWindowClass           equ <RealGetWindowClassW>
+         RegisterClass                equ <RegisterClassW>
+         RegisterClassEx              equ <RegisterClassExW>
+         RegisterClipboardFormat      equ <RegisterClipboardFormatW>
+         RegisterDeviceNotification   equ <RegisterDeviceNotificationW>
+         RegisterWindowMessage        equ <RegisterWindowMessageW>
+         RemoveProp                   equ <RemovePropW>
+         SendDlgItemMessage           equ <SendDlgItemMessageW>
+         SendIMEMessageEx             equ <SendIMEMessageExW>
+         SendMessage                  equ <SendMessageW>
+         SendMessageCallback          equ <SendMessageCallbackW>
+         SendMessageTimeout           equ <SendMessageTimeoutW>
+         SendNotifyMessage            equ <SendNotifyMessageW>
+         SetClassLong                 equ <SetClassLongW>
+         SetDlgItemText               equ <SetDlgItemTextW>
+         SetMenuItemInfo              equ <SetMenuItemInfoW>
+         SetProp                      equ <SetPropW>
+         SetUserObjectInformation     equ <SetUserObjectInformationW>
+         SetWindowLong                equ <SetWindowLongW>
+         SetWindowText                equ <SetWindowTextW>
+         SetWindowsHook               equ <SetWindowsHookW>
+         SetWindowsHookEx             equ <SetWindowsHookExW>
+         SystemParametersInfo         equ <SystemParametersInfoW>
+         TabbedTextOut                equ <TabbedTextOutW>
+         TranslateAccelerator         equ <TranslateAcceleratorW>
+         UnregisterClass              equ <UnregisterClassW>
+         VkKeyScan                    equ <VkKeyScanW>
+         VkKeyScanEx                  equ <VkKeyScanExW>
+         WinHelp                      equ <WinHelpW>
+         wvsprintf                    equ <wvsprintfW>
+endif ; @unicode
+
+procdesc wsprintfW                    CPP :DWORD,:DWORD:?
+procdesc wsprintfA                    CPP :DWORD,:DWORD:?
+procdesc ActivateKeyboardLayout       :DWORD,:DWORD
+procdesc AdjustWindowRect             :DWORD,:DWORD,:DWORD
+procdesc AdjustWindowRectEx           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AllowSetForegroundWindow     :DWORD
+procdesc AnimateWindow                :DWORD,:DWORD,:DWORD
+procdesc AnyPopup
+procdesc AppendMenuA                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc AppendMenuW                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ArrangeIconicWindows         :DWORD
+procdesc AttachThreadInput            :DWORD,:DWORD,:DWORD
+procdesc BeginDeferWindowPos          :DWORD
+procdesc BeginPaint                   :DWORD,:DWORD
+procdesc BlockInput                   :DWORD
+procdesc BringWindowToTop             :DWORD
+procdesc BroadcastSystemMessageA      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc BroadcastSystemMessageW      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CallMsgFilterA               :DWORD,:DWORD
+procdesc CallMsgFilterW               :DWORD,:DWORD
+procdesc CallNextHookEx               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CallWindowProcA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CallWindowProcW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CascadeChildWindows          :DWORD,:DWORD
+procdesc CascadeWindows               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ChangeClipboardChain         :DWORD,:DWORD
+procdesc ChangeDisplaySettingsA       :DWORD,:DWORD
+procdesc ChangeDisplaySettingsExA     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ChangeDisplaySettingsExW     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ChangeDisplaySettingsW       :DWORD,:DWORD
+procdesc ChangeMenuA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ChangeMenuW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CharLowerA                   :DWORD
+procdesc CharLowerBuffA               :DWORD,:DWORD
+procdesc CharLowerBuffW               :DWORD,:DWORD
+procdesc CharLowerW                   :DWORD
+procdesc CharNextA                    :DWORD
+procdesc CharNextExW                  :DWORD,:DWORD,:DWORD
+procdesc CharNextExA                  :DWORD,:DWORD,:DWORD
+procdesc CharNextW                    :DWORD
+procdesc CharPrevA                    :DWORD,:DWORD
+procdesc CharPrevExW                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CharPrevExA                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CharPrevW                    :DWORD,:DWORD
+procdesc CharToOemA                   :DWORD,:DWORD
+procdesc CharToOemBuffA               :DWORD,:DWORD,:DWORD
+procdesc CharToOemBuffW               :DWORD,:DWORD,:DWORD
+procdesc CharToOemW                   :DWORD,:DWORD
+procdesc CharUpperA                   :DWORD
+procdesc CharUpperBuffA               :DWORD,:DWORD
+procdesc CharUpperBuffW               :DWORD,:DWORD
+procdesc CharUpperW                   :DWORD
+procdesc CheckDlgButton               :DWORD,:DWORD,:DWORD
+procdesc CheckMenuItem                :DWORD,:DWORD,:DWORD
+procdesc CheckMenuRadioItem           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CheckRadioButton             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ChildWindowFromPoint         :DWORD,:DWORD,:DWORD
+procdesc ChildWindowFromPointEx       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ClientToScreen               :DWORD,:DWORD
+procdesc ClipCursor                   :DWORD
+procdesc CloseClipboard
+procdesc CloseDesktop                 :DWORD
+procdesc CloseWindow                  :DWORD
+procdesc CloseWindowStation           :DWORD
+procdesc CopyAcceleratorTableA        :DWORD,:DWORD,:DWORD
+procdesc CopyAcceleratorTableW        :DWORD,:DWORD,:DWORD
+procdesc CopyIcon                     :DWORD
+procdesc CopyImage                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CopyRect                     :DWORD,:DWORD
+procdesc CountClipboardFormats
+procdesc CreateAcceleratorTableA      :DWORD,:DWORD
+procdesc CreateAcceleratorTableW      :DWORD,:DWORD
+procdesc CreateCaret                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateCursor                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateDesktopA               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateDesktopW               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateDialogIndirectParamA   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateDialogIndirectParamW   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateDialogParamA           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateDialogParamW           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateIcon                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateIconFromResource       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateIconFromResourceEx     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateIconIndirect           :DWORD
+procdesc CreateMDIWindowA             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateMDIWindowW             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateMenu
+procdesc CreatePopupMenu
+procdesc CreateWindowExA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateWindowExW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateWindowStationA         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc CreateWindowStationW         :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdeAbandonTransaction        :DWORD,:DWORD,:DWORD
+procdesc DdeAccessData                :DWORD,:DWORD
+procdesc DdeAddData                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdeClientTransaction         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdeCmpStringHandles          :DWORD,:DWORD
+procdesc DdeConnect                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdeConnectList               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdeCreateDataHandle          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdeCreateStringHandleA       :DWORD,:DWORD,:DWORD
+procdesc DdeCreateStringHandleW       :DWORD,:DWORD,:DWORD
+procdesc DdeDisconnect                :DWORD
+procdesc DdeDisconnectList            :DWORD
+procdesc DdeEnableCallback            :DWORD,:DWORD,:DWORD
+procdesc DdeFreeDataHandle            :DWORD
+procdesc DdeFreeStringHandle          :DWORD,:DWORD
+procdesc DdeGetData                   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdeGetLastError              :DWORD
+procdesc DdeImpersonateClient         :DWORD
+procdesc DdeInitializeA               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdeInitializeW               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdeKeepStringHandle          :DWORD,:DWORD
+procdesc DdeNameService               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdePostAdvise                :DWORD,:DWORD,:DWORD
+procdesc DdeQueryConvInfo             :DWORD,:DWORD,:DWORD
+procdesc DdeQueryNextServer           :DWORD,:DWORD
+procdesc DdeQueryStringA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdeQueryStringW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DdeReconnect                 :DWORD
+procdesc DdeSetQualityOfService       :DWORD,:DWORD,:DWORD
+procdesc DdeSetUserHandle             :DWORD,:DWORD,:DWORD
+procdesc DdeUnaccessData              :DWORD
+procdesc DdeUninitialize              :DWORD
+procdesc DefDlgProcA                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DefDlgProcW                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DefFrameProcA                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DefFrameProcW                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DefMDIChildProcA             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DefMDIChildProcW             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DefWindowProcA               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DefWindowProcW               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DeferWindowPos               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DeleteMenu                   :DWORD,:DWORD,:DWORD
+procdesc DestroyAcceleratorTable      :DWORD
+procdesc DestroyCaret
+procdesc DestroyCursor                :DWORD
+procdesc DestroyIcon                  :DWORD
+procdesc DestroyMenu                  :DWORD
+procdesc DestroyWindow                :DWORD
+procdesc DialogBoxIndirectParamA      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DialogBoxIndirectParamW      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DialogBoxParamA              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DialogBoxParamW              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DispatchMessageA             :DWORD
+procdesc DispatchMessageW             :DWORD
+procdesc DlgDirListA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DlgDirListComboBoxA          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DlgDirListComboBoxW          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DlgDirListW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DlgDirSelectComboBoxExA      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DlgDirSelectComboBoxExW      :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DlgDirSelectExA              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DlgDirSelectExW              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DragDetect                   :DWORD,:DWORD,:DWORD
+procdesc DragObject                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawAnimatedRects            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawCaption                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawEdge                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawFocusRect                :DWORD,:DWORD
+procdesc DrawFrame                    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawFrameControl             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawIcon                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawIconEx                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawMenuBar                  :DWORD
+procdesc DrawStateA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawStateW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawTextA                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawTextExA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawTextExW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc DrawTextW                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc EditWndProc                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EmptyClipboard
+procdesc EnableMenuItem               :DWORD,:DWORD,:DWORD
+procdesc EnableScrollBar              :DWORD,:DWORD,:DWORD
+procdesc EnableWindow                 :DWORD,:DWORD
+procdesc EndDeferWindowPos            :DWORD
+procdesc EndDialog                    :DWORD,:DWORD
+procdesc EndMenu
+procdesc EndPaint                     :DWORD,:DWORD
+procdesc EnumChildWindows             :DWORD,:DWORD,:DWORD
+procdesc EnumClipboardFormats         :DWORD
+procdesc EnumDesktopWindows           :DWORD,:DWORD,:DWORD
+procdesc EnumDesktopsA                :DWORD,:DWORD,:DWORD
+procdesc EnumDesktopsW                :DWORD,:DWORD,:DWORD
+procdesc EnumDisplayDevicesA          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumDisplayDevicesW          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumDisplayMonitors          :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumDisplaySettingsA         :DWORD,:DWORD,:DWORD
+procdesc EnumDisplaySettingsExA       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumDisplaySettingsExW       :DWORD,:DWORD,:DWORD,:DWORD
+procdesc EnumDisplaySettingsW         :DWORD,:DWORD,:DWORD
+procdesc EnumPropsA                   :DWORD,:DWORD
+procdesc EnumPropsExA                 :DWORD,:DWORD,:DWORD
+procdesc EnumPropsExW                 :DWORD,:DWORD,:DWORD
+procdesc EnumPropsW                   :DWORD,:DWORD
+procdesc EnumThreadWindows            :DWORD,:DWORD,:DWORD
+procdesc EnumWindowStationsA          :DWORD,:DWORD
+procdesc EnumWindowStationsW          :DWORD,:DWORD
+procdesc EnumWindows                  :DWORD,:DWORD
+procdesc EqualRect                    :DWORD,:DWORD
+procdesc ExcludeUpdateRgn             :DWORD,:DWORD
+procdesc ExitWindowsEx                :DWORD,:DWORD
+procdesc FillRect                     :DWORD,:DWORD,:DWORD
+procdesc FindWindowA                  :DWORD,:DWORD
+procdesc FindWindowExA                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindWindowExW                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc FindWindowW                  :DWORD,:DWORD
+procdesc FlashWindow                  :DWORD,:DWORD
+procdesc FlashWindowEx                :DWORD
+procdesc FrameRect                    :DWORD,:DWORD,:DWORD
+procdesc FreeDDElParam                :DWORD,:DWORD
+procdesc GetActiveWindow
+procdesc GetAltTabInfoA               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetAltTabInfoW               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetAncestor                  :DWORD,:DWORD
+procdesc GetAsyncKeyState             :DWORD
+procdesc GetCapture
+procdesc GetCaretBlinkTime
+procdesc GetCaretPos                  :DWORD
+procdesc GetClassInfoA                :DWORD,:DWORD,:DWORD
+procdesc GetClassInfoExA              :DWORD,:DWORD,:DWORD
+procdesc GetClassInfoExW              :DWORD,:DWORD,:DWORD
+procdesc GetClassInfoW                :DWORD,:DWORD,:DWORD
+procdesc GetClassLongA                :DWORD,:DWORD
+procdesc GetClassLongW                :DWORD,:DWORD
+procdesc GetClassNameA                :DWORD,:DWORD,:DWORD
+procdesc GetClassNameW                :DWORD,:DWORD,:DWORD
+procdesc GetClassWord                 :DWORD,:DWORD
+procdesc GetClientRect                :DWORD,:DWORD
+procdesc GetClipCursor                :DWORD
+procdesc GetClipboardData             :DWORD
+procdesc GetClipboardFormatNameA      :DWORD,:DWORD,:DWORD
+procdesc GetClipboardFormatNameW      :DWORD,:DWORD,:DWORD
+procdesc GetClipboardOwner
+procdesc GetClipboardSequenceNumber
+procdesc GetClipboardViewer
+procdesc GetComboBoxInfo              :DWORD,:DWORD
+procdesc GetCursor
+procdesc GetCursorInfo                :DWORD
+procdesc GetCursorPos                 :DWORD
+procdesc GetDC                        :DWORD
+procdesc GetDCEx                      :DWORD,:DWORD,:DWORD
+procdesc GetDesktopWindow
+procdesc GetDialogBaseUnits
+procdesc GetDlgCtrlID                 :DWORD
+procdesc GetDlgItem                   :DWORD,:DWORD
+procdesc GetDlgItemInt                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDlgItemTextA              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDlgItemTextW              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetDoubleClickTime
+procdesc GetFocus
+procdesc GetForegroundWindow
+procdesc GetGUIThreadInfo             :DWORD,:DWORD
+procdesc GetGuiResources              :DWORD,:DWORD
+procdesc GetIconInfo                  :DWORD,:DWORD
+procdesc GetInputDesktop
+procdesc GetInputState
+procdesc GetKBCodePage
+procdesc GetKeyNameTextA              :DWORD,:DWORD,:DWORD
+procdesc GetKeyNameTextW              :DWORD,:DWORD,:DWORD
+procdesc GetKeyState                  :DWORD
+procdesc GetKeyboardLayout            :DWORD
+procdesc GetKeyboardLayoutList        :DWORD,:DWORD
+procdesc GetKeyboardLayoutNameA       :DWORD
+procdesc GetKeyboardLayoutNameW       :DWORD
+procdesc GetKeyboardState             :DWORD
+procdesc GetKeyboardType              :DWORD
+procdesc GetLastActivePopup           :DWORD
+procdesc GetLastInputInfo             :DWORD
+procdesc GetListBoxInfo               :DWORD
+procdesc GetMenu                      :DWORD
+procdesc GetMenuBarInfo               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetMenuCheckMarkDimensions
+procdesc GetMenuContextHelpId         :DWORD
+procdesc GetMenuDefaultItem           :DWORD,:DWORD,:DWORD
+procdesc GetMenuInfo                  :DWORD,:DWORD
+procdesc GetMenuItemCount             :DWORD
+procdesc GetMenuItemID                :DWORD,:DWORD
+procdesc GetMenuItemInfoA             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetMenuItemInfoW             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetMenuItemRect              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetMenuState                 :DWORD,:DWORD,:DWORD
+procdesc GetMenuStringA               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetMenuStringW               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetMessageA                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetMessageExtraInfo
+procdesc GetMessagePos
+procdesc GetMessageTime
+procdesc GetMessageW                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetMonitorInfoA              :DWORD,:DWORD
+procdesc GetMonitorInfoW              :DWORD,:DWORD
+procdesc GetMouseMovePointsEx         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetNextDlgGroupItem          :DWORD,:DWORD,:DWORD
+procdesc GetNextDlgTabItem            :DWORD,:DWORD,:DWORD
+procdesc GetOpenClipboardWindow
+procdesc GetParent                    :DWORD
+procdesc GetPriorityClipboardFormat   :DWORD,:DWORD
+procdesc GetProcessDefaultLayout      :DWORD
+procdesc GetProcessWindowStation
+procdesc GetPropA                     :DWORD,:DWORD
+procdesc GetPropW                     :DWORD,:DWORD
+procdesc GetQueueStatus               :DWORD
+procdesc GetScrollBarInfo             :DWORD,:DWORD,:DWORD
+procdesc GetScrollInfo                :DWORD,:DWORD,:DWORD
+procdesc GetScrollPos                 :DWORD,:DWORD
+procdesc GetScrollRange               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetShellWindow
+procdesc GetSubMenu                   :DWORD,:DWORD
+procdesc GetSysColor                  :DWORD
+procdesc GetSysColorBrush             :DWORD
+procdesc GetSystemMenu                :DWORD,:DWORD
+procdesc GetSystemMetrics             :DWORD
+procdesc GetTabbedTextExtentA         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetTabbedTextExtentW         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetThreadDesktop             :DWORD
+procdesc GetTitleBarInfo              :DWORD,:DWORD
+procdesc GetTopWindow                 :DWORD
+procdesc GetUpdateRect                :DWORD,:DWORD,:DWORD
+procdesc GetUpdateRgn                 :DWORD,:DWORD,:DWORD
+procdesc GetUserObjectInformationA    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetUserObjectInformationW    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetUserObjectSecurity        :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GetWindow                    :DWORD,:DWORD
+procdesc GetWindowContextHelpId       :DWORD
+procdesc GetWindowDC                  :DWORD
+procdesc GetWindowInfo                :DWORD,:DWORD
+procdesc GetWindowLongA               :DWORD,:DWORD
+procdesc GetWindowLongW               :DWORD,:DWORD
+procdesc GetWindowModuleFileNameA     :DWORD,:DWORD,:DWORD
+procdesc GetWindowModuleFileNameW     :DWORD,:DWORD,:DWORD
+procdesc GetWindowPlacement           :DWORD,:DWORD
+procdesc GetWindowRect                :DWORD,:DWORD
+procdesc GetWindowRgn                 :DWORD,:DWORD
+procdesc GetWindowTextA               :DWORD,:DWORD,:DWORD
+procdesc GetWindowTextLengthA         :DWORD
+procdesc GetWindowTextLengthW         :DWORD
+procdesc GetWindowTextW               :DWORD,:DWORD,:DWORD
+procdesc GetWindowThreadProcessId     :DWORD,:DWORD
+procdesc GetWindowWord                :DWORD,:DWORD
+procdesc GrayStringA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc GrayStringW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc HideCaret                    :DWORD
+procdesc HiliteMenuItem               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc IMPGetIMEA                   :DWORD,:DWORD
+procdesc IMPGetIMEW                   :DWORD,:DWORD
+procdesc IMPQueryIMEA                 :DWORD
+procdesc IMPQueryIMEW                 :DWORD
+procdesc IMPSetIMEA                   :DWORD,:DWORD
+procdesc IMPSetIMEW                   :DWORD,:DWORD
+procdesc ImpersonateDdeClientWindow   :DWORD,:DWORD
+procdesc InSendMessage
+procdesc InSendMessageEx              :DWORD
+procdesc InflateRect                  :DWORD,:DWORD,:DWORD
+procdesc InsertMenuA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc InsertMenuItemA              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InsertMenuItemW              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc InsertMenuW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc IntersectRect                :DWORD,:DWORD,:DWORD
+procdesc InvalidateRect               :DWORD,:DWORD,:DWORD
+procdesc InvalidateRgn                :DWORD,:DWORD,:DWORD
+procdesc InvertRect                   :DWORD,:DWORD
+procdesc IsCharAlphaA                 :DWORD
+procdesc IsCharAlphaNumericA          :DWORD
+procdesc IsCharAlphaNumericW          :DWORD
+procdesc IsCharAlphaW                 :DWORD
+procdesc IsCharLowerA                 :DWORD
+procdesc IsCharLowerW                 :DWORD
+procdesc IsCharUpperA                 :DWORD
+procdesc IsCharUpperW                 :DWORD
+procdesc IsChild                      :DWORD,:DWORD
+procdesc IsClipboardFormatAvailable   :DWORD
+procdesc IsDialogMessageA             :DWORD,:DWORD
+procdesc IsDialogMessageW             :DWORD,:DWORD
+procdesc IsDlgButtonChecked           :DWORD,:DWORD
+procdesc IsIconic                     :DWORD
+procdesc IsMenu                       :DWORD
+procdesc IsRectEmpty                  :DWORD
+procdesc IsWindow                     :DWORD
+procdesc IsWindowEnabled              :DWORD
+procdesc IsWindowUnicode              :DWORD
+procdesc IsWindowVisible              :DWORD
+procdesc IsZoomed                     :DWORD
+procdesc KillTimer                    :DWORD,:DWORD
+procdesc LoadAcceleratorsA            :DWORD,:DWORD
+procdesc LoadAcceleratorsW            :DWORD,:DWORD
+procdesc LoadBitmapA                  :DWORD,:DWORD
+procdesc LoadBitmapW                  :DWORD,:DWORD
+procdesc LoadCursorA                  :DWORD,:DWORD
+procdesc LoadCursorFromFileA          :DWORD
+procdesc LoadCursorFromFileW          :DWORD
+procdesc LoadCursorW                  :DWORD,:DWORD
+procdesc LoadIconA                    :DWORD,:DWORD
+procdesc LoadIconW                    :DWORD,:DWORD
+procdesc LoadImageA                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LoadImageW                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc LoadKeyboardLayoutA          :DWORD,:DWORD
+procdesc LoadKeyboardLayoutW          :DWORD,:DWORD
+procdesc LoadMenuA                    :DWORD,:DWORD
+procdesc LoadMenuIndirectA            :DWORD
+procdesc LoadMenuIndirectW            :DWORD
+procdesc LoadMenuW                    :DWORD,:DWORD
+procdesc LoadStringA                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LoadStringW                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc LockSetForegroundWindow      :DWORD
+procdesc LockWindowUpdate             :DWORD
+procdesc LockWorkStation
+procdesc LookupIconIdFromDirectory    :DWORD,:DWORD
+procdesc LookupIconIdFromDirectoryEx  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc MapDialogRect                :DWORD,:DWORD
+procdesc MapVirtualKeyA               :DWORD,:DWORD
+procdesc MapVirtualKeyExA             :DWORD,:DWORD,:DWORD
+procdesc MapVirtualKeyExW             :DWORD,:DWORD,:DWORD
+procdesc MapVirtualKeyW               :DWORD,:DWORD
+procdesc MapWindowPoints              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc MenuItemFromPoint            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc MessageBeep                  :DWORD
+procdesc MessageBoxA                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc MessageBoxExA                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc MessageBoxExW                :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc MessageBoxIndirectA          :DWORD
+procdesc MessageBoxIndirectW          :DWORD
+procdesc MessageBoxW                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc ModifyMenuA                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ModifyMenuW                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc MonitorFromPoint             :DWORD,:DWORD,:DWORD
+procdesc MonitorFromRect              :DWORD,:DWORD
+procdesc MonitorFromWindow            :DWORD,:DWORD
+procdesc MoveWindow                   :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc MsgWaitForMultipleObjects    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc MsgWaitForMultipleObjectsEx  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc NotifyWinEvent               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc OemKeyScan                   :DWORD
+procdesc OemToCharA                   :DWORD,:DWORD
+procdesc OemToCharBuffA               :DWORD,:DWORD,:DWORD
+procdesc OemToCharBuffW               :DWORD,:DWORD,:DWORD
+procdesc OemToCharW                   :DWORD,:DWORD
+procdesc OffsetRect                   :DWORD,:DWORD,:DWORD
+procdesc OpenClipboard                :DWORD
+procdesc OpenDesktopA                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc OpenDesktopW                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc OpenIcon                     :DWORD
+procdesc OpenInputDesktop             :DWORD,:DWORD,:DWORD
+procdesc OpenWindowStationA           :DWORD,:DWORD,:DWORD
+procdesc OpenWindowStationW           :DWORD,:DWORD,:DWORD
+procdesc PackDDElParam                :DWORD,:DWORD,:DWORD
+procdesc PaintDesktop                 :DWORD
+procdesc PeekMessageA                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PeekMessageW                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc PostMessageA                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PostMessageW                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PostQuitMessage              :DWORD
+procdesc PostThreadMessageA           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PostThreadMessageW           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc PtInRect                     :DWORD,:DWORD,:DWORD
+procdesc RealChildWindowFromPoint     :DWORD,:DWORD,:DWORD
+procdesc RealGetWindowClassA          :DWORD,:DWORD,:DWORD
+procdesc RealGetWindowClassW          :DWORD,:DWORD,:DWORD
+procdesc RedrawWindow                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegisterClassA               :DWORD
+procdesc RegisterClassExA             :DWORD
+procdesc RegisterClassExW             :DWORD
+procdesc RegisterClassW               :DWORD
+procdesc RegisterClipboardFormatA     :DWORD
+procdesc RegisterClipboardFormatW     :DWORD
+procdesc RegisterDeviceNotificationA  :DWORD,:DWORD,:DWORD
+procdesc RegisterDeviceNotificationW  :DWORD,:DWORD,:DWORD
+procdesc RegisterHotKey               :DWORD,:DWORD,:DWORD,:DWORD
+procdesc RegisterWindowMessageA       :DWORD
+procdesc RegisterWindowMessageW       :DWORD
+procdesc ReleaseCapture
+procdesc ReleaseDC                    :DWORD,:DWORD
+procdesc RemoveMenu                   :DWORD,:DWORD,:DWORD
+procdesc RemovePropA                  :DWORD,:DWORD
+procdesc RemovePropW                  :DWORD,:DWORD
+procdesc ReplyMessage                 :DWORD
+procdesc ReuseDDElParam               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ScreenToClient               :DWORD,:DWORD
+procdesc ScrollDC                     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ScrollWindow                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ScrollWindowEx               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SendDlgItemMessageA          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SendDlgItemMessageW          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SendIMEMessageExA            :DWORD,:DWORD
+procdesc SendIMEMessageExW            :DWORD,:DWORD
+procdesc SendInput                    :DWORD,:DWORD,:DWORD
+procdesc SendMessageA                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SendMessageCallbackA         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SendMessageCallbackW         :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SendMessageTimeoutA          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SendMessageTimeoutW          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SendMessageW                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SendNotifyMessageA           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SendNotifyMessageW           :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetActiveWindow              :DWORD
+procdesc SetCapture                   :DWORD
+procdesc SetCaretBlinkTime            :DWORD
+procdesc SetCaretPos                  :DWORD,:DWORD
+procdesc SetClassLongA                :DWORD,:DWORD,:DWORD
+procdesc SetClassLongW                :DWORD,:DWORD,:DWORD
+procdesc SetClassWord                 :DWORD,:DWORD,:DWORD
+procdesc SetClipboardData             :DWORD,:DWORD
+procdesc SetClipboardViewer           :DWORD
+procdesc SetCursor                    :DWORD
+procdesc SetCursorPos                 :DWORD,:DWORD
+procdesc SetDebugErrorLevel           :DWORD
+procdesc SetDeskWallpaper             :DWORD
+procdesc SetDlgItemInt                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetDlgItemTextA              :DWORD,:DWORD,:DWORD
+procdesc SetDlgItemTextW              :DWORD,:DWORD,:DWORD
+procdesc SetDoubleClickTime           :DWORD
+procdesc SetFocus                     :DWORD
+procdesc SetForegroundWindow          :DWORD
+procdesc SetKeyboardState             :DWORD
+procdesc SetLastErrorEx               :DWORD,:DWORD
+procdesc SetLayeredWindowAttributes   :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetMenu                      :DWORD,:DWORD
+procdesc SetMenuContextHelpId         :DWORD,:DWORD
+procdesc SetMenuDefaultItem           :DWORD,:DWORD,:DWORD
+procdesc SetMenuInfo                  :DWORD,:DWORD
+procdesc SetMenuItemBitmaps           :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetMenuItemInfoA             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetMenuItemInfoW             :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetMessageExtraInfo          :DWORD
+procdesc SetMessageQueue              :DWORD
+procdesc SetParent                    :DWORD,:DWORD
+procdesc SetProcessDefaultLayout      :DWORD
+procdesc SetProcessWindowStation      :DWORD
+procdesc SetPropA                     :DWORD,:DWORD,:DWORD
+procdesc SetPropW                     :DWORD,:DWORD,:DWORD
+procdesc SetRect                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetRectEmpty                 :DWORD
+procdesc SetScrollInfo                :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetScrollPos                 :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetScrollRange               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetShellWindow               :DWORD
+procdesc SetSysColors                 :DWORD,:DWORD,:DWORD
+procdesc SetSystemCursor              :DWORD,:DWORD
+procdesc SetThreadDesktop             :DWORD
+procdesc SetTimer                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetUserObjectInformationA    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetUserObjectInformationW    :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetUserObjectSecurity        :DWORD,:DWORD,:DWORD
+procdesc SetWinEventHook              :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetWindowContextHelpId       :DWORD,:DWORD
+procdesc SetWindowLongA               :DWORD,:DWORD,:DWORD
+procdesc SetWindowLongW               :DWORD,:DWORD,:DWORD
+procdesc SetWindowPlacement           :DWORD,:DWORD
+procdesc SetWindowPos                 :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetWindowRgn                 :DWORD,:DWORD,:DWORD
+procdesc SetWindowTextA               :DWORD,:DWORD
+procdesc SetWindowTextW               :DWORD,:DWORD
+procdesc SetWindowWord                :DWORD,:DWORD,:DWORD
+procdesc SetWindowsHookA              :DWORD,:DWORD
+procdesc SetWindowsHookExA            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetWindowsHookExW            :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SetWindowsHookW              :DWORD,:DWORD
+procdesc ShowCaret                    :DWORD
+procdesc ShowCursor                   :DWORD
+procdesc ShowOwnedPopups              :DWORD,:DWORD
+procdesc ShowScrollBar                :DWORD,:DWORD,:DWORD
+procdesc ShowWindow                   :DWORD,:DWORD
+procdesc ShowWindowAsync              :DWORD,:DWORD
+procdesc SubtractRect                 :DWORD,:DWORD,:DWORD
+procdesc SwapMouseButton              :DWORD
+procdesc SwitchDesktop                :DWORD
+procdesc SystemParametersInfoA        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc SystemParametersInfoW        :DWORD,:DWORD,:DWORD,:DWORD
+procdesc TabbedTextOutA               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TabbedTextOutW               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TileChildWindows             :DWORD,:DWORD
+procdesc TileWindows                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ToAscii                      :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ToAsciiEx                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ToUnicode                    :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc ToUnicodeEx                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TrackMouseEvent              :DWORD
+procdesc TrackPopupMenu               :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TrackPopupMenuEx             :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc TranslateAcceleratorA        :DWORD,:DWORD,:DWORD
+procdesc TranslateAcceleratorW        :DWORD,:DWORD,:DWORD
+procdesc TranslateMDISysAccel         :DWORD,:DWORD
+procdesc TranslateMessage             :DWORD
+procdesc UnhookWinEvent               :DWORD
+procdesc UnhookWindowsHook            :DWORD,:DWORD
+procdesc UnhookWindowsHookEx          :DWORD
+procdesc UnionRect                    :DWORD,:DWORD,:DWORD
+procdesc UnloadKeyboardLayout         :DWORD
+procdesc UnpackDDElParam              :DWORD,:DWORD,:DWORD,:DWORD
+procdesc UnregisterClassA             :DWORD,:DWORD
+procdesc UnregisterClassW             :DWORD,:DWORD
+procdesc UnregisterDeviceNotification :DWORD
+procdesc UnregisterHotKey             :DWORD,:DWORD
+procdesc UpdateLayeredWindow          :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc UpdateWindow                 :DWORD
+procdesc UserHandleGrantAccess        :DWORD,:DWORD,:DWORD
+procdesc ValidateRect                 :DWORD,:DWORD
+procdesc ValidateRgn                  :DWORD,:DWORD
+procdesc VkKeyScanA                   :DWORD
+procdesc VkKeyScanExA                 :DWORD,:DWORD
+procdesc VkKeyScanExW                 :DWORD,:DWORD
+procdesc VkKeyScanW                   :DWORD
+procdesc WINNLSEnableIME              :DWORD,:DWORD
+procdesc WINNLSGetEnableStatus        :DWORD
+procdesc WINNLSGetIMEHotkey           :DWORD
+procdesc WaitForInputIdle             :DWORD,:DWORD
+procdesc WaitMessage
+procdesc Win32PoolAllocationStats     :DWORD,:DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc WinHelpA                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc WinHelpW                     :DWORD,:DWORD,:DWORD,:DWORD
+procdesc WindowFromDC                 :DWORD
+procdesc WindowFromPoint              :DWORD,:DWORD
+procdesc keybd_event                  :DWORD,:DWORD,:DWORD,:DWORD
+procdesc mouse_event                  :DWORD,:DWORD,:DWORD,:DWORD,:DWORD
+procdesc wvsprintfA                   :DWORD,:DWORD,:DWORD
+procdesc wvsprintfW                   :DWORD,:DWORD,:DWORD
